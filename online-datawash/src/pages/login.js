@@ -8,28 +8,28 @@ export default class Login extends Component {
     super(props)
     this.state = {
       msg:''  ,
+      email: '',
+      senha:''
     }
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     const requestInfo = {
       method: 'POST',
       mode: 'cors',
-      body: JSON.stringify({ email: this.email.value, senha: this.senha.value }),
+      body: JSON.stringify({ 
+        email: this.email.value, 
+        senha: this.senha.value 
+      }),
       headers: ({
-        'Content-type': 'application/json',
+        'Content-type' : 'application/json',
       })
     }
     fetch('http://localhost:52231/api/login', requestInfo)
       .then(response => {
         console.log('response', response)
-        if (response.ok) {
-          return response.text();
-  
-        } else {
-          throw new Error('Senha ou login incorreto!');
-        }
+          return response.text()
       })
       .then(token => {
         const dado = JSON.parse(token)
@@ -74,14 +74,13 @@ export default class Login extends Component {
       .catch(error => {
         console.log('error', error)
       })
-    // const url = ``
   }
       
   render() {
     return (
       <div className='background d-flex justify-content-center align-items-center '>
         <div className='login-filtro d-flex justify-content-center align-items-center'>
-          <form className='login-section d-flex flex-column justify-content-center align-items-center px-3 rounded shadow-lg' onChange={this.handleSubmit.bind(this)}>
+          <form className='login-section d-flex flex-column justify-content-center align-items-center px-3 rounded shadow-lg' onSubmit={this.handleSubmit.bind(this)}>
             <img src={logo} width="180" height="auto" alt="logo" className='pb-5'/>
             <span className='resposta text-danger font-weight-bold position-absolute'>{this.state.msg}</span>
             <input type='email' className='form-control shadow  ' ref={(input) => this.email = input}/>

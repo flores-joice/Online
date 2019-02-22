@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ApiMenu from '../apis/api.menu'
-import config from '../apis/api.login'
+// import config from '../apis/api.login'
 import './components.css'
 
 export default class NavVertical extends Component {
@@ -12,15 +12,7 @@ export default class NavVertical extends Component {
       menu : '',
     }
   }
-  token(email, senha, token){
-    config(email, senha, token)
-    .then(token => {
-      let dado = JSON.parse(token)
-      console.log(dado.accessToken)
-    })
-
-  }
-
+  
   render () {
     return (
       <div className='nav-vertical bg-dark d-flex align-items-center'>
