@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "AsyncStorage": "^0.1.5",
+    "apisauce": "^1.0.2",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "react": "^16.8.2",

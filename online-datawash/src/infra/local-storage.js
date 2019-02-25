@@ -1,8 +1,8 @@
 export function getUser() {
-    return localStorage.getItem('user')
+    return localStorage.getItem('token')
 }
-export function setUser(user){
-    localStorage.setItem('user',JSON.stringify(user))
+export function setUser(dado){
+    localStorage.setItem('Token',JSON.stringify(dado.accessToken))
 }
 
 export function clearUser(){

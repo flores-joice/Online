@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import './App.css'
 // import Login from '../src/pages/login'
 // import NavVertical from './components/nav-vertical';
-import ApiMenu from './apis/api.menu';
+import Login from './pages/login';
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <ApiMenu/>
+        <Login/>
       </div>
     )
   }
