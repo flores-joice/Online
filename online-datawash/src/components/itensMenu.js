@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const Consulta = (
+export const Consulta = () => (
     <Link to='#menu1' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between'>
         <span className='text-light'>Consulta</span>
     </Link >
 )
 
-export const Enriquecimento = (
+export const Enriquecimento = () => (
     <Link to='#menu2' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado1" aria-controls="conteudoNavbarSuportado1" aria-expanded="false" aria-label="Alterna navegação">
         <span className='text-light'>Enriquecimento</span>
     </Link >
 )
 
-export const EnriquecimentoDrop = (
+export const EnriquecimentoDrop = () => (
     <div className='collapse navbar-collapse' id="conteudoNavbarSuportado1">
         <ul className="navbar-nav mr-auto pl-5">
             <li className="nav-item"><Link className="nav-link text-light" to='/'>Enriquecer</Link ></li>
@@ -23,19 +23,19 @@ export const EnriquecimentoDrop = (
     </div>
 )
 
-export const Higienizacao = (
+export const Higienizacao = () => (
     <Link to='#menu4' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between'>
         <span className='text-light '>Higienização</span>
     </Link >
 )
 
-export const Gerencial = (
+export const Gerencial = () => (
     <Link to='/menu6' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado4" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span className='text-light'>Gerencial</span>
     </Link >
 )
 
-export const GerencialDrop = (
+export const GerencialDrop = () => (
     <div className="collapse navbar-collapse" id="conteudoNavbarSuportado4">
         <ul className="navbar-nav mr-auto pl-5">
             <li className="nav-item"><Link className="nav-link text-light" to='/'>Contas</Link></li>
@@ -46,13 +46,13 @@ export const GerencialDrop = (
     </div>
 )
 
-export const Monitoramento = (
+export const Monitoramento = () => (
     <Link to='#menu5' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado3" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span className='text-light'>Monitoramento</span>
     </Link >
 )
 
-export const MonitoramentoDrop = (
+export const MonitoramentoDrop = () => (
     <div className="collapse navbar-collapse" id="conteudoNavbarSuportado3">
         <ul className="navbar-nav mr-auto pl-5">
             <li className="nav-item"><Link className="nav-link text-light" to='/'>Consulta</Link></li>
@@ -62,13 +62,13 @@ export const MonitoramentoDrop = (
     </div>
 )
 
-export const Relatario = (
+export const Relatario = () => (
     <Link to='/menu7' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado5" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span className='text-light'>Relatório</span>
     </Link >
 )
 
-export const RelatarioDrop = (
+export const RelatarioDrop = () => (
     <div className="collapse navbar-collapse" id="conteudoNavbarSuportado5">
         <ul className="navbar-nav mr-auto pl-5">
             <li className="nav-item"><Link className="nav-link text-light" to='/'>Consulta</Link></li>

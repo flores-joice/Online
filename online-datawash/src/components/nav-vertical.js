@@ -1,31 +1,97 @@
-import React, {Component} from 'react'
-import ApiMenu from '../apis/api.menu'
-// import config from '../apis/api.login'
+import React, { Component } from 'react'
 import './components.css'
+import { apiMenu } from '../infra/api-config';
+import { Consulta, Enriquecimento, Higienizacao, EnriquecimentoDrop, Gerencial, GerencialDrop, Monitoramento, MonitoramentoDrop, Relatario, RelatarioDrop } from '../components/itensMenu'
+
 
 export default class NavVertical extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state= {
+    this.state = {
       // armazenar o token para novas requisiçoes de endpoint
-      token : '',
-      menu : '',
+      token: '',
+      usuarioLogado: false,
+      funcionalidades: []
+
     }
   }
-  
-  render () {
+
+  componentDidMount = async () => {
+    try {
+      //cria uma constante que pega o valor do token de localstorage
+      const token = await localStorage.getItem('auth-token', token);
+
+      if (token) {
+        console.log(token)
+        this.setState({ usuarioLogado: true }, () => {
+        })
+        const response = await apiMenu.get()
+        const item = response.data
+        for (let i = 0; i >= item.length; i++) {
+          if (item === "1") {
+            return (
+              console.log('ok')
+              
+              )
+            }
+          }
+          console.log(item)
+        }
+    } catch (response) {
+      // const error = responseMenu.originalError;
+      // const messageError = error.response
+      console.log('messageError', response)
+    }
+  }
+
+  render() {
+    const { item } = this.state;
     return (
       <div className='nav-vertical bg-dark d-flex align-items-center'>
-        <div className='w-100' onChange={this.token}>
-          <h1>teste</h1>
-          <ApiMenu />
+        <div className='w-100'>
+        <p>pegar o valor da lista</p>
+          {/* {item.teste && <Consulta/>} */}
+          {/* {item.enriquecimento ? <Enriquecimento /> : null}
+          {item.enriquecimentoDrop ? <EnriquecimentoDrop /> : null}
+          {item.gerencial ? <Gerencial /> : null}
+          {item.gerencialDrop ? <GerencialDrop /> : null}
+          {item.monitoramento ? <Monitoramento /> : null}
+          {item.monitoramentoDrop ? <MonitoramentoDrop /> : null}
+          {item.relatorio ? <Relatario /> : null}
+          {item.relatorioDrop ? <RelatarioDrop /> : null} */}
         </div>
       </div >
-  
     )
-
   }
 }
+
+//FUNÇÃO MAP()
+
+
+// {lista.map((lista, index) =>
+//   <div className='d-flex flex-wrap ' key={index}>
+//     {lista.ENDERECOS && lista.ENDERECOS.map((endereco, index) =>
+//       <span key={index} className='col text-left'><strong>Endereço:</strong>
+//         {`
+//             ${endereco.TIPO_LOGRADOURO ? `${endereco.TIPO_LOGRADOURO}` : ''} 
+//             ${endereco.LOGRADOURO ? `${endereco.LOGRADOURO}` : ''} 
+//             ${endereco.NUMERO ? `${endereco.NUMERO}` : ''} 
+//             ${endereco.BAIRRO ? `${endereco.BAIRRO}` : ''}, 
+//             ${endereco.CIDADE ? `${endereco.CIDADE}` : ''}, 
+//             ${endereco.UF ? `${endereco.UF}` : ''} - 
+//             ${endereco.CEP ? `${endereco.CEP}` : ''}  
+//             ` || 'Nenhum endereço encontrado'
+//         }
+//       </span>
+//     )}
+//   </div>
+// )}
+
+
+
+
+//////////////////////////////////////////////////////
+
 //  <a href='#menu2' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado1" aria-controls="conteudoNavbarSuportado1" aria-expanded="false" aria-label="Alterna navegação">
 //             <span className='text-light'>Enriquecimento</span>
 //           </a >
