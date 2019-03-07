@@ -16,7 +16,8 @@ export default class NavVertical extends Component {
       usuarioLogado: false,
       funcionalidades: [],
       valor: [],
-      lista: []
+      lista: [],
+
     }
   }
 
@@ -52,8 +53,18 @@ export default class NavVertical extends Component {
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "3" &&
-              (newFunc = this.state.funcionalidades.concat('enriquecimentoDrop')) &&
+            this.state.valor === "9" &&
+              (newFunc = this.state.funcionalidades.concat('enriquecer')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
+            this.state.valor === "11" &&
+              (newFunc = this.state.funcionalidades.concat('atribuicaoCpf')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
+            this.state.valor === "12" &&
+              (newFunc = this.state.funcionalidades.concat('enriquecer')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
@@ -90,33 +101,32 @@ export default class NavVertical extends Component {
             this.state.valor === "10" &&
               (newFunc = this.state.funcionalidades.concat('relatarioDrop')) &&
               (this.setState({ funcionalidades: newFunc }))
-              console.log(this.state.funcionalidades)
           }
         };
       }
-    
+
       //cria uma constante que pega o valor do token de localstorage
     } catch (response) {
       console.log('messageError', response)
     }
+    const teste = this.state.funcionalidades;
   }
 
   render() {
+    const { funcionalidades } = this.state;
     return (
       <div className='nav-vertical bg-dark d-flex align-items-center' >
         <div className='w-100'>
-          <p className='text-light'>pegar o valor da funcionalidades</p>
-          <p className='text-light'>passar o valor para o render</p>
-          {this.state.funcionalidades === "consulta" && (<Consulta />)}
-          {this.state.funcionalidades === "enriquecimento" && (<Enriquecimento />)}
-          {this.state.funcionalidades === "enriquecimentoDrop" && (<EnriquecimentoDrop />)}
-          {this.state.funcionalidades === "higienizacao" && (<Higienizacao />)}
-          {this.state.funcionalidades === "gerencial" && (<Gerencial />)}
-          {this.state.funcionalidades === "gerencialDrop" && (<GerencialDrop />)}
-          {this.state.funcionalidades === "monitoramento" && (<Monitoramento />)}
-          {this.state.funcionalidades === "monitoramentoDrop" && (<MonitoramentoDrop />)}
-          {this.state.funcionalidades === "relatario" && (<Relatario />)}
-          {this.state.funcionalidades === "relatarioDrop" && (<RelatarioDrop />)}
+          {funcionalidades.includes("consulta") && <Consulta />}
+          {funcionalidades.includes("enriquecimento") && (<Enriquecimento />)}
+          {funcionalidades.includes("enriquecimentoDrop") && (<EnriquecimentoDrop />)}
+          {funcionalidades.includes("higienizacao") && (<Higienizacao />)}
+          {funcionalidades.includes("gerencial") && (<Gerencial />)}
+          {funcionalidades.includes("gerencialDrop") && (<GerencialDrop />)}
+          {funcionalidades.includes("monitoramento") && (<Monitoramento />)}
+          {funcionalidades.includes("monitoramentoDrop") && (<MonitoramentoDrop />)}
+          {funcionalidades.includes("relatario") && (<Relatario />)}
+          {funcionalidades.includes("relatarioDrop") && (<RelatarioDrop />)}
         </div>
       </div >
     )

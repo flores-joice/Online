@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Consulta = () => (
-    <Link to='#menu1' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between'>
+    <Link to='#menu1' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between w-100'>
         <span className='text-light'>Consulta</span>
     </Link >
 )
@@ -11,16 +11,22 @@ export const Enriquecimento = () => (
     <Link to='#menu2' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado1" aria-controls="conteudoNavbarSuportado1" aria-expanded="false" aria-label="Alterna navegação">
         <span className='text-light'>Enriquecimento</span>
     </Link >
-)
-
-export const EnriquecimentoDrop = () => (
     <div className='collapse navbar-collapse' id="conteudoNavbarSuportado1">
-        <ul className="navbar-nav mr-auto pl-5">
-            <li className="nav-item"><Link className="nav-link text-light" to='/'>Enriquecer</Link ></li>
-            <li className="nav-item"><Link className="nav-link text-light" to='/'>Atribuição de CPF</Link></li>
-            <li className="nav-item"><Link className="nav-link text-light" to='/'>Validação Hot</Link></li>
+        <ul className="navbar-nav mr-auto pl-5" aria-controls="listaenriquecimento">
         </ul>
     </div>
+)
+
+export const Enriquecer = () => (
+    <li className="nav-item" id="listaenriquecimento"><Link className="nav-link text-light" to='/'>Enriquecer</Link ></li>
+)
+
+export const AtribuicaoCPF = () => (
+    <li className="nav-item" id="listaenriquecimento"><Link className="nav-link text-light" to='/'>Atribuição de CPF</Link></li>
+)
+
+export const ValidacaoHot = () => (
+    <li className="nav-item" id="listaenriquecimento"><Link className="nav-link text-light" to='/'>Validação Hot</Link></li>
 )
 
 export const Higienizacao = () => (

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import NavHorizontal from './components/nav-horizontal';
 import NavVertical from './components/nav-vertical';
-// import api from './infra/api-config';
 import './App.css'
 
 class App extends Component {
@@ -12,15 +11,16 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let token = localStorage.getItem('auth-token', token)
     if (token) {
-        this.props.history.push('/app')
+      this.setState({usuarioLogado : true})
+      this.props.history.push('/app')
     } else {
-        this.props.history.push('/login')
+      this.props.history.push('/login')
     }
   }
-
+  
   render() {
     return (
       <div className="App">

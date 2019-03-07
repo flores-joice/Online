@@ -21,8 +21,7 @@ export const apiMenu = axios.create({
 });
 
 apiMenu.interceptors.request.use(async config => {
-        const token = localStorage.getItem
-        ('auth-token', token);
+        const token = localStorage.getItem('auth-token', token);
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }

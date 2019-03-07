@@ -10,24 +10,37 @@ export default class Login extends Component {
     this.state = {
       msg: '',
       resposta: '',
-      usuarioLogado: 'false',
+      usuarioLogado: false,
+      disabled: true
     }
     this.email = React.createRef()
     this.senha = React.createRef()
   }
+
+  disabledButton = () => {
+    const email = this.email.value
+    const senha = this.senha.value
+    if (email && senha) {
+      this.setState({ disabled: false })
+    } else {
+      this.setState({ disabled: true })
+    }
+  }
+
   handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await api.post('', {
-        email: 'asf@asdf.com',
-        senha: 'asdf',
+        email: this.email.value,
+        senha: this.senha.value,
       });
 
       const config = response.config;
       const user = config.data;
       const chaveToken = response.data;
       const token = chaveToken.accessToken;
-      
+      console.log(user)
+
       localStorage.setItem('auth-token', token);
       localStorage.setItem('auth-user', user);
 
@@ -41,10 +54,13 @@ export default class Login extends Component {
       const mensagem = chaveToken.message;
       if (mensagem === '1') {
         this.setState({ msg: 'Cliente ou usuário inválido(s).' })
+        this.props.history.push('/login')
       } else if (mensagem === '2') {
         this.setState({ msg: '' })
+        this.props.history.push('/login')
       } else if (mensagem === '3') {
         this.setState({ msg: 'Senha inválida' })
+        this.props.history.push('/login')
       } else if (mensagem === '4') {
         this.setState({ msg: 'IP não autorizado para acesso.' })
       } else if (mensagem === '5') {
@@ -69,6 +85,7 @@ export default class Login extends Component {
       } else {
         this.setState({ msg: 'Logado' })
       }
+      console.log(mensagem)
     }
     catch (response) {
       console.log('resposta catch', response)
@@ -93,9 +110,9 @@ export default class Login extends Component {
     let token = localStorage.getItem('auth-token', token)
 
     if (token) {
-        this.props.history.push('/app')
+      this.props.history.push('/app')
     } else {
-        this.props.history.push('/login')
+      this.props.history.push('/login')
     }
   }
   render() {
@@ -107,10 +124,10 @@ export default class Login extends Component {
             <form className='login-section d-flex flex-column justify-content-center align-items-center px-3 rounded shadow-lg' onSubmit={this.handleSubmit.bind(this)}>
               <img src={logo} width="180" height="auto" alt="logo" className='pb-5' />
               <span className='resposta text-danger font-weight-bold position-absolute'>{this.state.msg}</span>
-              <input type='email' className='form-control shadow  ' ref={(input) => this.email = input} />
-              <input type='password' className='form-control my-3 shadow' ref={(input) => this.senha = input} />
+              <input type='email' className='form-control shadow ' onChange={this.disabledButton} ref={(input) => this.email = input} />
+              <input type='password' className='form-control my-3 shadow' onChange={this.disabledButton} ref={(input) => this.senha = input} />
               <a href='/' className='text-light' >Esqueci minha senha</a>
-              <input type='submit' className='btn btn-info w-75 mt-3 shadow' />
+              <input type='submit' disabled={this.state.disabled} className='btn btn-info w-75 mt-3 shadow' />
             </form>
           </div>}
       </div>
