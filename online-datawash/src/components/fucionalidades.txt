@@ -1,0 +1,53 @@
+1	1	Consulta por CPF
+2	1	Consulta por CNPJ
+3	1	Consulta por nome
+4	1	Consulta por endereço
+5	1	Consulta por telefone
+6	1	Consulta por placa
+7	1	Monitoração consult
+8	1	Relatórios consult
+
+
+9	2	Layout livre
+10	2	Layout pré-definido
+11	2	Atribuição CPF
+12	2	Atribuição Flag WhatsApp
+38	2	Enriquecimento Validação Hot
+13	2	Histórico
+14	2	Monitoração enriq
+15	2	Relatórios enriq
+
+43	5	Layout livre
+44	5	Layout pré-definido
+45	5	Histórico
+46	5	Relatórios
+
+16	3	Contagem PF
+17	3	Contagem PJ
+18	3	Extração
+19	3	Relatórios
+
+31	7	Monitoração
+32	7	Relatórios
+
+20	8	Compor mensagens
+21	8	Mensagens na consulta online
+22	8	Mensagens rápidas
+23	8	Layout livre
+24	8	Layout pré-definido
+25	8	Link para boleto
+26	8	Já enriquecido
+27	8	Gerenciamento de listas
+28	8	Histórico
+29	8	Monitoração
+30	8	Relatórios
+36	8	Criação de Variáveis
+
+
+
+33	NULL	Gerenciamento de contas
+34	NULL	Personalizacao
+35	NULL	Extrato de serviços
+37	-1	Carga de telefones inválidos
+47	NULL	Relatório quantidades
+48	NULL	Prévia de fechamento

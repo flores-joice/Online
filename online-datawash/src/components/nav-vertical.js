@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './components.css'
 import { apiMenu } from '../infra/api-config';
 import {
-  Consulta, Enriquecimento, Higienizacao,
-  EnriquecimentoDrop, Gerencial, GerencialDrop, Monitoramento,
-  MonitoramentoDrop, Relatario, RelatarioDrop
+  Consulta, Enriquecimento, Enriquecer, 
+  Higienizacao, Gerencial, Monitoramento,
+  Relatario, GerenciamentoContas, MonitoramentoConsulta,
+  RelatarioConsulta, MailingList
 } from '../components/itensMenu'
 
 export default class NavVertical extends Component {
@@ -21,9 +23,11 @@ export default class NavVertical extends Component {
     }
   }
 
-  componentDidMount = async () => {
+  componentWillMount = async () => {
     try {
       const token = await localStorage.getItem('auth-token', token);
+      const user = await localStorage.getItem('auth-user', user);
+      console.log('user', user)
 
       if (token) {
         this.setState({ usuarioLogado: true }, () => {
@@ -31,6 +35,7 @@ export default class NavVertical extends Component {
         const response = await apiMenu.get()
         //item armazena o valor da response retornada da api
         const item = response.data
+        console.log('item',item)
 
         //FOR = lista todos os valores contido em item
         for (let [key, value] of item.entries(item)) {
@@ -43,17 +48,17 @@ export default class NavVertical extends Component {
           {
             //se o valor contido na variavel for = 1 ele execura, 
             //senão nao faz nada
-            this.state.valor === "1" &&
+           this.state.valor === "1" &&
               (newFunc = this.state.funcionalidades.concat('consulta')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "2" &&
+            this.state.valor === "9" &&
               (newFunc = this.state.funcionalidades.concat('enriquecimento')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "9" &&
+            (this.state.valor === ("9" && "10")) &&
               (newFunc = this.state.funcionalidades.concat('enriquecer')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
@@ -63,23 +68,38 @@ export default class NavVertical extends Component {
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "12" &&
-              (newFunc = this.state.funcionalidades.concat('enriquecer')) &&
+            this.state.valor === "38" &&
+              (newFunc = this.state.funcionalidades.concat('validacaoHot')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "4" &&
-              (newFunc = this.state.funcionalidades.concat('higienizacao')) &&
+            this.state.valor === "16" &&
+              (newFunc = this.state.funcionalidades.concat('mailingList')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "5" &&
+            this.state.valor === "33" &&
               (newFunc = this.state.funcionalidades.concat('gerencial')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "6" &&
-              (newFunc = this.state.funcionalidades.concat('gerencialDrop')) &&
+            this.state.valor === "33" &&
+              (newFunc = this.state.funcionalidades.concat('gerenciamentoContas')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
+            this.state.valor === "34" &&
+              (newFunc = this.state.funcionalidades.concat('personalizacao')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
+            this.state.valor === "35" &&
+              (newFunc = this.state.funcionalidades.concat('extratoServicos')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
+            this.state.valor === "48" &&
+              (newFunc = this.state.funcionalidades.concat('previaFechamento')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
@@ -88,28 +108,63 @@ export default class NavVertical extends Component {
               (this.setState({ funcionalidades: newFunc }))
           }
           {
+            this.state.valor === "7" &&
+              (newFunc = this.state.funcionalidades.concat('monitoramento', 'monitConsulta')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
+            this.state.valor === "14" &&
+              (newFunc = this.state.funcionalidades.concat('monitEnriquecimento')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+
+          {
+            this.state.valor === "31" &&
+              (newFunc = this.state.funcionalidades.concat('monitWebService')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
+            this.state.valor === "43" &&
+              (newFunc = this.state.funcionalidades.concat('higienizacao')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
             this.state.valor === "8" &&
-              (newFunc = this.state.funcionalidades.concat('monitoramentoDrop')) &&
+              (newFunc = this.state.funcionalidades.concat('relatatorio', 'relatConsulta')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          // {
+          //   this.state.valor === "8" &&
+          //     (newFunc = this.state.funcionalidades.concat('relatConsulta')) &&
+          //     (this.setState({ funcionalidades: newFunc }))
+          // }
+          {
+            this.state.valor === "15" &&
+              (newFunc = this.state.funcionalidades.concat('relatEnriquecimento')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "9" &&
-              (newFunc = this.state.funcionalidades.concat('relatario')) &&
+            this.state.valor === "19" &&
+              (newFunc = this.state.funcionalidades.concat('relatMailingList')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           {
-            this.state.valor === "10" &&
-              (newFunc = this.state.funcionalidades.concat('relatarioDrop')) &&
+            this.state.valor === "32" &&
+              (newFunc = this.state.funcionalidades.concat('relatWebService')) &&
+              (this.setState({ funcionalidades: newFunc }))
+          }
+          {
+            this.state.valor === "46" &&
+              (newFunc = this.state.funcionalidades.concat('relatHigienizacao')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
         };
       }
-
+      console.log(this.state.funcionalidades)
       //cria uma constante que pega o valor do token de localstorage
     } catch (response) {
       console.log('messageError', response)
     }
-    const teste = this.state.funcionalidades;
   }
 
   render() {
@@ -117,95 +172,26 @@ export default class NavVertical extends Component {
     return (
       <div className='nav-vertical bg-dark d-flex align-items-center' >
         <div className='w-100'>
+        <p></p>
           {funcionalidades.includes("consulta") && <Consulta />}
-          {funcionalidades.includes("enriquecimento") && (<Enriquecimento />)}
-          {funcionalidades.includes("enriquecimentoDrop") && (<EnriquecimentoDrop />)}
-          {funcionalidades.includes("higienizacao") && (<Higienizacao />)}
-          {funcionalidades.includes("gerencial") && (<Gerencial />)}
-          {funcionalidades.includes("gerencialDrop") && (<GerencialDrop />)}
+          {funcionalidades.includes("enriquecimento") && <Enriquecimento/>}
+          {funcionalidades.includes("enriquecer") && <Enriquecer funcionalidades={funcionalidades}/>}
+          {funcionalidades.includes("higienizacao") && <Higienizacao />}
+          {funcionalidades.includes("gerencial") && <Gerencial />}
+          {funcionalidades.includes("gerenciamentoContas") && <GerenciamentoContas funcionalidades={funcionalidades}/>}
           {funcionalidades.includes("monitoramento") && (<Monitoramento />)}
-          {funcionalidades.includes("monitoramentoDrop") && (<MonitoramentoDrop />)}
-          {funcionalidades.includes("relatario") && (<Relatario />)}
-          {funcionalidades.includes("relatarioDrop") && (<RelatarioDrop />)}
-        </div>
-      </div >
+          {funcionalidades.includes("monitConsulta") && (<MonitoramentoConsulta funcionalidades={funcionalidades}/>)}
+
+          {funcionalidades.includes("ralatorio") && (<Relatario />)}
+          {funcionalidades.includes("relatConsulta") && (<RelatarioConsulta funcionalidades={funcionalidades}/>)}
+
+          {funcionalidades.includes("mailingList") && (<MailingList />)}
+          {/* {funcionalidades.includes("monitMailingList") && (<MonitoramentoMalingLista />)} */}
+        </div >
+      </div>
     )
   }
 }
-
-//FUNÇÃO MAP()
-
-
-// {lista.map((lista, index) =>
-//   <div className='d-flex flex-wrap ' key={index}>
-//     {lista.ENDERECOS && lista.ENDERECOS.map((endereco, index) =>
-//       <span key={index} className='col text-left'><strong>Endereço:</strong>
-//         {`
-//             ${endereco.TIPO_LOGRADOURO ? `${endereco.TIPO_LOGRADOURO}` : ''} 
-//             ${endereco.LOGRADOURO ? `${endereco.LOGRADOURO}` : ''} 
-//             ${endereco.NUMERO ? `${endereco.NUMERO}` : ''} 
-//             ${endereco.BAIRRO ? `${endereco.BAIRRO}` : ''}, 
-//             ${endereco.CIDADE ? `${endereco.CIDADE}` : ''}, 
-//             ${endereco.UF ? `${endereco.UF}` : ''} - 
-//             ${endereco.CEP ? `${endereco.CEP}` : ''}  
-//             ` || 'Nenhum endereço encontrado'
-//         }
-//       </span>
-//     )}
-//   </div>
-// )}
-
-
-
-
-//////////////////////////////////////////////////////
-
-//  <a href='#menu2' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado1" aria-controls="conteudoNavbarSuportado1" aria-expanded="false" aria-label="Alterna navegação">
-//             <span className='text-light'>Enriquecimento</span>
-//           </a >
-//           <div className='collapse navbar-collapse' id="conteudoNavbarSuportado1">
-//             <ul className="navbar-nav mr-auto pl-5">
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Enriquecer</a ></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Atribuição de CPF</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Validação Hot</a></li>
-//             </ul>
-//           </div>
-//           <a href='#menu4' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between'>
-//             <span className='text-light '>Higienização</span>
-//           </a >
-//           <a href='/menu6' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado4" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-//             <span className='text-light'>Gerencial</span>
-//           </a >
-//           <div className="collapse navbar-collapse" id="conteudoNavbarSuportado4">
-//             <ul className="navbar-nav mr-auto pl-5">
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Contas</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Personalização</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Extrato de serviços</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Prévia de fechamento</a></li>
-//             </ul>
-//           </div>
-//           <a href='#menu5' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado3" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-//             <span className='text-light'>Monitoramento</span>
-//           </a >
-//           <div className="collapse navbar-collapse" id="conteudoNavbarSuportado3">
-//             <ul className="navbar-nav mr-auto pl-5">
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Consulta</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Enriquecimento</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Web Service</a ></li>
-//             </ul>
-//           </div>
-//           <a href='/menu7' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado5" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-//             <span className='text-light'>Relatório</span>
-//           </a >
-//           <div className="collapse navbar-collapse" id="conteudoNavbarSuportado5"> 
-//   <ul className="navbar-nav mr-auto pl-5">
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Consulta</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Enriquecimento</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Mailing list</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Higienização</a></li>
-//               <li className="nav-item"><a className="nav-a text-light" href='/'>Web Service</a></li>
-//             </ul>
-//           </div> 
 
 
 

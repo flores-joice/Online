@@ -26,6 +26,7 @@ class App extends Component {
       <div className="App">
         <NavHorizontal />
         <NavVertical />
+        <p className='h1'>Fazer teste com outros usuarios</p>
       </div>
     )
   }
