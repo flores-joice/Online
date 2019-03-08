@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../assets/logo.png';
 import './pages.css';
+import history from '../infra/history'
 import { api } from '../infra/api-config';
 import { Redirect } from "react-router-dom";
 
@@ -29,63 +30,66 @@ export default class Login extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
+    const response = await api.post('', {
+      email: this.email.value,
+      senha: this.senha.value,
+    });
     try {
-      const response = await api.post('', {
-        email: this.email.value,
-        senha: this.senha.value,
-      });
-
       const config = response.config;
       const user = config.data;
       const chaveToken = response.data;
       const token = chaveToken.accessToken;
-      console.log(user)
+      const autenticacao = chaveToken.authenticated
+      console.log(autenticacao)
+      console.log('chaveToken', chaveToken)
 
       localStorage.setItem('auth-token', token);
       localStorage.setItem('auth-user', user);
 
       //muda o estado de usuarioLocado
-      this.setState({ usuarioLogado: true }, () => {
-        this.props.history.push('/app')
-
-      })
-
-      //retorno de mensagem de erro
-      const mensagem = chaveToken.message;
-      if (mensagem === '1') {
-        this.setState({ msg: 'Cliente ou usuário inválido(s).' })
-        this.props.history.push('/login')
-      } else if (mensagem === '2') {
-        this.setState({ msg: '' })
-        this.props.history.push('/login')
-      } else if (mensagem === '3') {
-        this.setState({ msg: 'Senha inválida' })
-        this.props.history.push('/login')
-      } else if (mensagem === '4') {
-        this.setState({ msg: 'IP não autorizado para acesso.' })
-      } else if (mensagem === '5') {
-        this.setState({ msg: 'Prazo de validade da licença expirado.' })
-      } else if (mensagem === '6') {
-        this.setState({ msg: 'Saldo esgotado' })
-      } else if (mensagem === '7') {
-        this.setState({ msg: 'Cliente sem acesso ao sistema' })
-      } else if (mensagem === '8') {
-        this.setState({ msg: 'Este email não pode ser utilizado. Está associado a mais de uma usuário' })
-      } else if (mensagem === '9') {
-        this.setState({ msg: 'Problemas no acesso ao banco de dados. Por favor tente mais tarde.' })
-      } else if (mensagem === '10') {
-        this.setState({ msg: 'Produto não autorizado para este cliente/usuário.' })
-      } else if (mensagem === '11') {
-        this.setState({ msg: 'Módulo não autorizado para este cliente/usuário.' })
-      } else if (mensagem === '12') {
-        this.setState({ msg: 'Cliente ou usuário sem acesso ao sistema.' })
-      }
-      else if (mensagem === '13') {
-        this.setState({ msg: '"Existe mais de um e-mail para essa conta, por favor informe o fornecedor ou cliente' })
+      if(autenticacao === true){
+        this.setState({ usuarioLogado: true })
+        history.push('/app')
       } else {
-        this.setState({ msg: 'Logado' })
-      }
-      console.log(mensagem)
+        localStorage.clear();
+        //retorno de mensagem de erro
+        const mensagem = chaveToken.message;
+        console.log('mensagem', mensagem)
+        if (mensagem === '1') {
+          this.setState({ msg: 'Cliente ou usuário inválido(s).' })
+          this.props.history.push('/login')
+        } else if (mensagem === '2') {
+          this.setState({ msg: '' })
+          this.props.history.push('/login')
+        } else if (mensagem === '3') {
+          this.setState({ msg: 'Senha inválida' })
+          this.props.history.push('/login')
+        } else if (mensagem === '4') {
+          this.setState({ msg: 'IP não autorizado para acesso.' })
+        } else if (mensagem === '5') {
+          this.setState({ msg: 'Prazo de validade da licença expirado.' })
+        } else if (mensagem === '6') {
+          this.setState({ msg: 'Saldo esgotado' })
+        } else if (mensagem === '7') {
+          this.setState({ msg: 'Cliente sem acesso ao sistema' })
+        } else if (mensagem === '8') {
+          this.setState({ msg: 'Este email não pode ser utilizado. Está associado a mais de uma usuário' })
+        } else if (mensagem === '9') {
+          this.setState({ msg: 'Problemas no acesso ao banco de dados. Por favor tente mais tarde.' })
+        } else if (mensagem === '10') {
+          this.setState({ msg: 'Produto não autorizado para este cliente/usuário.' })
+        } else if (mensagem === '11') {
+          this.setState({ msg: 'Módulo não autorizado para este cliente/usuário.' })
+        } else if (mensagem === '12') {
+          this.setState({ msg: 'Cliente ou usuário sem acesso ao sistema.' })
+        }
+        else if (mensagem === '13') {
+          this.setState({ msg: '"Existe mais de um e-mail para essa conta, por favor informe o fornecedor ou cliente' })
+        } else {
+          this.setState({ msg: 'Logado' })
+        }
+        console.log(mensagem)
+      }     
     }
     catch (response) {
       console.log('resposta catch', response)

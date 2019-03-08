@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Consulta = () => (
-  <Link to='#menu1' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between w-100'>
+  <Link to='/consulta' className='list-group-item bg-marine d-flex justify-content-between w-100'>
     <span className='text-light'>Consulta</span>
   </Link >
 )
@@ -10,7 +10,7 @@ export const Consulta = () => (
 export const Enriquecimento = () => (
   <Link
     to='#menu2'
-    className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle'
+    className='list-group-item bg-marine d-flex justify-content-between align-items-center dropdown-toggle'
     data-toggle="collapse"
     data-target="#enriquecimento"
     aria-controls="enriquecimento"
@@ -38,19 +38,19 @@ export function Enriquecer({ funcionalidades }) {
 }
 
 export const Higienizacao = () => (
-  <Link to='#menu4' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between'>
+  <Link to='#menu4' className='list-group-item bg-marine d-flex justify-content-between'>
     <span className='text-light '>Higienização</span>
   </Link >
 )
 export const MailingList = () => (
-  <Link to='#menu44' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between'>
+  <Link to='#menu44' className='list-group-item bg-marine d-flex justify-content-between'>
     <span className='text-light '>Mailing List</span>
   </Link >
 )
 export const Gerencial = () => (
   <Link
     to='/menu6'
-    className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle'
+    className='list-group-item bg-marine d-flex justify-content-between align-items-center dropdown-toggle'
     data-toggle="collapse"
     data-target="#gerencial"
     aria-controls="gerencial"
@@ -76,7 +76,7 @@ export function GerenciamentoContas({ funcionalidades }) {
 }
 
 export const Monitoramento = () => (
-  <Link to='#menu5' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado3" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+  <Link to='#menu5' className='list-group-item bg-marine d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado3" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span className='text-light'>Monitoramento</span>
   </Link >
 )
@@ -94,7 +94,7 @@ export function MonitoramentoConsulta({ funcionalidades }) {
 }
 
 export const Relatario = () => (
-  <Link to='/menu7' className='list-group-item list-group-item-action bg-dark d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado5" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+  <Link to='/menu7' className='list-group-item bg-marine d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado5" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span className='text-light'>Relatório</span>
   </Link >
 )

@@ -169,7 +169,7 @@ export default class NavVertical extends Component {
   render() {
     const { funcionalidades } = this.state;
     return (
-      <div className='nav-vertical bg-dark d-flex align-items-center' >
+      <div className='nav-vertical bg-marine d-flex align-items-center' >
         <div className='w-100'>
          
           {funcionalidades.includes("consulta") && <Consulta />}

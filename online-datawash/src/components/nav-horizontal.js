@@ -33,7 +33,7 @@ class NavHorizontal extends Component {
   render() {
     return (
       <nav className="navbar navbar-light bg-light nav-horizontal align-items-center fixed-top d-flex justify-content-between shadow" onChange={this.tokenChange}>
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/app">
           <img src={logo} width="180" height="auto" alt="" />
         </a>
         <div className="d-flex  box-sizing align-items-center">
