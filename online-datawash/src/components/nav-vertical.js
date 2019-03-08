@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './components.css'
 import { apiMenu } from '../infra/api-config';
 import {
-  Consulta, Enriquecimento, Enriquecer, 
+  Consulta, Enriquecimento, Enriquecer,
   Higienizacao, Gerencial, Monitoramento,
   Relatario, GerenciamentoContas, MonitoramentoConsulta,
   RelatarioConsulta, MailingList
@@ -18,7 +18,7 @@ export default class NavVertical extends Component {
       usuarioLogado: false,
       funcionalidades: [],
       valor: [],
-      lista: [],
+      emailLogado: '',
 
     }
   }
@@ -26,8 +26,7 @@ export default class NavVertical extends Component {
   componentWillMount = async () => {
     try {
       const token = await localStorage.getItem('auth-token', token);
-      const user = await localStorage.getItem('auth-user', user);
-      console.log('user', user)
+     
 
       if (token) {
         this.setState({ usuarioLogado: true }, () => {
@@ -35,7 +34,7 @@ export default class NavVertical extends Component {
         const response = await apiMenu.get()
         //item armazena o valor da response retornada da api
         const item = response.data
-        console.log('item',item)
+        console.log('item', item)
 
         //FOR = lista todos os valores contido em item
         for (let [key, value] of item.entries(item)) {
@@ -48,7 +47,7 @@ export default class NavVertical extends Component {
           {
             //se o valor contido na variavel for = 1 ele execura, 
             //senão nao faz nada
-           this.state.valor === "1" &&
+            this.state.valor === "1" &&
               (newFunc = this.state.funcionalidades.concat('consulta')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
@@ -172,18 +171,18 @@ export default class NavVertical extends Component {
     return (
       <div className='nav-vertical bg-dark d-flex align-items-center' >
         <div className='w-100'>
-        <p></p>
+         
           {funcionalidades.includes("consulta") && <Consulta />}
-          {funcionalidades.includes("enriquecimento") && <Enriquecimento/>}
-          {funcionalidades.includes("enriquecer") && <Enriquecer funcionalidades={funcionalidades}/>}
+          {funcionalidades.includes("enriquecimento") && <Enriquecimento />}
+          {funcionalidades.includes("enriquecer") && <Enriquecer funcionalidades={funcionalidades} />}
           {funcionalidades.includes("higienizacao") && <Higienizacao />}
           {funcionalidades.includes("gerencial") && <Gerencial />}
-          {funcionalidades.includes("gerenciamentoContas") && <GerenciamentoContas funcionalidades={funcionalidades}/>}
+          {funcionalidades.includes("gerenciamentoContas") && <GerenciamentoContas funcionalidades={funcionalidades} />}
           {funcionalidades.includes("monitoramento") && (<Monitoramento />)}
-          {funcionalidades.includes("monitConsulta") && (<MonitoramentoConsulta funcionalidades={funcionalidades}/>)}
+          {funcionalidades.includes("monitConsulta") && (<MonitoramentoConsulta funcionalidades={funcionalidades} />)}
 
           {funcionalidades.includes("ralatorio") && (<Relatario />)}
-          {funcionalidades.includes("relatConsulta") && (<RelatarioConsulta funcionalidades={funcionalidades}/>)}
+          {funcionalidades.includes("relatConsulta") && (<RelatarioConsulta funcionalidades={funcionalidades} />)}
 
           {funcionalidades.includes("mailingList") && (<MailingList />)}
           {/* {funcionalidades.includes("monitMailingList") && (<MonitoramentoMalingLista />)} */}
