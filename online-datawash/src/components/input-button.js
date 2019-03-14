@@ -1,39 +1,51 @@
-import React from "react";
+import React, { Component } from "react";
 
-export function Button(props) {
-  return (
-    <button
-      disabled={props.disabled}
-      onClick={props.onClick}
-      type={props.type}
-      className={props.classes}
-    >
-      {props.children}
-    </button>
-  );
+export default class InputBuscar extends Component {
+  render() {
+    return (
+      <form onSubmit={e => e.preventDefault()} className=" mb-3 text-light rounded input-group d-flex justify-content-center w-75">
+        <div className="input-group-prepend  rounded-bottom">
+          <select className="form-control bg-info text-light">
+            {this.props.option}
+          </select>
+        </div>
+        <div className="custom-file">
+          <input
+            id={this.props.idInput}
+            value={this.props.value}
+            type={this.props.typeInput}
+            className={this.props.classeInput}
+            placeholder='Insira o valor para busca'
+            onChange={this.props.onFunction}
+            name='inputValue' />
+          {this.props.botao}
+        </div>
+      </form>
+    )
+  }
 }
 
-export function Input(props) {
+export function Option(props) {
   return (
-    <div className="input-group mb-3 d-flex" key={props.key}>
-      <div className="input-group-prepend">
-        <label
-          id={props.idLabel}
-          className="input-group-text "
-          htmlFor={props.htmlForLabel}
-        >
-          {props.children}
-        </label>
-      </div>
-      <input
-        value={props.value}
-        type={props.typeInput}
-        className="form-control"
-        required={props.requiredInput}
-        placeholder={props.placeholderInput}
-        onChange={props.changeUser}
-        name={props.name}
-      />
-    </div>
-  );
+    <option id={props.id}
+      className="input-group-text text-light bg-info"
+      htmlFor={props.forHtml}>
+      {props.textoOption}
+    </option>
+  )
+}
+
+export function Botao(props) {
+  return (
+    <button
+      onClick={props.click}
+      className={props.classesBotao}
+      value={props.valueBotao}
+      type={props.typeBotao}
+      name={props.nameBotao}
+      htmlFor={props.forHtmlBotao}
+    >
+      {props.textoBotao}
+    </button>
+  )
 }

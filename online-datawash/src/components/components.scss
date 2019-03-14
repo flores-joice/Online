@@ -1,0 +1,107 @@
+.view-body{
+    background-color: #bebebe;
+    margin-top: 3.3rem;
+    min-height: 93vh;
+    .view-navVertical {
+        width: 13vw !important;
+        background-color: #2a3141;
+        .view-navVertical__bg {
+            background-color: #2a3140;
+            /* border-top: 1px solid  #475064;
+            border-bottom: 1px solid  #475064; */
+        }
+        .view-navVertical__bg:hover {
+            background-color: #394052;
+            text-decoration: none;
+        }
+    }
+}
+
+.nav {
+    .nav-horizontal {
+        height: 10vh;
+    }
+    .nav-width {
+        width: 35vw;
+    }
+}
+.table {
+    .table-relatorio {
+        width: 85vw
+    }
+    
+    .table-data {
+        width: 50vw;
+        height: 60vh;
+    }
+
+}
+
+    
+
+
+.title_form {
+    background-color: #485470;
+    padding: 1% 5%;
+    margin-top: -47px;
+    margin-left: 35px;
+    position: absolute;
+    border-radius: 5px;
+}
+.consulta {
+    background-color: #202739;
+    .consulta-body {
+        width: 80vw;
+        min-height: 100%;
+    }
+    
+    .consulta-container {
+        width: 85vw;
+        min-height: 80vh;
+    }
+}
+
+
+.btn-green {
+    background-color: rgb(192, 248, 192)
+}
+// .relatorio {
+//     min-height: 100vh;
+//     width: 100vw;
+  
+// }
+
+
+
+.planilha {
+    background-color: rgb(255, 255, 255)
+
+}
+.bg-planilha {
+    background-color: #a0a09f34;
+    border: 1px solid #c4c2c234
+}
+
+.inputPersonalizado {
+    content: "Buscar Arquivo"
+}
+
+.enriquecer-page {
+    width: 50vw;
+}
+
+.enriquecer-progresso {
+    width: 30vw;
+}
+
+.enriquecer-info {
+    width: 25vw;
+}
+
+.enriquecer-info li {
+    list-style: none
+}
+
+.enriquecer-info__list {
+    font-size: 14px
+}

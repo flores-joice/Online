@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import NavHorizontal from './components/nav-horizontal';
-import NavVertical from './components/nav-vertical';
-import './App.css'
+import './App.scss'
+import ViewNav from './pages/view-nav';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      usuarioLogado: false
+      usuarioLogado: false, 
+
     }
   }
 
@@ -21,14 +22,14 @@ class App extends Component {
     }
   }
   
+  
   render() {
     return (
-      <div className="App">
-        <NavHorizontal />
-        <NavVertical />
-        <p className='h1'>Fazer teste com outros usuarios</p>
+      <div className="App d-flex mt-4">
+        <ViewNav />
       </div>
     )
-  }
+  } 
 }
+
 export default App;

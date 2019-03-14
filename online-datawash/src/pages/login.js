@@ -40,21 +40,18 @@ export default class Login extends Component {
       const chaveToken = response.data;
       const token = chaveToken.accessToken;
       const autenticacao = chaveToken.authenticated
-      console.log(autenticacao)
-      console.log('chaveToken', chaveToken)
 
       localStorage.setItem('auth-token', token);
       localStorage.setItem('auth-user', user);
 
       //muda o estado de usuarioLocado
-      if(autenticacao === true){
+      if (autenticacao === true) {
         this.setState({ usuarioLogado: true })
         history.push('/app')
       } else {
         localStorage.clear();
         //retorno de mensagem de erro
         const mensagem = chaveToken.message;
-        console.log('mensagem', mensagem)
         if (mensagem === '1') {
           this.setState({ msg: 'Cliente ou usuário inválido(s).' })
           this.props.history.push('/login')
@@ -88,14 +85,13 @@ export default class Login extends Component {
         } else {
           this.setState({ msg: 'Logado' })
         }
-        console.log(mensagem)
-      }     
+      }
     }
     catch (response) {
       console.log('resposta catch', response)
     }
-
   }
+
   trazerTelaPrincipal = async () => {
     try {
       const token = await localStorage.getItem('auth-token', token);
@@ -106,7 +102,6 @@ export default class Login extends Component {
     } catch {
       this.setState({ usuarioLogado: false }, () => {
         this.props.history.push('/login')
-        console.log()
       })
     }
   }
@@ -122,18 +117,16 @@ export default class Login extends Component {
   render() {
     return (
       <div className='background d-flex justify-content-center align-items-center' onChange={this.trazerTelaPrincipal.bind(this)}>
-        {(this.state.usuarioLogado === true) ?
-          <Redirect to="/app" /> :
-          <div className='login-filtro d-flex justify-content-center align-items-center flex-column'>
-            <form className='login-section d-flex flex-column justify-content-center align-items-center px-3 rounded shadow-lg' onSubmit={this.handleSubmit.bind(this)}>
-              <img src={logo} width="180" height="auto" alt="logo" className='pb-5' />
-              <span className='resposta text-danger font-weight-bold position-absolute'>{this.state.msg}</span>
-              <input type='email' className='form-control shadow ' onChange={this.disabledButton} ref={(input) => this.email = input} />
-              <input type='password' className='form-control my-3 shadow' onChange={this.disabledButton} ref={(input) => this.senha = input} />
-              <a href='/' className='text-light' >Esqueci minha senha</a>
-              <input type='submit' disabled={this.state.disabled} className='btn btn-info w-75 mt-3 shadow' />
-            </form>
-          </div>}
+        <div className='login-filtro d-flex justify-content-center align-items-center flex-column'>
+          <form className='login-section d-flex flex-column justify-content-center align-items-center px-3 rounded shadow-lg' onSubmit={this.handleSubmit.bind(this)}>
+            <img src={logo} width="180" height="auto" alt="logo" className='pb-5' />
+            <span className='resposta text-danger font-weight-bold position-absolute'>{this.state.msg}</span>
+            <input type='email' className='form-control shadow ' onChange={this.disabledButton} ref={(input) => this.email = input} />
+            <input type='password' className='form-control my-3 shadow' onChange={this.disabledButton} ref={(input) => this.senha = input} />
+            <a href='/' className='text-light' >Esqueci minha senha</a>
+            <input type='submit' disabled={this.state.disabled} className='btn btn-info w-75 mt-3 shadow' />
+          </form>
+        </div>
       </div>
     )
   }

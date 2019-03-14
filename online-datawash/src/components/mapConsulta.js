@@ -1,14 +1,16 @@
 import React from 'react'
+import './components.scss'
 
 export const Cabecalho = ({ lista }) => (
 
   <div className='d-flex flex-wrap pb-3'>
-    {lista.map((lista, index) =>
-      <span key={index} className='col-6 text-left p-2 h5'>{lista.NOME ? `${lista.NOME}` : ''}</span>
-    )}
-    {lista.map((lista, index) =>
-      <span key={index} className='col-6 text-left p-2 h5'>{lista.CPF ? `${lista.CPF}` : ''}</span>
-    )}
+    {/* {lista.map((lista, index) => */}
+
+      <span  className='col-6 text-left p-2 h5'>Joice Flores</span>
+    {/* )}
+    {lista.map((lista, index) => */}
+      <span  className='col-6 text-left p-2 h5'>120.452.807-13</span>
+    {/* )} */}
   </div>
 )
 
