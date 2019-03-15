@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import InputBuscar, { Option } from "./input-button";
-import Planilha from './planilhaConsulta'
+import InputBuscar, { Option, Botao } from "../components/input-button";
+import Planilha from '../components/planilhaConsulta'
 import axios from "axios";
-import './components.scss'
+import '../components/components.scss'
 
 
 class ViewConsulta extends Component {
@@ -10,6 +10,7 @@ class ViewConsulta extends Component {
     super(props);
     this.state = {
       lista: [],
+      renderPlanilha:''
       // user: ""
     };
   }
@@ -21,24 +22,25 @@ class ViewConsulta extends Component {
   
   //armazeno o valor do input e insere o valor na url da api e mostra a resposta
   handleClick = () => {
-    this.setState({ lista : []})
-    const { user } = this.state
-    const config = {
-      mode: 'cors',
-      headers: ({
-        'Content-type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      })
-    }
-    axios
-      .get(
-        `http://localhost:50886/1.0.0/Consultas/ConsultaCPFCompleta/json?Cliente=sistema&Usuario=testes.api@datawash.com.br&Senha=DouglasBoga&CPFS=${user}`, config)
+    // this.setState({ lista : []})
+    // const { user } = this.state
+    // const config = {
+    //   mode: 'cors',
+    //   headers: ({
+    //     'Content-type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*'
+    //   })
+    // }
+    // axios
+    //   .get(
+    //     `http://localhost:50886/1.0.0/Consultas/ConsultaCPFCompleta/json?Cliente=sistema&Usuario=testes.api@datawash.com.br&Senha=DouglasBoga&CPFS=${user}`, config)
 
-      .then(response => {
-        this.setState({ lista: response.data });
-      }).catch(error => {
-        console.log(error);
-      });
+    //   .then(response => {
+    //     this.setState({ lista: response.data });
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    this.setState({ renderPlanilha: <Planilha lista={this.state.lista} onClick={this.handleClick} />})
   };
 
   render(props) {
@@ -58,11 +60,17 @@ class ViewConsulta extends Component {
           type='text' 
           classeInput="form-control"
           onFunction={this.handleChange}
-          clic={this.handleClick}
-          classesBotao='btn btn-info rounded-right'
-          textoBotao='Buscar' 
+           
+          botao={ 
+            <Botao  
+              click={this.handleClick}
+              classesBotao='btn btn-info rounded-right'
+              textoBotao='Buscar'
+            />
+          }
         />
-        <Planilha lista={this.state.lista} onClick={this.handleClick} />
+        {this.state.renderPlanilha}
+        
       </div>
     );
   }

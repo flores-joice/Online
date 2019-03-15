@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import NavHorizontal from './components/nav-horizontal';
 import './App.scss'
 import ViewNav from './pages/view-nav';
 
@@ -21,8 +20,7 @@ class App extends Component {
       this.props.history.push('/login')
     }
   }
-  
-  
+    
   render() {
     return (
       <div className="App d-flex mt-4">
