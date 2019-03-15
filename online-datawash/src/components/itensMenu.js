@@ -1,44 +1,44 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// export const Consulta = (props) => (
-//   <Link onClick={props.click} to='#' id='consulta' className='list-group-item bg-marine d-flex justify-content-between w-100'>
-//     <span className='text-light'>Consulta</span>
-//   </Link >
-// )
+export const Consulta = (props) => (
+    <Link onClick={props.click} to='#' id='consulta' className='list-group-item view-navVertical__bg d-flex justify-content-between w-100'>
+        <span className='text-light'>Consulta</span>
+    </Link >
+)
 
-// export const Enriquecimento = () => (
-//   <Link
-//     to='#menu2'
-//     className='list-group-item bg-marine d-flex justify-content-between align-items-center dropdown-toggle'
-//     data-toggle="collapse"
-//     data-target="#enriquecimento"
-//     aria-controls="enriquecimento"
-//     aria-expanded="false"
-//     aria-label="Alterna navegação">
-//     <span className='text-light'>Enriquecimento</span>
-//   </Link >
-// )
+export const Enriquecimento = () => (
+    <Link
+        to='#enriquecimento'
+        className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle'
+        data-toggle="collapse"
+        data-target="#enriquecimento"
+        aria-controls="enriquecimento"
+        aria-expanded="true"
+        aria-label="Alterna navegação">
+        <span className='text-light'>Enriquecimento</span>
+    </Link >
+)
 
-// export function Enriquecer({ funcionalidades }, props ) {
-//   return (
-//     <div className='collapse navbar-collapse' id="enriquecimento">
-//       <ul
-//         className="navbar-nav mr-auto pl-5" data-target="#listaEnriquecimento" aria-controls="listaEnriquecimento">
-//         <li
-//           className="nav-item"
-//           id="listaEnriquecimento">
-//             <Link
-//             onClick={(e) => this.handleNav('enriquecer')}
-//             id='enriquecer'
-//             className="nav-link text-light"
-//             to='/app'>Enriquecer</Link ></li>
-//         {funcionalidades.includes("atribuicaoCpf") && <li className="nav-item" id="listaEnriquecimento"><Link onClick={props.click} id='atibuicaoCpf' className="nav-link text-light" to='/app'>Atribuição de CPF</Link></li>}
-//         {funcionalidades.includes("validacaoHot") && <li className="nav-item" id="listaEnriquecimento"><Link onClick={props.click} id='validacaoHot' className="nav-link text-light" to='/app'>Validação Hot</Link></li>}
-//       </ul>
-//     </div>
-//   )
-// }
+export function Enriquecer({ funcionalidades }, props) {
+    return (
+        <div className='collapse' id="enriquecimento">
+            <ul
+                className="navbar-nav mr-auto pl-5" data-target="#listaEnriquecimento" aria-controls="listaEnriquecimento">
+                <li
+                    className="nav-item"
+                    id="listaEnriquecimento">
+                    <Link
+                        onClick={props.click}
+                        className="nav-link text-light"
+                        to='#enriquecimento'>Enriquecer</Link >
+                </li>
+                {funcionalidades.includes("atribuicaoCpf") && <li className="nav-item" id="listaEnriquecimento"><Link onClick={props.click} className="nav-link text-light" to='#atribuicaoCPF'>Atribuição de CPF</Link></li>}
+                {funcionalidades.includes("validacaoHot") && <li className="nav-item" id="listaEnriquecimento"><Link onClick={props.click} className="nav-link text-light" to='#validacaoHot'>Validação Hot</Link></li>}
+            </ul>
+        </div>
+    )
+}
 
 // export const Higienizacao = (props) => (
 //   <Link onClick={props.click} to='#menu4' id='higienizacao' className='list-group-item bg-marine d-flex justify-content-between'>

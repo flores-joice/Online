@@ -5,14 +5,14 @@ import history from './infra/history'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Login from './pages/login';
-import ViewNav from './pages/view-nav';
+import App from './App';
 
 ReactDOM.render(
     (
         <Router history={history}>
             <Switch>
                 <Route path="/login" component={Login} />
-                <Route path="/app" component={ViewNav}/>
+                <Route path="/app" component={App}/>
                 {/* <Route path="/consulta" component={ViewConsulta}/> */}
             </Switch>
         </Router>

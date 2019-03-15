@@ -23,7 +23,7 @@ class App extends Component {
     
   render() {
     return (
-      <div className="App d-flex mt-4">
+      <div className="App d-flex">
         <ViewNav />
       </div>
     )

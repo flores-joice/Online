@@ -48,14 +48,14 @@ class ViewConsulta extends Component {
       <div className="d-flex flex-column justify-content-center align-items-center pt-3 w-75">
         <InputBuscar 
           option={[
-          <Option id='cpf' fotHtml='cpf' textoOption='CPF'/>, 
-          <Option id='cnpj' fotHtml='cnpj' textoOption='CNPJ'/>, 
-          <Option id='nome' fotHtml='nome' textoOption='Nome'/>,
-          <Option id='end' fotHtml='end' textoOption='Endereço'/>,
-          <Option id='bairro' fotHtml='bairro' textoOption='Bairro'/>,
-          <Option id='cidade' fotHtml='cidade' textoOption='Cidade'/>,
-          <Option id='telefone' fotHtml='telefone' textoOption='Telefone'/>,
-          <Option id='placa' fotHtml='placa' textoOption='Placa'/>]}
+          <Option key='cpf' fotHtml='cpf' textoOption='CPF'/>, 
+          <Option key='cnpj' fotHtml='cnpj' textoOption='CNPJ'/>, 
+          <Option key='nome' fotHtml='nome' textoOption='Nome'/>,
+          <Option key='end' fotHtml='end' textoOption='Endereço'/>,
+          <Option key='bairro' fotHtml='bairro' textoOption='Bairro'/>,
+          <Option key='cidade' fotHtml='cidade' textoOption='Cidade'/>,
+          <Option key='telefone' fotHtml='telefone' textoOption='Telefone'/>,
+          <Option key='placa' fotHtml='placa' textoOption='Placa'/>]}
           value={this.state.user}
           type='text' 
           classeInput="form-control"

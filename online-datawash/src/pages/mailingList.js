@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './pages.css'
 
-export class MailingListPessFisica extends Component {
+export default class MailingListPessFisica extends Component {
   constructor(props) {
     super(props)
     this.state = {

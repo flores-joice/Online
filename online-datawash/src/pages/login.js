@@ -105,7 +105,7 @@ export default class Login extends Component {
       })
     }
   }
-  componentDidMount() {
+  componentDidMount() { 
     let token = localStorage.getItem('auth-token', token)
 
     if (token) {

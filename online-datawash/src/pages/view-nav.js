@@ -2,16 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../components/components.scss'
 import ViewConsulta from './viewConsulta';
-import { Enriquecer, AtribuicaoCpf, ValidacaoHot } from './enriquecer'
-import { MailingListPessFisica } from './mailingList'
+import Enriquecer from './enriquecer'
+import AtribuicaoCpf from '../components/atribuicaoCpf'
+import ValidacaoHot from '../components/validacaoHot'
+import MailingListPessFisica from './mailingList'
 import { apiMenu } from '../infra/api-config';
 import NavHorizontal from '../components/nav-horizontal'
-// import {
-//   Consulta, Enriquecimento, Enriquecer,
-//   Higienizacao, Gerencial, Monitoramento,
-//   Relatario, GerenciamentoContas, MonitoramentoConsulta,
-//   RelatarioConsulta, MailingList
-// } from '../components/itensMenu'
 
 export default class ViewNav  extends Component {
   // CONSTRUCTOR ESTA RECEBENDO PROPS
@@ -24,9 +20,7 @@ export default class ViewNav  extends Component {
       funcionalidades: [],
       valor: [],
       emailLogado: '',
-      id: '',
       renderView : null
-
     }
   }
 
@@ -238,7 +232,7 @@ export default class ViewNav  extends Component {
       <div className='d-flex view-body w-100'>
       <NavHorizontal/>
         <div className='view-navVertical d-flex align-items-center' >
-          <div className='w-100'>
+          <div className='w-100 '>
           
             {funcionalidades.includes("consulta") && (
               <Link onClick={(e) => this.handleNav('consulta')} to='#consulta' className='list-group-item view-navVertical__bg d-flex justify-content-between w-100'>
