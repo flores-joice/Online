@@ -37,6 +37,7 @@ export default class Enriquecer extends Component {
 
     return (
       <div className=''>
+        <h5  className='text-center'>Tela de Enriquecimento</h5>
       {/* THIS.STATE.VIEW --->> recebe p valor que foi enviado ao state no momento do click dos botões */}
         {this.state.view}
       </div>

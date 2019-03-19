@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import '../components/components.scss'
+import './pages.css'
 import ViewConsulta from './viewConsulta';
 import Enriquecer from './enriquecer'
 import AtribuicaoCpf from '../components/atribuicaoCpf'
 import ValidacaoHot from '../components/validacaoHot'
+import { RelatorioConsulta, RelatorioEnriquecimento, RelatorioMailing } from './relatorios'
 import MailingListPessFisica from './mailingList'
 import { apiMenu } from '../infra/api-config';
 import NavHorizontal from '../components/nav-horizontal'
@@ -42,6 +43,7 @@ export default class ViewNav  extends Component {
           //aqui atribuimos os valores listados do FOR na variavel valor
           this.setState({ valor: value })
           const newFunc = []
+          console.log(this.state.valor)
           //fazemos a comparação dos valores, se true, 
           //ele envia uma string para outra variavel
           {
@@ -129,7 +131,7 @@ export default class ViewNav  extends Component {
           }
           {
             this.state.valor === "8" &&
-              (newFunc = this.state.funcionalidades.concat('relatatorio', 'relatConsulta')) &&
+              (newFunc = this.state.funcionalidades.concat('relatorio', 'relatConsulta')) &&
               (this.setState({ funcionalidades: newFunc }))
           }
           // {
@@ -158,6 +160,7 @@ export default class ViewNav  extends Component {
               (this.setState({ funcionalidades: newFunc }))
           }
         };
+        console.log(this.state.funcionalidades)
       }
       //cria uma constante que pega o valor do token de localstorage
     } catch (response) {
@@ -205,19 +208,19 @@ export default class ViewNav  extends Component {
       this.setState({ renderView : <AtribuicaoCpf/>})
     }
     if(id === 'relatConsulta'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <RelatorioConsulta/>})
     }
     if(id === 'relatEnriq'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <RelatorioEnriquecimento/>})
     }
     if(id === 'relatMailingList'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <RelatorioMailing/>})
     }
     if(id === 'relatHigienizacao'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <RelatorioConsulta/>})
     }
     if(id === 'relatWebService'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <RelatorioConsulta/>})
     }
     if(id === 'mailingList'){
       this.setState({ renderView : <MailingListPessFisica/>})
@@ -229,10 +232,10 @@ export default class ViewNav  extends Component {
   render() {
     const { funcionalidades } = this.state;
     return (
-      <div className='d-flex view-body w-100'>
+      <div className='d-flex view-body  w-100'>
       <NavHorizontal/>
-        <div className='view-navVertical d-flex align-items-center' >
-          <div className='w-100 '>
+        <div className='view-navVertical w-100 d-flex align-items-start justify-content-end' >
+          <div className='view-navVertical__list'>
           
             {funcionalidades.includes("consulta") && (
               <Link onClick={(e) => this.handleNav('consulta')} to='#consulta' className='list-group-item view-navVertical__bg d-flex justify-content-between w-100'>
@@ -256,7 +259,7 @@ export default class ViewNav  extends Component {
                 <ul
                   className="navbar-nav mr-auto pl-5" data-target="#listaEnriquecimento" aria-controls="listaEnriquecimento">
                   <li
-                    className="nav-item"
+                    className="nav-item d-flex"
                     id="listaEnriquecimento">
                     <Link
                       onClick={(e) => this.handleNav('enriquecer')}
@@ -311,8 +314,8 @@ export default class ViewNav  extends Component {
               </div>
             )}
 
-            {funcionalidades.includes("ralatorio") && (
-              <Link to='#relatario' className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado5" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            {funcionalidades.includes("relatorio") && (
+              <Link to='#relatorio' className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado5" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                 <span className='text-light'>Relatório</span>
               </Link >
             )}
@@ -337,7 +340,7 @@ export default class ViewNav  extends Component {
           </div >
         </div>
 
-        <div className='w-100 mt-5 d-flex justify-content-center align-items-center'>
+        <div className='view_navVertical__render mt-5 d-flex justify-content-center align-items-center'>
           {this.state.renderView}
         </div>
 

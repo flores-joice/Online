@@ -92,27 +92,3 @@ function Profissao() {
     </div>
   )
 }
-
-function Sexo() {
-  return (
-    <div>
-      <p>Sexo</p>
-    </div>
-  )
-}
-
-function Escolaridade() {
-  return (
-    <div>
-      <p>Escolaridade</p>
-    </div>
-  )
-}
-
-function Exclusoes() {
-  return (
-    <div>
-      <p>Exclusoes</p>
-    </div>
-  )
-}

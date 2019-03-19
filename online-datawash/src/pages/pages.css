@@ -29,3 +29,49 @@
     width: 5vw;
     
 }
+
+.view-body{
+    background-color: #bebebe;
+    margin-top: 3.3rem;
+    min-height: 93vh;
+}
+.view-navVertical {
+    min-height: 44vw;
+    width: 13vw !important;
+    background-color: #2a3141;
+}
+.view-navVertical__list{
+    position: sticky;
+    top: 75px;
+    left: 0rem;
+    width: 100vw;
+    /* right: 87rem; */
+}
+.view-navVertical__bg {
+    background-color: #2a3140;
+    /* border-top: 1px solid  #475064;
+    border-bottom: 1px solid  #475064; */
+}
+.view-navVertical__bg:hover {
+    background-color: #394052;
+    text-decoration: none;
+}
+.view_navVertical__render{
+    width: 86vw;
+    /* margin-left: 13vw; */
+}
+.relatorio-page__filter{
+    width: 7vw;
+    height: 5vh;
+}
+.relatorio-page__img {
+    width: 2vw;
+    height: auto;
+}
+.relatorio-input {
+    width: 10vw;
+}
+.relatorio-page__button{
+    display: flex;
+    justify-content: flex-end
+}
