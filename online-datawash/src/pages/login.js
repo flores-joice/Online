@@ -37,6 +37,7 @@ export default class Login extends Component {
     try {
       const config = response.config;
       const user = config.data;
+      console.log('user', user)
       const chaveToken = response.data;
       const token = chaveToken.accessToken;
       const autenticacao = chaveToken.authenticated
@@ -121,7 +122,7 @@ export default class Login extends Component {
           <form className='login-section d-flex flex-column justify-content-center align-items-center px-3 rounded shadow-lg' onSubmit={this.handleSubmit.bind(this)}>
             <img src={logo} width="180" height="auto" alt="logo" className='pb-5' />
             <span className='resposta text-danger font-weight-bold position-absolute'>{this.state.msg}</span>
-            <input type='email' className='form-control shadow ' onChange={this.disabledButton} ref={(input) => this.email = input} />
+            <input type='email' className='form-control shadow ' onChange={this.disabledButton} ref={(input) => this.email = input} autoFocus/>
             <input type='password' className='form-control my-3 shadow' onChange={this.disabledButton} ref={(input) => this.senha = input} />
             <a href='/' className='text-light' >Esqueci minha senha</a>
             <input type='submit' disabled={this.state.disabled} className='btn btn-info w-75 mt-3 shadow' />

@@ -6,9 +6,11 @@ import Enriquecer from './enriquecer'
 import AtribuicaoCpf from '../components/atribuicaoCpf'
 import ValidacaoHot from '../components/validacaoHot'
 import { RelatorioConsulta, RelatorioEnriquecimento, RelatorioMailing } from './relatorios'
+import { GerenciamentoContas } from './gerencial'
 import MailingListPessFisica from './mailingList'
 import { apiMenu } from '../infra/api-config';
 import NavHorizontal from '../components/nav-horizontal'
+import { DashBoard } from '../components/dashboard'
 
 export default class ViewNav  extends Component {
   // CONSTRUCTOR ESTA RECEBENDO PROPS
@@ -21,7 +23,7 @@ export default class ViewNav  extends Component {
       funcionalidades: [],
       valor: [],
       emailLogado: '',
-      renderView : null
+      renderView : <DashBoard/>
     }
   }
 
@@ -43,7 +45,7 @@ export default class ViewNav  extends Component {
           //aqui atribuimos os valores listados do FOR na variavel valor
           this.setState({ valor: value })
           const newFunc = []
-          console.log(this.state.valor)
+          
           //fazemos a comparação dos valores, se true, 
           //ele envia uma string para outra variavel
           {
@@ -160,7 +162,6 @@ export default class ViewNav  extends Component {
               (this.setState({ funcionalidades: newFunc }))
           }
         };
-        console.log(this.state.funcionalidades)
       }
       //cria uma constante que pega o valor do token de localstorage
     } catch (response) {
@@ -170,7 +171,6 @@ export default class ViewNav  extends Component {
 
   handleNav(id) {
     this.setState({ id : id})
-    console.log('id', this.state.id)
     if( id === 'consulta') {
       this.setState({ renderView : <ViewConsulta/>})
     }
@@ -187,7 +187,7 @@ export default class ViewNav  extends Component {
       this.setState({ renderView : <AtribuicaoCpf/>})
     }
     if(id === 'contas'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <GerenciamentoContas/>})
     }
     if(id === 'personalizacao'){
       this.setState({ renderView : <AtribuicaoCpf/>})

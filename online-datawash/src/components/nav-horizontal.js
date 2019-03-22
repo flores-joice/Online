@@ -75,7 +75,7 @@ class Clock extends Component {
   }
   render() {
     return(
-      <div>{this.state.currentCount}</div>
+      <div>{`${this.state.currentCount} min`}</div>
     );
   }
 }

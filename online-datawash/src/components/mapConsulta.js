@@ -3,14 +3,14 @@ import './components.scss'
 
 export const Cabecalho = ({ lista }) => (
 
-  <div className='d-flex flex-wrap pb-3'>
-    {/* {lista.map((lista, index) => */}
+  <div className='d-flex flex-wrap pb-3 bg-danger' >
+    {lista.map((lista, index) =>
 
-      <span  className='col-6 text-left p-2 h5'>Joice Flores</span>
-    {/* )}
-    {lista.map((lista, index) => */}
-      <span  className='col-6 text-left p-2 h5'>120.452.807-13</span>
-    {/* )} */}
+      <span key={index}  className='col-6 text-left p-2 h5'>{lista.Nome}</span>
+     )}
+    {lista.map((lista, index) =>
+      <span  className='col-6 text-left p-2 h5'>{lista.Cpf}</span>
+  )} 
   </div>
 )
 
@@ -19,12 +19,12 @@ export const Dados = ({ lista }) => (
     <div className='d-flex flex-wrap pt-2' >
       {lista.map((lista, index) =>
         <span key={index} className='col text-left'>
-          {lista.NOME_MAE ? `Nome da mãe: ${lista.NOME_MAE}` : ''}
+          {lista.NomeMae ? `Nome da mãe: ${lista.NomeMae}` : ''}
         </span>
       )}
       {lista.map((lista, index) =>
         <span key={index} className='col text-left'>
-          {lista.DATA_NASC ? `Data de Nascimento: ${lista.DATA_NASC}` : ''}
+          {lista.DataNasc ? `Data de Nascimento: ${lista.DataNasc}` : ''}
         </span>
       )}
     </div>
@@ -36,11 +36,7 @@ export const Email = ({ lista }) => (
 
   <div className="tab-pane fade" id="emails" role="tabpanel" aria-labelledby="emails-tab">
     {lista.map((lista, indexEmail) =>
-      <div key={indexEmail} className='d-flex flex-column pt-2' >
-        {lista.EMAILS && lista.EMAILS.map((email, index4) =>
-          <span key={index4} className='text-left'>{email || 'Nenhum email encontrado'}</span>
-        )}
-      </div>
+      <span className='text-left'>{lista.Email1 || 'Nenhum email encontrado'}</span>
     )}
   </div>
 )

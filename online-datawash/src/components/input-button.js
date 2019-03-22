@@ -16,7 +16,7 @@ export default function InputBuscar(props) {
           className={props.classeInput}
           placeholder='Insira o valor para busca'
           onChange={props.onFunction}
-          name='inputValue' />
+          name='inputValue' autoFocus/>
         {props.botao}
       </div>
     </form>
@@ -27,7 +27,9 @@ export function Option(props) {
   return (
     <option id={props.id}
       className="input-group-text text-light bg-info"
-      htmlFor={props.forHtml}>
+      htmlFor={props.forHtml}
+      value={props.valor}
+    >      
       {props.textoOption}
     </option>
   )

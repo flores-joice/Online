@@ -5,29 +5,42 @@ import axios from 'axios'
 // import { getUser } from './local-storage'
 
 export const api = create({
-    baseURL : 'http://localhost:52231/api/login',
+    baseURL: 'http://localhost:52231/api/login',
     mode: 'cors',
     headers: ({
-        'Content-type' : 'application/json',
-      })
+        'Content-type': 'application/json',
+    })
 });
 
 api.addResponseTransform(response => {
-    if(!response.ok) throw response;
+    if (!response.ok) throw response;
 });
 
 export const apiMenu = axios.create({
-    baseURL : 'http://localhost:52231/api/montamenu/montamenu'
+    baseURL: 'http://localhost:52231/api/montamenu/montamenu'
 });
 
 apiMenu.interceptors.request.use(async config => {
-        const token = localStorage.getItem('auth-token', token);
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-        }
-        return config ;
-        
-    });
+    const token = localStorage.getItem('auth-token', token);
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+
+});
+
+// export const apiConsultaCPF = axios.creat ({
+//     baseURL: 'http://localhost:52231/api/consultaCpf/consultaCpf/'
+// })
+
+// apiConsultaCPF.interceptors.request.use(async config => {
+//     const token = localStorage.getItem('auth-token', token);
+//     if (token) {
+//         config.headers.Authorization = `Bearer ${token}`;
+//     }
+//     return config;
+
+// });
 
 
 

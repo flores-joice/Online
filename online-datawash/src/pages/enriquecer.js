@@ -51,7 +51,7 @@ function Enriquec(props) {
       <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
         <InputBuscar
           option={[
-            <Option key='layoutLivre' id='layoutLivre' fotHtml='layoutLivre' textoOption='Layout Livre' />,
+            <Option key='layoutLivre' id='layoutLivre' fotHtml='layoutLivre' textoOption='Layout Livre'  />,
             <Option key='layoutPersonalizado' id='layoutPersonalizado' fotHtml='layoutPersonalizado' textoOption='Layout Personalizado' />]}
           classeInput="form-control"
           idInput='inputId'
@@ -132,47 +132,47 @@ function Enriquec3(props) {
               aria-labelledby="headingOne" data-parent="#accordionExample">
               <div className="card-body d-flex flex-wrap">
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='todos' />
                   <label className='pl-1'>Todos</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='nome' />
                   <label className='pl-1'>Nome</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='casadaSolteira' />
                   <label className='pl-1'>Nome de casada x solteira</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='sexo' />
                   <label className='pl-1'>Sexo</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='idade' />
                   <label className='pl-1'>Idade</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='nascimento' />
                   <label className='pl-1'>Data de nascimento</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='nomeMae' />
                   <label className='pl-1'>Nome da mãe</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='escolaridade' />
                   <label className='pl-1'>Escolaridade</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='rg' />
                   <label className='pl-1'>RG</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='obito' />
                   <label className='pl-1'>Flag óbito</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='situacao' />
                   <label className='pl-1'>Situação Cadastral RF</label>
                 </div>
               </div>
@@ -185,27 +185,27 @@ function Enriquec3(props) {
             <div className="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div className="card-body d-flex flex-wrap">
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='todos' />
                   <label className='pl-1'>Todos</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='end' />
                   <label className='pl-1'>Endereço</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='telFixo' />
                   <label className='pl-1'>Telefone fixo</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='telCel' />
                   <label className='pl-1'>Telefone celular</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='telComerc' />
                   <label className='pl-1'>Telefone comercial</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='email' />
                   <label className='pl-1'>E-mail</label>
                 </div>
               </div>
@@ -218,51 +218,51 @@ function Enriquec3(props) {
             <div className="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div className="card-body  d-flex flex-wrap">
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='todos' />
                   <label className='pl-1'>Todos</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='clt' />
                   <label className='pl-1'> Flag CLT</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='cnpjEmpregador' />
                   <label className='pl-1'>CNPJ do empregador</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='cnaeEmpregador' />
                   <label className='pl-1'>CNAE do empregador</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='codProfissao' />
                   <label className='pl-1'>Código da profissão</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='descProficao' />
                   <label className='pl-1'>Descrição da profissão</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='faixa salarial' />
                   <label className='pl-1'>Faixa salarial</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='inss' />
                   <label className='pl-1'>Flag INSS</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='beneficio' />
                   <label className='pl-1'>Faixa do benefício</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='rendaEstimada' />
                   <label className='pl-1'>Faixa renda estimada</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='socioEmpresa' />
                   <label className='pl-1'>Flag sócio de empresa</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='particSocietaria' />
                   <label className='pl-1'>Participação societária</label>
                 </div>
               </div>
@@ -275,31 +275,31 @@ function Enriquec3(props) {
             <div className="collapse" id="collapseFour" aria-labelledby="headingFour" data-parent="#accordionExample">
               <div className="card-body  d-flex flex-wrap">
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='todos' />
                   <label className='pl-1'>Todos</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='paiMae' />
                   <label className='pl-1'>Mãe e Pai</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='irmaos' />
                   <label className='pl-1'>Irmãos </label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='outrosParentes' />
                   <label className='pl-1'>Outros Parentes</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='provaveisParentes' />
                   <label className='pl-1'>Prováveis Parentes</label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='vizinhos' />
                   <label className='pl-1'>Vizinhos </label>
                 </div>
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='socios' />
                   <label className='pl-1'>Sócios </label>
                 </div>
                 <div className='d-flex flex-column border-top'>
@@ -342,7 +342,7 @@ function Enriquec4(props) {
               aria-labelledby="headingOne" data-parent="#accordionExample">
               <div className="card-body d-flex flex-wrap">
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='todos' />
                   <label className='pl-1'>Todos</label>
                 </div>
               </div>
@@ -355,7 +355,7 @@ function Enriquec4(props) {
             <div className="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div className="card-body d-flex flex-wrap">
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='todos' />
                   <label className='pl-1'>Todos</label>
                 </div>
               </div>
@@ -368,7 +368,7 @@ function Enriquec4(props) {
             <div className="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div className="card-body  d-flex flex-wrap">
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='todos' />
                   <label className='pl-1'>Todos</label>
                 </div>
               </div>
@@ -381,7 +381,7 @@ function Enriquec4(props) {
             <div className="collapse" id="collapseFour" aria-labelledby="headingFour" data-parent="#accordionExample">
               <div className="card-body  d-flex flex-wrap">
                 <div className='col-4'>
-                  <input type='checkbox' />
+                  <input type='checkbox' valor='todos' />
                   <label className='pl-1'>Todos</label>
                 </div>
               </div>

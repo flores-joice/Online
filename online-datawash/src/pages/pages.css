@@ -30,6 +30,10 @@
     
 }
 
+.navbar-nav{
+    background-color: #138496
+}
+
 .view-body{
     background-color: #bebebe;
     margin-top: 3.3rem;
@@ -45,6 +49,7 @@
     top: 75px;
     left: 0rem;
     width: 100vw;
+    margin-top: 15px
     /* right: 87rem; */
 }
 .view-navVertical__bg {
@@ -55,6 +60,10 @@
 .view-navVertical__bg:hover {
     background-color: #394052;
     text-decoration: none;
+}
+
+.view-navVertical__bg::after{
+    color:#138496;
 }
 .view_navVertical__render{
     width: 86vw;

@@ -42,7 +42,7 @@ export class RelatorioConsulta extends Component {
               <div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='analitico' />
                   </div>
                 </div>
                 <span class="form-control">Analítico</span>
@@ -50,7 +50,7 @@ export class RelatorioConsulta extends Component {
               <div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='sintetico' />
                   </div>
                 </div>
                 <span class="form-control">Sintético</span>
@@ -58,7 +58,7 @@ export class RelatorioConsulta extends Component {
               <div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='total' />
                   </div>
                 </div>
                 <span class="form-control">Total</span>
@@ -235,7 +235,7 @@ export class RelatorioEnriquecimento extends Component {
               <div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='analitico' />
                   </div>
                 </div>
                 <span class="form-control">Analítico</span>
@@ -243,7 +243,7 @@ export class RelatorioEnriquecimento extends Component {
               <div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='sintetico' />
                   </div>
                 </div>
                 <span class="form-control">Sintético</span>
@@ -251,7 +251,7 @@ export class RelatorioEnriquecimento extends Component {
               <div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='total' />
                   </div>
                 </div>
                 <span class="form-control">Total</span>
@@ -264,28 +264,28 @@ export class RelatorioEnriquecimento extends Component {
               <div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='pessoaFisica' />
                   </div>
                 </div>
                 <span class="form-control">P.Física</span>
               </div><div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='pessoaJuridica' />
                   </div>
                 </div>
                 <span class="form-control">P. Jurídica</span>
               </div><div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='atribuicoes' />
                   </div>
                 </div>
                 <span class="form-control">Atribuição</span>
               </div><div class="input-group col">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input" />
+                    <input type="radio" value='todos' />
                   </div>
                 </div>
                 <span class="form-control">Todos</span>
