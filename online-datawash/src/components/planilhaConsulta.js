@@ -26,13 +26,14 @@ const Planilha = ({ lista }) => (
             <div className="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div className="card-body d-flex flex-wrap">
                 
-                {lista.NomeMae && <p className='col-6'>{`Nome da mãe: ${lista.NomeMae}`}</p>}
-                {lista.DataNasc && <p className='col-6'>{`Data de nascimento: ${lista.DataNasc}`}</p>}
-                {lista.Sexo && <p className='col-6'>{`Sexo: ${lista.Sexo}`}</p>}
-                {lista.Escolaridade && <p className='col-6'>{`Escolaridade: ${lista.Escolaridade}`}</p>}
-                {lista.Signo && <p className='col-6'>{`Signo: ${lista.Signo}`}</p>}
-                {lista.DataConsulta && <p className='col-6'>{`Data da consulta à RF: ${lista.DataConsulta}`}</p>}
-                {lista.SituacaoCadastral && <p className='col-6'>{`Situação na Receita Federal: ${lista.SituacaoCadastral}`}</p>}
+                {lista.NomeMae && <p className='col-6'><b>Nome da mãe: </b>{lista.NomeMae}</p>}
+                {lista.DataNasc && <p className='col-6'><b>Data de nascimento: </b>{lista.DataNasc}</p>}
+                {lista.Sexo && <p className='col-6'><b>Sexo: </b>{lista.Sexo}</p>}
+                {lista.Idade && <p className='col-6'><b>Idade: </b>{lista.Idade} anos</p>}
+                {lista.Escolaridade && <p className='col-6'><b>Escolaridade: </b>{lista.Escolaridade}</p>}
+                {lista.Signo && <p className='col-6'><b>Signo: </b>{lista.Signo}</p>}
+                {lista.DataConsulta && <p className='col-6'><b>Data da consulta à RF: </b>{lista.DataConsulta}</p>}
+                {lista.SituacaoCadastral && <p className='col-6'><b>Situação na Receita Federal: </b>{lista.SituacaoCadastral}</p>}
               </div>
             </div>
           </div>
@@ -42,13 +43,13 @@ const Planilha = ({ lista }) => (
             </div>
             <div className="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div className="card-body d-flex flex-wrap">
-                {lista.Telefone1 && <p className='col-3'>{lista.Telefone1}</p>}
-                {lista.Telefone2 && <p className='col-3'>{lista.Telefone2}</p>}
-                {lista.Telefone3 && <p className='col-3'>{lista.Telefone3}</p>}
-                {lista.Celular1 && <p className='col-3'>{lista.Celular1}</p>}
-                {lista.Celular2 && <p className='col-3'>{lista.Celular2}</p>}
-                {lista.Celular3 && <p className='col-3'>{lista.Celular3}</p>}
-                {lista.Celular4 && <p className='col-3'>{lista.Celular4}</p>}
+                {lista.Telefone1 && <p className='col-3'>{lista.Telefone1}<small> (fixo)</small></p>}
+                {lista.Telefone2 && <p className='col-3'>{lista.Telefone2}<small> (fixo)</small></p>}
+                {lista.Telefone3 && <p className='col-3'>{lista.Telefone3}<small> (fixo)</small></p>}
+                {lista.Celular1 && <p className='col-3'>{lista.Celular1}<small> (cel)</small></p>}
+                {lista.Celular2 && <p className='col-3'>{lista.Celular2}<small> (cel)</small></p>}
+                {lista.Celular3 && <p className='col-3'>{lista.Celular3}<small> (cel)</small></p>}
+                {lista.Celular4 && <p className='col-3'>{lista.Celular4}<small> (cel)</small></p>}
 
               </div>
             </div>
@@ -82,12 +83,12 @@ const Planilha = ({ lista }) => (
             </div>
             <div className="collapse" id="collapseFive" aria-labelledby="headingFive" data-parent="#accordionExample">
               <div className="card-body d-flex flex-wrap">
-                {lista.FlagCLT && <p className='col-6'>{`Ativa mercado de trabalho formal: ${lista.FlagCLT}`}</p>}
-                {lista.RendaEstimadaFaixa && <p className='col-6'>{`Faixa salarial: ${lista.RendaEstimadaFaixa}`}</p>}
-                {lista.RendaEstimada && <p className='col-6'>{`Renda estimada: ${lista.RendaEstimada}`}</p>}
-                {lista.CBODescricao && <p className='col-6'>{`Ocupação: ${lista.CBODescricao}`}</p>}
-                {lista.EmpregadorNome && <p className='col-6'>{`Provável empresa: ${lista.EmpregadorNome}`}</p>}
-                {lista.DataAdmissao && <p className='col-6'>{`Data de admissão: ${lista.DataAdmissao}`}</p>}
+                {lista.FlagCLT && <p className='col-6'><b>Ativa mercado de trabalho formal: </b>{lista.FlagCLT}</p>}
+                {lista.RendaEstimadaFaixa && <p className='col-6'><b>Faixa salarial: </b>{lista.RendaEstimadaFaixa}</p>}
+                {lista.RendaEstimada && <p className='col-6'><b>Renda estimada: </b>{lista.RendaEstimada}</p>}
+                {lista.CBODescricao && <p className='col-6'><b>Ocupação: </b>{lista.CBODescricao}</p>}
+                {lista.EmpregadorNome && <p className='col-6'><b>Provável empresa: </b>{lista.EmpregadorNome}</p>}
+                {lista.DataAdmissao && <p className='col-6'><b>Data de admissão: </b>{lista.DataAdmissao}</p>}
               </div>
             </div>
           </div>

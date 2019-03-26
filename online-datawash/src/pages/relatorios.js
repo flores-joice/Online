@@ -171,7 +171,7 @@ function RelatorioTable() {
 
 function FiltroRelatorio(props) {
   return (
-    <div className='h-100 relatorio-page container'>
+    <div className='h-100 relatorio-page pt-4 container'>
       <div className='w-100  relatorio-page p-3'>
         <div className='w-100 d-flex bg-light justify-content-end container rounded border p-2'>
           <button className="btn d-flex justify-content-center align-items-center border-info rounded relatorio-page__filter " data-toggle="collapse" href="#collapseExample" aria-expanded='false' aria-controls="collapseExample">

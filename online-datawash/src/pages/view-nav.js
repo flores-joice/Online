@@ -12,6 +12,7 @@ import { apiMenu } from '../infra/api-config';
 import NavHorizontal from '../components/nav-horizontal'
 import { DashBoard } from '../components/dashboard'
 
+
 export default class ViewNav  extends Component {
   // CONSTRUCTOR ESTA RECEBENDO PROPS
   constructor(props) {
@@ -31,7 +32,7 @@ export default class ViewNav  extends Component {
     try {
       const token = await localStorage.getItem('auth-token', token);
 
-
+      
       if (token) {
         this.setState({ usuarioLogado: true }, () => {
         })
@@ -340,7 +341,8 @@ export default class ViewNav  extends Component {
           </div >
         </div>
 
-        <div className='view_navVertical__render mt-5 d-flex justify-content-center align-items-center'>
+        <div className='view_navVertical__render mt-2 d-flex justify-content-center align-items-center'>
+          
           {this.state.renderView}
         </div>
 

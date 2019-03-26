@@ -13,6 +13,7 @@ class ViewConsulta extends Component {
     super(props);
     this.state = {
       lista: []
+
       // user: ""
     };
   }
