@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './pages.css'
+import './pages.scss'
 import ViewConsulta from './viewConsulta';
 import Enriquecer from './enriquecer'
 import AtribuicaoCpf from '../components/atribuicaoCpf'
 import ValidacaoHot from '../components/validacaoHot'
 import { RelatorioConsulta, RelatorioEnriquecimento, RelatorioMailing } from './relatorios'
 import { GerenciamentoContas } from './gerencial'
-import MailingListPessFisica from './mailingList'
+import MailingList from './mailingList'
 import { apiMenu } from '../infra/api-config';
 import NavHorizontal from '../components/nav-horizontal'
 import { DashBoard } from '../components/dashboard'
+
 
 
 export default class ViewNav  extends Component {
@@ -49,12 +50,15 @@ export default class ViewNav  extends Component {
           
           //fazemos a comparação dos valores, se true, 
           //ele envia uma string para outra variavel
+  
           {
             //se o valor contido na variavel for = 1 ele execura, 
             //senão nao faz nada
             this.state.valor === "1" &&
               (newFunc = this.state.funcionalidades.concat('consulta')) &&
               (this.setState({ funcionalidades: newFunc }))
+              console.log('newFunc', newFunc)
+              console.log('funcionalidades', this.state.funcionalidades)
           }
           {
             this.state.valor === "9" &&
@@ -224,7 +228,7 @@ export default class ViewNav  extends Component {
       this.setState({ renderView : <RelatorioConsulta/>})
     }
     if(id === 'mailingList'){
-      this.setState({ renderView : <MailingListPessFisica/>})
+      this.setState({ renderView : <MailingList/>})
     }
 
 
@@ -341,9 +345,9 @@ export default class ViewNav  extends Component {
           </div >
         </div>
 
-        <div className='view_navVertical__render mt-2 d-flex justify-content-center align-items-center'>
-          
+        <div className='view_navVertical__render mt-2 d-flex justify-content-center align-items-center'>          
           {this.state.renderView}
+          {/* <MailingList/> */}
         </div>
 
       </div>

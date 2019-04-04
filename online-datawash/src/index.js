@@ -8,7 +8,7 @@ import Login from './pages/login';
 import App from './App';
 
 ReactDOM.render(
-    (
+    ( 
         <Router history={history}>
             <Switch>
                 <Route path="/login" component={Login} />

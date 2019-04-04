@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import InputBuscar, { Option, Botao, BarraProgresso, Info } from './input-button';
+import InputBuscar, { Option, Botao, BarraProgresso } from './input-button';
+import Tooltip from '../components/info'
 import '../components/components.scss'
 
 export default class ValidacaoHot extends Component {
@@ -36,8 +37,8 @@ export default class ValidacaoHot extends Component {
   render() {
 
     return (
-      <div className=''>
-      <h5 className='text-center'>Tela de Validação Hot</h5>
+      <div className='d-flex w-100 flex-column justify-content-end align-items-end'>
+      <Tooltip/>
       {/* THIS.STATE.VIEW --->> recebe p valor que foi enviado ao state no momento do click dos botões */}
         {this.state.view}
       </div>
@@ -47,7 +48,7 @@ export default class ValidacaoHot extends Component {
 
 function Enriquec(props) {
   return (
-    <div className='w-100 d-flex flex-column justify-content-around align-items-center'>
+    <div className='w-100 enriquecer d-flex flex-column justify-content-around align-items-center'>
       <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
         <InputBuscar
           option={[
@@ -62,14 +63,13 @@ function Enriquec(props) {
           botao={<Botao classesBotao='btn btn-info' forHtml='inputId' textoBotao='Carregar' typeBotao='submit' click={props.clickBotao} />}
         />
       </div>
-      <Info />
     </div >
   )
 }
 
 function Enriquec2(props) {
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+    <div className="d-flex enriquecer flex-column justify-content-center align-items-center pt-3 enriquecer-page">
       <BarraProgresso ValorMaxino='4' valorAtual='1' width='25%' NumeroProgresso='25%'/>
       <table class="table table-hover mt-5 rounded">
         <thead class="thead-dark rounded-top ">
@@ -321,7 +321,7 @@ function Enriquec2(props) {
 
 function Enriquec4(props) {
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+    <div className="d-flex enriquecer flex-column justify-content-center align-items-center pt-3 enriquecer-page">
       <BarraProgresso ValorMaxino='4' valorAtual='3' width='75%' NumeroProgresso='75%'/>
       <div className='bg-light w-100 mt-3'>
         <div className="accordion" id="accordionExample">
@@ -399,7 +399,7 @@ function Enriquec4(props) {
 
 function Enriquec5(props) {
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+    <div className="d-flex enriquecer flex-column justify-content-center align-items-center pt-3 enriquecer-page">
       <BarraProgresso ValorMaxino='4' valorAtual='4' width='100%' NumeroProgresso='100%'/>
       <div className='mt-3'>
         <h4>Concluido com Sucesso!</h4>

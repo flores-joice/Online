@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import logo from '../assets/logo.png';
-import './pages.css';
+import Load from '../assets/circleLoading.gif'
+import './pages.scss';
 import history from '../infra/history'
 import { api } from '../infra/api-config';
-import { Redirect } from "react-router-dom";
+
 
 export default class Login extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ export default class Login extends Component {
       msg: '',
       resposta: '',
       usuarioLogado: false,
-      disabled: true
+      disabled: true,
+      loading : false
     }
     this.email = React.createRef()
     this.senha = React.createRef()
@@ -30,6 +32,7 @@ export default class Login extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
+    this.setState({loading: true})
     const response = await api.post('', {
       email: this.email.value,
       senha: this.senha.value,
@@ -47,9 +50,10 @@ export default class Login extends Component {
 
       //muda o estado de usuarioLocado
       if (autenticacao === true) {
-        this.setState({ usuarioLogado: true })
+        this.setState({ usuarioLogado: true , loading: false})
         history.push('/app')
       } else {
+        this.setState({loading: false})
         localStorage.clear();
         //retorno de mensagem de erro
         const mensagem = chaveToken.message;
@@ -116,6 +120,7 @@ export default class Login extends Component {
     }
   }
   render() {
+    const { loading } = this.state
     return (
       <div className='background d-flex justify-content-center align-items-center' onChange={this.trazerTelaPrincipal.bind(this)}>
         <div className='login-filtro d-flex justify-content-center align-items-center flex-column'>
@@ -125,7 +130,7 @@ export default class Login extends Component {
             <input type='email' className='form-control shadow ' onChange={this.disabledButton} ref={(input) => this.email = input} autoFocus/>
             <input type='password' className='form-control my-3 shadow' onChange={this.disabledButton} ref={(input) => this.senha = input} />
             <a href='/' className='text-light' >Esqueci minha senha</a>
-            <input type='submit' disabled={this.state.disabled} className='btn btn-info w-75 mt-3 shadow' />
+            <button type='submit' disabled={this.state.disabled} className='btn btn-info w-75 mt-3 shadow' > {!loading ? 'Login' : <img src={Load} className='load'/> } </button>
           </form>
         </div>
       </div>

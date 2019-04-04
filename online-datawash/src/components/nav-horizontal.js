@@ -12,9 +12,9 @@ class NavHorizontal extends Component {
     }
   }
   componentWillMount() {
-    const user = localStorage.getItem('auth-user', user);
-    const usuario = JSON.parse(user)
-    this.setState({ emailLogado: usuario.email })
+    // const user = localStorage.getItem('auth-user', user);
+    // const usuario = JSON.parse(user)
+    // this.setState({ emailLogado: usuario.email })
     var timer = setTimeout(this.logout, 600000)
     
     

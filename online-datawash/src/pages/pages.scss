@@ -66,7 +66,7 @@
     color:#138496;
 }
 .view_navVertical__render{
-    width: 86vw;
+    width: 87vw;
     /* margin-left: 13vw; */
 }
 .relatorio-page__filter{
@@ -83,4 +83,26 @@
 .relatorio-page__button{
     display: flex;
     justify-content: flex-end
+}
+
+.enriquecer{
+    height: 80vh;
+}
+.load{
+    width: 1.5rem;
+}
+.input-consulta{
+    border-radius: 0;
+}
+.button-border{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 36px;
+}
+.mailing-div{
+    height: 
+    20vh;
+}
+.mailing-div button{
+    height:10vh
 }

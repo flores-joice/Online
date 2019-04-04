@@ -15,8 +15,6 @@
         height: 60vh;
     }
 }
-
-
 .title_form {
     background-color: #485470;
     padding: 1% 5%;
@@ -27,84 +25,65 @@
 }
 .consulta {
     background-color: #202739;
-    .consulta-body {
-        width: 80vw;
-        min-height: 100%;
-    }
-    
-    .consulta-container {
-        width: 85vw;
-        min-height: 80vh;
-    }
 }
-
-
+.consulta-body {
+    width: 80vw;
+    min-height: 100%;
+}
+.consulta-container {
+    width: 85vw;
+    min-height: 80vh;
+}
 .btn-green {
     background-color: rgb(192, 248, 192)
 }
-// .relatorio {
-//     min-height: 100vh;
-//     width: 100vw;
-  
-// }
-
-
-
 .planilha {
     background-color: rgb(255, 255, 255)
-
 }
-.bg-planilha {
-    background-color: #a0a09f34;
-    border: 1px solid #c4c2c234
-}
-
-.inputPersonalizado {
-    content: "Buscar Arquivo"
-}
-
+// .bg-planilha {
+//     background-color: #a0a09f34;
+//     border: 1px solid #c4c2c234
+// }
+// .inputPersonalizado {
+//     content: "Buscar Arquivo"
+// }
 .enriquecer-page {
     width: 68vw;
 }
-
 .enriquecer-progresso {
     width: 30vw;
 }
-
 .enriquecer-info li {
-    list-style: none
+    list-style: none;
 }
-
 .enriquecer-info__list {
     font-size: 14px
+}
+.sombra{
+    box-shadow: -5px 5px 10px rgba(50, 50, 50, 0.507);
+
 }
 .view-navVertical__tooltips{
     width: 10vw;
 }
-
-.panel {
-    height: 50vh;
+.panel{
+    padding: 0;
 }
 
 .panel-div{
     height: 15vh;
     padding: 0;
-    box-shadow: 3px 3px 10px #2a314179
+    margin: 0;
+    box-shadow: 3px 3px 10px #2a314179;
 }
-
 .panel-div__second{
-    width: 20vw;
     height: 30vh;
     padding: 0;
-    box-shadow: 3px 3px 10px #2a314179
+    box-shadow: 3px 3px 10px #2a314179;
+    height: 50vh;
 }
-
-.panel-div__second--first {
-    height: 48vh;
-}
-
 .panel-text{
-    width: 17vw;
+    width: 12vw;
 }
 .panel-text img{
     width: 15vw;
@@ -119,20 +98,51 @@
 }
 .canvas {
     width: 40vw;
-    height: 30vh;
+    height: auto;
 }
-.canvas2 {
-    width: 20vw;
-    height: 18vh;
+
+.spinner img{
+    height: 15vh;
+
 }
-.spiner {
-    width: 80vw;
+.dica {
+    top: 2rem;
 }
-.spinner div {
-    background-image: url('../assets/teste.gif');
-    background-size: 40%;
-    background-repeat: no-repeat;
-    height: 20vh;
-    width: 20vw;
-    align-items: center
+.dica:hover .dica-texto{
+    visibility: visible;
+}
+.dica-img {
+    width: 2vw;
+    height: 4vh;
+}
+.dica-texto{
+    z-index: 999;
+    visibility: hidden;
+    width: 25vw; 
+    right: 3rem;
+    top: 10%
+}
+.loadButton{
+    width: 1.5vw;
+}
+.input-select{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.mailing-div__local{
+    height: 12vh;
+}
+.bg-salmon{
+    background-color: rgb(253, 227, 166)
+}
+
+.box-select{
+    height: 16vh;
+}
+
+// .dashboard {
+//     height: 90vh;
+// }
+.dashboard-grafic{
+    height: 40vh;
 }
