@@ -17,14 +17,14 @@ export class Grafico1 extends Component {
             label: 'Consulta  ',
             data: [60, 52, 63, 68, 55, 43, 45, 54, 60, 38, 46, 22, 44, 14, ],
             backgroundColor: [
-              'rgba(78, 143, 218, 0.5)'
+              'rgba(45, 157, 196, 0.5)'
             ]
           },
           {
             label: 'Web Service  ',
             data: [50, 92, 73, 68, 55, 93, 55, 64, 80, 78, 96, 102, 84, 64, ],
             backgroundColor: [
-              'rgba(255, 149, 182, 1)'
+              'rgba(81, 200, 240, 0.5)'
             ]
           }
         ]

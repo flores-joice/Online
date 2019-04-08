@@ -38,6 +38,7 @@ export default class Enriquecer extends Component {
 
     return (
       <div className='d-flex w-100 flex-column justify-content-end align-items-end'>
+        <p className='dashboard-title h4 text-info'>Enriquecimento</p>
         <Tooltip>
           <div id='enriquecerInfo' className='enriquecer-info p-3 list-group' data-toggle="tooltip" title='Ponto de partida'>
             <div>
@@ -61,7 +62,7 @@ export default class Enriquecer extends Component {
               <li className='text-info'>Arquivos com mesmo nome de arquivos já carregados se sobrepõe aos mesmos</li>
             </ul>
           </div>
-          </Tooltip>
+        </Tooltip>
 
         {/* THIS.STATE.VIEW --->> recebe p valor que foi enviado ao state no momento do click dos botões */}
         {this.state.view}
@@ -72,8 +73,8 @@ export default class Enriquecer extends Component {
 
 function Enriquec(props) {
   return (
-    <div className='w-100 d-flex enriquecer justify-content-center'>
-      <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+    <div className='w-100 d-flex justify-content-center marginPage'>
+      <div className="d-flex flex-column justify-content-center align-items-center enriquecer-page">
         <InputBuscar
           option={[
             <Option key='layoutLivre' id='layoutLivre' fotHtml='layoutLivre' textoOption='Layout Livre' />,

@@ -6,6 +6,7 @@ import Enriquecer from './enriquecer'
 import AtribuicaoCpf from '../components/atribuicaoCpf'
 import ValidacaoHot from '../components/validacaoHot'
 import { RelatorioConsulta, RelatorioEnriquecimento, RelatorioMailing } from './relatorios'
+import Monitoracao from './monitoracao'
 import { GerenciamentoContas } from './gerencial'
 import MailingList from './mailingList'
 import { apiMenu } from '../infra/api-config';
@@ -204,13 +205,13 @@ export default class ViewNav  extends Component {
       this.setState({ renderView : <AtribuicaoCpf/>})
     }
     if(id === 'monitConsulta'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <Monitoracao/>})
     }
     if(id === 'monitEnriquec'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <Monitoracao/>})
     }
     if(id === 'monitWebService'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+      this.setState({ renderView : <Monitoracao/>})
     }
     if(id === 'relatConsulta'){
       this.setState({ renderView : <RelatorioConsulta/>})
@@ -243,13 +244,13 @@ export default class ViewNav  extends Component {
           <div className='view-navVertical__list'>
           
             {funcionalidades.includes("consulta") && (
-              <Link onClick={(e) => this.handleNav('consulta')} to='#consulta' className='list-group-item view-navVertical__bg d-flex justify-content-between w-100'>
+              <Link onClick={(e) => this.handleNav('consulta')} to='/app/consulta' className='list-group-item view-navVertical__bg d-flex justify-content-between w-100'>
                 <span className='text-light'>Consulta</span>
               </Link >
             )}
             {funcionalidades.includes("enriquecimento") && (
               <Link
-                to='#enriquecimento'
+                to='/app/enriquecimento'
                 className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle'
                 data-toggle="collapse"
                 data-target="#enriquecimento"
@@ -269,20 +270,20 @@ export default class ViewNav  extends Component {
                     <Link
                       onClick={(e) => this.handleNav('enriquecer')}
                       className="nav-link text-light"
-                      to='#enriquecimento'>Enriquecer</Link >
+                      to='/app/enriquecimento/enriquecer'>Enriquecer</Link >
                   </li>
-                  {funcionalidades.includes("atribuicaoCpf") && <li className="nav-item" id="listaEnriquecimento"><Link onClick={(e) => this.handleNav('atibuicaoCpf')} className="nav-link text-light" to='#atribuicaoCPF'>Atribuição de CPF</Link></li>}
-                  {funcionalidades.includes("validacaoHot") && <li className="nav-item" id="listaEnriquecimento"><Link onClick={(e) => this.handleNav('validacaoHot')} className="nav-link text-light" to='#validacaoHot'>Validação Hot</Link></li>}
+                  {funcionalidades.includes("atribuicaoCpf") && <li className="nav-item" id="listaEnriquecimento"><Link onClick={(e) => this.handleNav('atibuicaoCpf')} className="nav-link text-light" to='/app/enriquecimento/atribuicaoCPF'>Atribuição de CPF</Link></li>}
+                  {funcionalidades.includes("validacaoHot") && <li className="nav-item" id="listaEnriquecimento"><Link onClick={(e) => this.handleNav('validacaoHot')} className="nav-link text-light" to='/app/enriquecimento/validacaoHot'>Validação Hot</Link></li>}
                 </ul>
               </div>)}
             {funcionalidades.includes("higienizacao") && (
-              <Link onClick={(e) => this.handleNav('higienizacao')} to='#higienizacao' id='higienizacao' className='list-group-item view-navVertical__bg d-flex justify-content-between'>
+              <Link onClick={(e) => this.handleNav('higienizacao')} to='/app/higienizacao' id='higienizacao' className='list-group-item view-navVertical__bg d-flex justify-content-between'>
                 <span className='text-light '>Higienização</span>
               </Link >
             )}
             {funcionalidades.includes("gerencial") && (
               <Link
-                to='#gerencial'
+                to='/app/gerencial'
                 className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle'
                 data-toggle="collapse"
                 data-target="#gerencial"
@@ -295,49 +296,49 @@ export default class ViewNav  extends Component {
             {funcionalidades.includes("gerenciamentoContas") && (
               <div className="collapse navbar-collapse" id="gerencial">
                 <ul className="navbar-nav mr-auto pl-5" data-target="#listaGerencial">
-                  <li className="nav-item" id="listaGerencial"><Link onClick={(e) => this.handleNav('contas')} id='contas' className="nav-link text-light" to='#contas'>Contas</Link></li>
+                  <li className="nav-item" id="listaGerencial"><Link onClick={(e) => this.handleNav('contas')} id='contas' className="nav-link text-light" to='/app/gerencial/contas'>Contas</Link></li>
                   {
-                    funcionalidades.includes("personalizacao") && <li className="nav-item" id="listaGerencial"><Link onClick={(e) => this.handleNav('personalizacao')} id='personalizacao' className="nav-link text-light" to='#personalizacaoConta'>Personalização</Link></li>
+                    funcionalidades.includes("personalizacao") && <li className="nav-item" id="listaGerencial"><Link onClick={(e) => this.handleNav('personalizacao')} id='personalizacao' className="nav-link text-light" to='/app/gerencial/personalizacaoConta'>Personalização</Link></li>
                   }
-                  {funcionalidades.includes("extratoServicos") && <li className="nav-item" id="listaGerencial"><Link onClick={(e) => this.handleNav('extrtatoServicos')} id='extrtatoServicos' className="nav-link text-light" to='#extratoServico'>Extrato de serviços</Link></li>}
-                  {funcionalidades.includes("previaFechamento") && <li className="nav-item" id="listaGerencial"><Link onClick={(e) => this.handleNav('previaFechamento')} id='previaFechamento' className="nav-link text-light" to='#previaFechamento'>Prévia de fechamento</Link></li>}
+                  {funcionalidades.includes("extratoServicos") && <li className="nav-item" id="listaGerencial"><Link onClick={(e) => this.handleNav('extrtatoServicos')} id='extrtatoServicos' className="nav-link text-light" to='/app/gerencial/extratoServico'>Extrato de serviços</Link></li>}
+                  {funcionalidades.includes("previaFechamento") && <li className="nav-item" id="listaGerencial"><Link onClick={(e) => this.handleNav('previaFechamento')} id='previaFechamento' className="nav-link text-light" to='/app/gerencial/previaFechamento'>Prévia de fechamento</Link></li>}
                 </ul>
               </div>
             )}
             {funcionalidades.includes("monitoramento") && (
-              <Link to='#monitoramento' className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#monitoracao" aria-controls="monitoracao" aria-expanded="true" aria-label="Alterna navegação">
-                <span className='text-light'>Monitoramento</span>
+              <Link to='/app/monitoracao' className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#monitoracao" aria-controls="monitoracao" aria-expanded="true" aria-label="Alterna navegação">
+                <span className='text-light'>Monitoração</span>
               </Link >
             )}
             {funcionalidades.includes("monitConsulta") && (
               <div className="collapse" id="monitoracao">
                 <ul className="navbar-nav mr-auto pl-5" data-target="#monitoracao">
-                  <li className="nav-item" ><Link onClick={(e) => this.handleNav('monitConsulta')} id='monitConsulta' className="nav-link text-light" to='#'>Consulta</Link></li>
-                  {funcionalidades.includes("monitEnriquecimento") && <li className="nav-item" id="monitoracao"><Link onClick={(e) => this.handleNav('monitEnriquec')} id='monitEnriquec' className="nav-link text-light" to='#monitEnriquecimento'>Enriquecimento</Link></li>}
-                  {funcionalidades.includes("monitWebService") && <li className="nav-item" id="monitoracao"><Link onClick={(e) => this.handleNav('monitWebService')} id='monitWebService' className="nav-link text-light" to='#monitWebService'>Web Service</Link ></li>}
+                  <li className="nav-item" ><Link onClick={(e) => this.handleNav('monitConsulta')} id='monitConsulta' className="nav-link text-light" to='/app/monitoracao/consulta'>Consulta</Link></li>
+                  {funcionalidades.includes("monitEnriquecimento") && <li className="nav-item" id="monitoracao"><Link onClick={(e) => this.handleNav('monitEnriquec')} id='monitEnriquec' className="nav-link text-light" to='/app/monitoracao/enriquecimento'>Enriquecimento</Link></li>}
+                  {funcionalidades.includes("monitWebService") && <li className="nav-item" id="monitoracao"><Link onClick={(e) => this.handleNav('monitWebService')} id='monitWebService' className="nav-link text-light" to='/app/monitoracao/WebService'>Web Service</Link ></li>}
                 </ul>
               </div>
             )}
 
             {funcionalidades.includes("relatorio") && (
-              <Link to='#relatorio' className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado5" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+              <Link to='/app/relatorio' className='list-group-item view-navVertical__bg d-flex justify-content-between align-items-center dropdown-toggle' data-toggle="collapse" data-target="#conteudoNavbarSuportado5" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                 <span className='text-light'>Relatório</span>
               </Link >
             )}
             {funcionalidades.includes("relatConsulta") && (
               <div className="collapse navbar-collapse" id="conteudoNavbarSuportado5">
                 <ul className="navbar-nav mr-auto pl-5" data-toggle="#listRelatorio">
-                  <li className="nav-item"><Link onClick={(e) => this.handleNav('relatConsulta')} id='relatConsulta' className="nav-link text-light" to='#relatConsulta'>Consulta</Link></li>
-                  {funcionalidades.includes("relatEnriquecimento") && <li className="nav-item" id="listRelatorio"><Link onClick={(e) => this.handleNav('relatEnriq')} id='relatEnriq' className="nav-link text-light" to='#relatEnriquecimento'>Enriquecimento</Link></li>}
-                  {funcionalidades.includes("relatMailingList") && <li className="nav-item" id="listRelatorio"><Link onClick={(e) => this.handleNav('relatMailingList')} id='relatMailingList' className="nav-link text-light" to='#relatMailinglist'>Mailing list</Link></li>}
-                  {funcionalidades.includes("relatHigienizacao") && <li className="nav-item" id="listRelatorio"><Link onClick={(e) => this.handleNav('relatHigienizacao')} id='relatHigienizacao' className="nav-link text-light" to='#realtHigienizacao'>Higienização</Link></li>}
-                  {funcionalidades.includes("relatWebService") && <li className="nav-item" id="listRelatorio"><Link onClick={(e) => this.handleNav('relatWebService')} id='relatWebService' className="nav-link text-light" to='#relatWebService'>Web Service</Link></li>}
+                  <li className="nav-item"><Link onClick={(e) => this.handleNav('relatConsulta')} id='relatConsulta' className="nav-link text-light" to='/app/relatorio/consulta'>Consulta</Link></li>
+                  {funcionalidades.includes("relatEnriquecimento") && <li className="nav-item" id="listRelatorio"><Link onClick={(e) => this.handleNav('relatEnriq')} id='relatEnriq' className="nav-link text-light" to='/app/relatorio/enriquecimento'>Enriquecimento</Link></li>}
+                  {funcionalidades.includes("relatMailingList") && <li className="nav-item" id="listRelatorio"><Link onClick={(e) => this.handleNav('relatMailingList')} id='relatMailingList' className="nav-link text-light" to='/app/relatorio/mailinglist'>Mailing list</Link></li>}
+                  {funcionalidades.includes("relatHigienizacao") && <li className="nav-item" id="listRelatorio"><Link onClick={(e) => this.handleNav('relatHigienizacao')} id='relatHigienizacao' className="nav-link text-light" to='/app/relatorio/higienizacao'>Higienização</Link></li>}
+                  {funcionalidades.includes("relatWebService") && <li className="nav-item" id="listRelatorio"><Link onClick={(e) => this.handleNav('relatWebService')} id='relatWebService' className="nav-link text-light" to='/app/relatorio/webService'>Web Service</Link></li>}
                 </ul>
               </div>
             )}
 
             {funcionalidades.includes("mailingList") && (
-              <Link onClick={(e) => this.handleNav('mailingList')} id='mailingList' to='#mailingList' className='list-group-item view-navVertical__bg d-flex justify-content-between'>
+              <Link onClick={(e) => this.handleNav('mailingList')} id='mailingList' to='/app/mailingList' className='list-group-item view-navVertical__bg d-flex justify-content-between'>
                 <span className='text-light '>Mailing List</span>
               </Link >
             )}

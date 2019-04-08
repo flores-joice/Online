@@ -13,9 +13,8 @@ class ViewConsulta extends Component {
     super(props);
     this.state = {
       lista: [],
-      loading: false
-
-      // user: ""
+      loading: false,
+      user: ''
     };
   }
   // pega o valor digitado no input
@@ -52,7 +51,8 @@ class ViewConsulta extends Component {
   render(props) {
     const {lista, loading} = this.state
     return (
-      <div className="d-flex flex-column justify-content-center align-items-center pt-3 w-75">
+      <div className="d-flex flex-column justify-content-center align-items-center pt-3 w-75 marginPage">
+        <p className='dashboard-title h4 text-info'>Consulta</p>
         <InputBuscar
           option={[
             <Option key='cpf' fotHtml='cpf' textoOption='CPF' />,

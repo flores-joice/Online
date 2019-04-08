@@ -179,13 +179,13 @@ function Faturamento(props) {
                 <hr />
                 <div className='d-flex justify-content-center'>
                     <div className='d-flex justify-content-around'>
-                        <div class="input-group mb-3 col">
+                        <div class="input-group col">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">De</span>
                             </div>
                             <input type="number" class="form-control" value="0" />
                         </div>
-                        <div class="input-group mb-3 ml-1 col">
+                        <div class="input-group ml-1 col">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Até</span>
                             </div>
@@ -228,13 +228,13 @@ function Funcionarios(props) {
                 <hr />
                 <div className='d-flex justify-content-center'>
                     <div className='d-flex justify-content-around'>
-                        <div class="input-group mb-3 col">
+                        <div class="input-group col">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">De</span>
                             </div>
                             <input type="number" class="form-control" value="0" />
                         </div>
-                        <div class="input-group mb-3 ml-1 col">
+                        <div class="input-group ml-1 col">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Até</span>
                             </div>
@@ -309,13 +309,13 @@ function IdadeEmpresa(props) {
                 <hr />
                 <div className='d-flex justify-content-center'>
                     <div className='d-flex justify-content-around'>
-                        <div class="input-group mb-3 col">
+                        <div class="input-group col">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">De</span>
                             </div>
                             <input type="number" class="form-control" value="0" />
                         </div>
-                        <div class="input-group mb-3 ml-1 col">
+                        <div class="input-group ml-1 col">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Até</span>
                             </div>

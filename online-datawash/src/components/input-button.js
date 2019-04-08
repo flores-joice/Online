@@ -17,7 +17,7 @@ export default function InputBuscar(props) {
           id={props.idInput}
           value={props.value}
           type={props.typeInput}
-          className={`input-consulta ${props.classeInput}`}
+          className={`input-consulta bg-white ${props.classeInput}`}
           placeholder='Insira o valor para busca'
           onChange={props.onFunction}
           name='inputValue' autoFocus/>

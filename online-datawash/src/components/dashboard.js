@@ -34,10 +34,10 @@ export class DashBoard extends Component {
 }
 
 const ViewDashboard = () => (
-    <div className='dashboard'>
-        <p className='col-12 h6'>DashBoard</p>
-        <div className='d-flex w-100 panel col-12'>
-            <div className='col bg-white m-2 panel-div rounded d-flex justify-content-center align-items-center p-3'>
+    <div className='dashboard d-flex container flex-wrap justify-content-center'>
+        <p className='dashboard-title h4 text-info'>DashBoard</p>
+        <div className='d-flex w-100 panel col-12 my-3'>
+            <div className='col bg-white m-2 panel-div rounded d-flex justify-content-around align-items-center p-3'>
                 <div className=' bg-panel bg-info rounded-circle d-flex justify-content-center align-items-center '>
                     <img src={lupa} />
                 </div>
@@ -46,7 +46,7 @@ const ViewDashboard = () => (
                     <p className='m-0'><b>246.311</b></p>
                 </div>
             </div>
-            <div className='col bg-white m-2 panel-div rounded d-flex justify-content-center align-items-center p-3'>
+            <div className='col bg-white m-2 panel-div rounded d-flex justify-content-around align-items-center p-3'>
                 <div className=' bg-panel bg-info rounded-circle d-flex justify-content-center align-items-center'>
                     <img src={mailing} />
                 </div>
@@ -55,7 +55,7 @@ const ViewDashboard = () => (
                     <p className='m-0'><b>174.216</b></p>
                 </div>
             </div>
-            <div className='col bg-white m-2 panel-div rounded d-flex justify-content-center align-items-center p-3'>
+            <div className='col bg-white m-2 panel-div rounded d-flex justify-content-around align-items-center p-3'>
                 <div className=' bg-panel bg-info rounded-circle d-flex justify-content-center align-items-center'>
                     <img src={user} />
                 </div>
@@ -64,7 +64,7 @@ const ViewDashboard = () => (
                     <p className='m-0'><b>1.066</b></p>
                 </div>
             </div>
-            <div className='col bg-white m-2 panel-div rounded d-flex justify-content-center align-items-center p-3'>
+            <div className='col bg-white m-2 panel-div rounded d-flex justify-content-around align-items-center p-3'>
                 <div className=' bg-panel bg-info rounded-circle d-flex justify-content-center align-items-center '>
                     <img src={sms} />
                 </div>
@@ -74,10 +74,10 @@ const ViewDashboard = () => (
                 </div>
             </div>
         </div>
-        <div className='w-100 col-12 panel'>
+        <div className='w-100 col-12 m-2 '>
             <div className='d-flex justify-content-center  align-items-center'>
                 <div className='w-100 bg-white panel-div__second flex-wrap d-flex justify-content-center align-items-center p-3 rounded'>
-                    <p className='h5 m-0 text-info w-100'>Consulta</p>
+                    <p className='h5 m-0 text-info w-100'>Monitoração</p>
 
                     <div className='d-flex w-100 flex-column justify-content-center align-items-center p-2 dashboard-grafic'>
                         <Grafico1 />

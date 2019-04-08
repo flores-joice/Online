@@ -27,7 +27,8 @@ export default class MailingList extends Component {
 
   render() {
     return (
-      <div className='d-flex w-100 flex-column justify-content-end align-items-end'>
+      <div className='d-flex w-100 flex-column justify-content-end align-items-end marginPage'>
+      <p className='dashboard-title h4 text-info'>MailingList</p>
         <Tooltip>
           <div className='enriquecer-info p-3 list-group'>
             <h5>Ponto de partida</h5>
@@ -47,12 +48,12 @@ export default class MailingList extends Component {
 
 function TipoPessoa(props) {
   return (
-    <div className='py-3 w-100 enriquecer d-flex flex-column justify-content-center align-items-center'>
-      <div className='w-75 bg-light p-5 rounded shadow'>
+    <div className='w-100 d-flex flex-column justify-content-center align-items-center'>
+      <div className='w-50 bg-light p-3 rounded shadow'>
         <p>Que tipo de Pessoa quer filtrar?</p>
-        <div className='d-flex justify-content-around align-items-center border-top pt-4 mailing-div'>
-          <button className='btn border-info w-25' onClick={props.clickPFisica}>Pessoa Física</button>
-          <button className='btn border-info w-25' onClick={props.clickPJuridica}>Pessoa Jurídica</button>
+        <div className='d-flex justify-content-around align-items-center border-top pt-2 mailing-div'>
+          <button className='btn bg-info text-light' onClick={props.clickPFisica}>Pessoa Física</button>
+          <button className='btn bg-info text-light' onClick={props.clickPJuridica}>Pessoa Jurídica</button>
         </div>
       </div>
     </div>

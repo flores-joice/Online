@@ -47,9 +47,9 @@
 // .inputPersonalizado {
 //     content: "Buscar Arquivo"
 // }
-.enriquecer-page {
-    width: 68vw;
-}
+// .enriquecer-page {
+//     width: 68vw;
+// }
 .enriquecer-progresso {
     width: 30vw;
 }
@@ -67,7 +67,8 @@
     width: 10vw;
 }
 .panel{
-    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .panel-div{
@@ -81,9 +82,6 @@
     padding: 0;
     box-shadow: 3px 3px 10px #2a314179;
     height: 50vh;
-}
-.panel-text{
-    width: 12vw;
 }
 .panel-text img{
     width: 15vw;
@@ -140,9 +138,13 @@
     height: 16vh;
 }
 
-// .dashboard {
-//     height: 90vh;
-// }
+.dashboard-title{
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.253);
+    z-index: 1;
+    top: 6rem;
+    left: 17rem;
+    position: absolute;
+}
 .dashboard-grafic{
     height: 40vh;
 }

@@ -15,89 +15,92 @@ export class RelatorioConsulta extends Component {
   }
   render() {
     return (
-      <FiltroRelatorio
-        children={
-          <div>
-            <div className='d-flex align-items-center pb-3 border-bottom'>
-              <div className='col-2'>
-                <h5>Defina o período:</h5>
-              </div>
-              <div class="input-group col">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">De:</span>
+      <div className='marginPage w-100'>
+        <FiltroRelatorio
+          children={
+            <div>
+              <div className='d-flex align-items-center pb-3 border-bottom'>
+                <div className='col-2'>
+                  <h5>Defina o período:</h5>
                 </div>
-                <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-              </div>
-              <div class="input-group col">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">De:</span>
-                </div>
-                <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-              </div>
-            </div>
-            <div className='d-flex align-items-center py-3 border-bottom'>
-              <div className='col-2'>
-                <h5 className=''>Tipo de relatório:</h5>
-              </div>
-              <div class="input-group col">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="radio" value='analitico' />
+                <div class="input-group col">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">De:</span>
                   </div>
+                  <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>
-                <span class="form-control">Analítico</span>
-              </div>
-              <div class="input-group col">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="radio" value='sintetico' />
+                <div class="input-group col">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Até:</span>
                   </div>
+                  <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>
-                <span class="form-control">Sintético</span>
               </div>
-              <div class="input-group col">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="radio" value='total' />
+              <div className='d-flex align-items-center py-3 border-bottom'>
+                <div className='col-2'>
+                  <h5 className=''>Tipo de relatório:</h5>
+                </div>
+                <div class="input-group col">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <input type="radio" value='analitico' />
+                    </div>
                   </div>
+                  <span class="form-control">Analítico</span>
                 </div>
-                <span class="form-control">Total</span>
+                <div class="input-group col">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <input type="radio" value='sintetico' />
+                    </div>
+                  </div>
+                  <span class="form-control">Sintético</span>
+                </div>
+                <div class="input-group col">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <input type="radio" value='total' />
+                    </div>
+                  </div>
+                  <span class="form-control">Total</span>
+                </div>
+              </div>
+              <div className='d-flex align-items-center py-3 border-bottom'>
+                <div className='col-2'>
+                  <h5 className=''>Cliente:</h5>
+                </div>
+                <div class="input-group col">
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Escolha o cliente</option>
+                    <option value="1">Sistema</option>
+                    <option value="2">PGA</option>
+                    <option value="3">InfoQualy</option>
+                  </select>
+                </div>
+              </div>
+              <div className='d-flex align-items-center py-3 border-bottom'>
+                <div className='col-2'>
+                  <h5 className=''>Usuário:</h5>
+                </div>
+                <div class="input-group col">
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Escolha o usuário</option>
+                    <option value="1">Alan</option>
+                    <option value="2">Alex</option>
+                    <option value="3">Douglas</option>
+                    <option value="4">Emerson</option>
+                    <option value="5">Joice</option>
+                    <option value="6">Natália</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div className='d-flex align-items-center py-3 border-bottom'>
-              <div className='col-2'>
-                <h5 className=''>Cliente:</h5>
-              </div>
-              <div class="input-group col">
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>Escolha o cliente</option>
-                  <option value="1">Sistema</option>
-                  <option value="2">PGA</option>
-                  <option value="3">InfoQualy</option>
-                </select>
-              </div>
-            </div>
-            <div className='d-flex align-items-center py-3 border-bottom'>
-              <div className='col-2'>
-                <h5 className=''>Usuário:</h5>
-              </div>
-              <div class="input-group col">
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>Escolha o usuário</option>
-                  <option value="1">Alan</option>
-                  <option value="2">Alex</option>
-                  <option value="3">Douglas</option>
-                  <option value="4">Emerson</option>
-                  <option value="5">Joice</option>
-                  <option value="6">Natália</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        }
-        click={this.handleClick}
-        renderRelatorio={this.state.renderRelatorio}
-      />
+          }
+          click={this.handleClick}
+          renderRelatorio={this.state.renderRelatorio}
+        />
+      </div>
+
     )
   }
 }
@@ -172,6 +175,7 @@ function RelatorioTable() {
 function FiltroRelatorio(props) {
   return (
     <div className='h-100 relatorio-page pt-4 container'>
+      <p className='dashboard-title h4 text-info'>Relatório</p>
       <div className='w-100  relatorio-page p-3'>
         <div className='w-100 d-flex bg-light justify-content-end container rounded border p-2'>
           <button className="btn d-flex justify-content-center align-items-center border-info rounded relatorio-page__filter " data-toggle="collapse" href="#collapseExample" aria-expanded='false' aria-controls="collapseExample">
@@ -208,6 +212,7 @@ export class RelatorioEnriquecimento extends Component {
   }
   render() {
     return (
+      <div className='marginPage w-100'>
       <FiltroRelatorio
         children={
           <div>
@@ -309,6 +314,7 @@ export class RelatorioEnriquecimento extends Component {
         click={this.handleClick}
         renderRelatorio={this.state.renderRelatorio}
       />
+      </div>
     )
   }
 }
@@ -327,6 +333,7 @@ export class RelatorioMailing extends Component {
   }
   render() {
     return (
+      <div className='marginPage w-100'>
       <FiltroRelatorio
         children={
           <div>
@@ -376,6 +383,7 @@ export class RelatorioMailing extends Component {
         click={this.handleClick}
         renderRelatorio={this.state.renderRelatorio}
       />
+      </div>
     )
   }
 }

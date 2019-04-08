@@ -10,32 +10,32 @@ export default class MailingListPessFisica extends Component {
     }
   }
   handleRender(id) {
+    if(id == 'localizacao') {
+      this.setState({ view: <Localizacao avancar={(e) => this.handleRender('renda')} cancelar={(e) => this.handleRender('mailling')} />})
+    }
     if (id == 'renda') {
-      this.setState({ view: <Renda clickNext={(e) => this.handleRender('idade')} clickCancel={(e) => this.handleRender('mailling')} /> })
+      this.setState({ view: <Renda clickPrevious={(e) => this.handleRender('localizacao')} clickNext={(e) => this.handleRender('idade')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
     if (id == 'idade') {
-      this.setState({ view: <Idade clickNext={(e) => this.handleRender('profissao')} clickCancel={(e) => this.handleRender('mailling')} /> })
+      this.setState({ view: <Idade clickPrevious={(e) => this.handleRender('renda')} clickNext={(e) => this.handleRender('profissao')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
     if (id == 'profissao') {
-      this.setState({ view: <Profissao clickNext={(e) => this.handleRender('sexo')} clickCancel={(e) => this.handleRender('mailling')} /> })
+      this.setState({ view: <Profissao clickPrevious={(e) => this.handleRender('idade')} clickNext={(e) => this.handleRender('sexo')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
     if (id == 'sexo') {
-      this.setState({ view: <Sexo clickNext={(e) => this.handleRender('escolaridade')} clickCancel={(e) => this.handleRender('mailling')} /> })
+      this.setState({ view: <Sexo clickPrevious={(e) => this.handleRender('profissao')} clickNext={(e) => this.handleRender('escolaridade')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
     if (id == 'escolaridade') {
-      this.setState({ view: <Escolaridade clickNext={(e) => this.handleRender('exclusoes')} clickCancel={(e) => this.handleRender('mailling')} /> })
-    }
-    if (id == 'localizacao') {
-      this.setState({ view: <Localizacao avançar={(e) => this.handleRender('localizacao')} cancelar={(e) => this.handleRender('mailling')} /> })
+      this.setState({ view: <Escolaridade clickPrevious={(e) => this.handleRender('sexo')} clickNext={(e) => this.handleRender('exclusoes')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
     if (id == 'exclusoes') {
-      this.setState({ view: <Exclusoes clickNext={(e) => this.handleRender('resumo')} clickCancel={(e) => this.handleRender('mailling')} /> })
+      this.setState({ view: <Exclusoes clickPrevious={(e) => this.handleRender('escolaridade')} clickNext={(e) => this.handleRender('resumo')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
     if (id == 'resumo') {
-      this.setState({ view: <Resumo clickNext={(e) => this.handleRender('conclusao')} clickCancel={(e) => this.handleRender('mailling')} /> })
+      this.setState({ view: <Resumo clickPrevious={(e) => this.handleRender('exclusoes')} clickNext={(e) => this.handleRender('conclusao')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
     if (id == 'conclusao') {
-      this.setState({ view: <Conclusao clickFim={(e) => this.handleRender('conclusao')} clickCancel={(e) => this.handleRender('mailling')} /> })
+      this.setState({ view: <Conclusao clickPrevious={(e) => this.handleRender('resumo')} clickFim={(e) => this.handleRender('mailling')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
     if (id == 'mailling') {
       this.setState({ view: <MailingList /> })
@@ -79,7 +79,7 @@ export class Localizacao extends Component {
   render(props) {
     return (
       <div className='py-3 w-100 local d-flex flex-column justify-content-center align-items-center'>
-        <div className='w-75 bg-light p-5 loca-div shadow rounded'>
+        <div className='w-75 bg-light p-3 loca-div shadow rounded'>
           <p>Quer filtrar por:</p>
           <div className='d-flex justify-content-around  border-top pt-4 mailing-div__local mb-4'>
             <button className='btn border-info col mx-1' onClick={(e) => this.handleView('cidade')}>Cidade</button>
@@ -90,9 +90,9 @@ export class Localizacao extends Component {
           </div>
           {this.state.renderView}
           <div className='d-flex justify-content-end pt-3'>
-            <span className='mr-5'>Localização Obrigatória *</span>
-            <button className='btn btn-info' onClick={this.props.avancar}>Avançar</button>
-            <button className='btn btn-danger ml-2' onClick={this.props.cancelar}>Cancelar</button>
+            <span className=''>Localização Obrigatória *</span>
+            <button className='btn btn-info mx-2' onClick={this.props.avancar}>Avançar</button>
+            <button className='btn btn-danger' onClick={this.props.cancelar}>Cancelar</button>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@ function Cidade(props) {
     <div className='w-100 border p-4 rounded'>
       <div className='w-100 d-flex align-items-center'>
         <div className='col-5 p-0'>
-          <div className="input-group mb-3 ">
+          <div className="input-group mb-3">
             <div className="input-group-prepend">
               <label className="input-group-text" for="inputGroupSelect01">Estado</label>
             </div>
@@ -117,7 +117,7 @@ function Cidade(props) {
               <option value='Paraná'>Paraná</option>
             </select>
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group">
             <div className="input-group-prepend">
               <label className="input-group-text" for="inputGroupSelect01">Cidade</label>
             </div>
@@ -167,7 +167,7 @@ function Estado(props) {
     <div className='w-100 border p-4 rounded'>
       <div className='w-100 d-flex align-items-center'>
         <div className='col-5 p-0'>
-          <div className="input-group mb-3 ">
+          <div className="input-group ">
             <div className="input-group-prepend">
               <label className="input-group-text" for="inputGroupSelect01">Estado</label>
             </div>
@@ -262,7 +262,7 @@ function DDD(props) {
     <div className='w-100 border p-4 rounded'>
       <div className='w-100 d-flex align-items-center'>
         <div className='col-5 p-0'>
-          <div class="input-group mb-3 ">
+          <div class="input-group ">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">DDD</label>
             </div>
@@ -325,7 +325,7 @@ function CEP(props) {
       </div>
       <div className='d-flex flex-wrap mt-4 border-top py-2'>
         <p className='col-12 h6'>Digite o CEP para pesquisar</p>
-        <div class="input-group mb-3">
+        <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">CEP</span>
           </div>
@@ -339,7 +339,7 @@ function CEP(props) {
 function Renda(props) {
   return (
     <div className='py-3 w-100 local d-flex flex-column justify-content-center align-items-center'>
-      <div className='w-75 bg-light p-5 loca-div shadow rounded'>
+      <div className='w-75 bg-light p-3 loca-div shadow rounded'>
         <p className='col-12 h6'>Origem da renda</p>
         <hr />
         <div className='d-flex py-2'>
@@ -362,7 +362,7 @@ function Renda(props) {
         </div>
         <hr />
         <div className='d-flex'>
-          <div class="input-group mb-3">
+          <div class="input-group px-3">
             <div class="input-group-prepend">
               <div class="input-group-text">
                 <input type="checkbox" name="renda" aria-label="Botão checkbox para usar faixa de renda" />
@@ -371,13 +371,13 @@ function Renda(props) {
             <p class="form-control">Usar Faixa de Renda</p>
           </div>
           <div className='d-flex col-5 justify-content-around'>
-            <div class="input-group mb-3">
+            <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">De</span>
               </div>
               <input type="number" class="form-control" value="500" />
             </div>
-            <div class="input-group mb-3 ml-1">
+            <div class="input-group ml-1">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Até</span>
               </div>
@@ -387,9 +387,9 @@ function Renda(props) {
           </div>
         </div>
         <div className='d-flex justify-content-end pt-3'>
-          <span className='mr-5'>Localização Obrigatória *</span>
-          <button className='btn btn-info' onClick={props.clickNext}>Avançar</button>
-          <button className='btn btn-danger ml-2' onClick={props.clickCancel}>Cancelar</button>
+        <button className='btn btn-info' onClick={props.clickPrevious}>Voltar</button>
+          <button className='btn btn-info mx-2' onClick={props.clickNext}>Avançar</button>
+          <button className='btn btn-danger' onClick={props.clickCancel}>Cancelar</button>
         </div>
       </div>
     </div>
@@ -398,7 +398,7 @@ function Renda(props) {
 function Idade(props) {
   return (
     <div className='py-3 w-100 local d-flex flex-column justify-content-center align-items-center'>
-      <div className='w-75 bg-light p-5 loca-div shadow rounded'>
+      <div className='w-75 bg-light p-3 loca-div shadow rounded'>
         <p className='col-12 h6'>Idade</p>
         <hr />
         <div className='d-flex py-2'>
@@ -422,13 +422,13 @@ function Idade(props) {
         <hr />
         <div className='d-flex justify-content-center'>
           <div className='d-flex justify-content-around'>
-            <div class="input-group mb-3 col">
+            <div class="input-group col">
               <div class="input-group-prepend">
                 <span class="input-group-text">De</span>
               </div>
               <input type="number" class="form-control" value="18" />
             </div>
-            <div class="input-group mb-3 ml-1 col">
+            <div class="input-group ml-1 col">
               <div class="input-group-prepend">
                 <span class="input-group-text">Até</span>
               </div>
@@ -438,8 +438,9 @@ function Idade(props) {
           </div>
         </div>
         <div className='d-flex justify-content-end pt-3'>
-          <button className='btn btn-info' onClick={props.clickNext}>Avançar</button>
-          <button className='btn btn-danger ml-2' onClick={props.clickCancel}>Cancelar</button>
+        <button className='btn btn-info' onClick={props.clickPrevious}>Voltar</button>
+          <button className='btn btn-info mx-2' onClick={props.clickNext}>Avançar</button>
+          <button className='btn btn-danger' onClick={props.clickCancel}>Cancelar</button>
         </div>
       </div>
     </div>
@@ -448,7 +449,7 @@ function Idade(props) {
 function Profissao(props) {
   return (
     <div className='py-3 w-100 local d-flex flex-column justify-content-center align-items-center'>
-      <div className='w-75 bg-light p-5 loca-div shadow rounded'>
+      <div className='w-75 bg-light p-3 loca-div shadow rounded'>
         <p className='col-12 h6'>Profissão</p>
         <hr />
         <div className='d-flex py-2'>
@@ -470,8 +471,9 @@ function Profissao(props) {
           </div>
         </div>
         <div className='d-flex justify-content-end pt-3'>
-          <button className='btn btn-info' onClick={props.clickNext}>Avançar</button>
-          <button className='btn btn-danger ml-2' onClick={props.clickCancel}>Cancelar</button>
+        <button className='btn btn-info' onClick={props.clickPrevious}>Voltar</button>
+          <button className='btn btn-info mx-2' onClick={props.clickNext}>Avançar</button>
+          <button className='btn btn-danger' onClick={props.clickCancel}>Cancelar</button>
         </div>
       </div>
     </div>
@@ -480,7 +482,7 @@ function Profissao(props) {
 function Sexo(props) {
   return (
     <div className='py-3 w-100 local d-flex flex-column justify-content-center align-items-center'>
-      <div className='w-75 bg-light p-5 loca-div shadow rounded'>
+      <div className='w-75 bg-light p-3 loca-div shadow rounded'>
         <p className='col-12 h6'>Sexo</p>
         <hr />
         <div className='d-flex py-2'>
@@ -510,8 +512,9 @@ function Sexo(props) {
           </div>
         </div>
         <div className='d-flex justify-content-end pt-3'>
-          <button className='btn btn-info' onClick={props.clickNext}>Avançar</button>
-          <button className='btn btn-danger ml-2' onClick={props.clickCancel}>Cancelar</button>
+        <button className='btn btn-info' onClick={props.clickPrevious}>Voltar</button>
+          <button className='btn btn-info mx-2' onClick={props.clickNext}>Avançar</button>
+          <button className='btn btn-danger' onClick={props.clickCancel}>Cancelar</button>
         </div>
       </div>
     </div>
@@ -520,7 +523,7 @@ function Sexo(props) {
 function Escolaridade(props) {
   return (
     <div className='py-3 w-100 local d-flex flex-column justify-content-center align-items-center'>
-      <div className='w-75 bg-light p-5 loca-div shadow rounded'>
+      <div className='w-75 bg-light p-3 loca-div shadow rounded'>
         <p className='col-12 h6'>Escolaridade</p>
         <hr />
         <div className='d-flex py-2'>
@@ -544,13 +547,13 @@ function Escolaridade(props) {
         <hr />
         <div className='d-flex justify-content-center'>
           <div className='d-flex justify-content-around'>
-            <div class="input-group mb-3 col">
+            <div class="input-group col">
               <div class="input-group-prepend">
                 <span class="input-group-text">De</span>
               </div>
               <input type="number" class="form-control" value="18" />
             </div>
-            <div class="input-group mb-3 ml-1 col">
+            <div class="input-group ml-1 col">
               <div class="input-group-prepend">
                 <span class="input-group-text">Até</span>
               </div>
@@ -560,8 +563,9 @@ function Escolaridade(props) {
           </div>
         </div>
         <div className='d-flex justify-content-end pt-3'>
-          <button className='btn btn-info' onClick={props.clickNext}>Avançar</button>
-          <button className='btn btn-danger ml-2' onClick={props.clickCancel}>Cancelar</button>
+        <button className='btn btn-info' onClick={props.clickPrevious}>Voltar</button>
+          <button className='btn btn-info mx-2' onClick={props.clickNext}>Avançar</button>
+          <button className='btn btn-danger' onClick={props.clickCancel}>Cancelar</button>
         </div>
       </div>
     </div>
@@ -574,8 +578,9 @@ export function Exclusoes(props) {
         <p className='text-danger text-center font-weight-bold m-0 p-0'>Exclusões</p>
       </div>
       <div className='d-flex justify-content-center pt-3'>
-        <button className='btn btn-info' onClick={props.clickNext}>Avançar</button>
-        <button className='btn btn-danger ml-2' onClick={props.clickCancel}>Cancelar</button>
+        <button className='btn btn-info' onClick={props.clickPrevious}>Voltar</button>
+        <button className='btn btn-info mx-2' onClick={props.clickNext}>Avançar</button>
+        <button className='btn btn-danger' onClick={props.clickCancel}>Cancelar</button>
       </div>
     </div>
   )
@@ -583,35 +588,35 @@ export function Exclusoes(props) {
 export function Resumo(props) {
   return (
     <div className='py-3 w-100 local d-flex flex-column justify-content-center align-items-center'>
-      <div className='w-75 bg-light p-5 loca-div shadow rounded'>
+      <div className='w-75 bg-light p-3 loca-div shadow rounded'>
         <p className='col-12 h6'>Resumo</p>
         <hr />
         <div className='d-flex py-2'>
-          <div className="card text-white bg-warning mb-3 col mx-1">
+          <div className="card text-white bg-secondary mb-3 col mx-1">
             <div className="card-header">Endereços</div>
             <div className="card-body">
               <p className="h4 text-center">5.670</p>
             </div>
           </div>
-          <div className="card text-white bg-warning mb-3 col mx-1">
+          <div className="card text-white bg-secondary mb-3 col mx-1">
             <div className="card-header">Telefones</div>
             <div className="card-body">
               <p className="h4 text-center">3.737</p>
             </div>
           </div>
-          <div className="card text-white bg-warning mb-3 col mx-1">
+          <div className="card text-white bg-secondary mb-3 col mx-1">
             <div className="card-header">Tel. Fixos</div>
             <div className="card-body">
               <p className="h4 text-center">1.345</p>
             </div>
           </div>
-          <div className="card text-white bg-warning mb-3 col mx-1">
+          <div className="card text-white bg-secondary mb-3 col mx-1">
             <div className="card-header">Tel. Móveis</div>
             <div className="card-body">
               <p className="h4 text-center">2.850</p>
             </div>
           </div>
-          <div className="card text-white bg-warning mb-3 col mx-1">
+          <div className="card text-white bg-secondary mb-3 col mx-1">
             <div className="card-header">Emails</div>
             <div className="card-body">
               <p className="h4 text-center">454</p>
@@ -628,8 +633,9 @@ export function Resumo(props) {
           </div>
         </div>
         <div className='d-flex justify-content-end pt-3'>
-          <button className='btn btn-info' onClick={props.clickNext}>Avançar</button>
-          <button className='btn btn-danger ml-2' onClick={props.clickCancel}>Cancelar</button>
+          <button className='btn btn-info' onClick={props.clickPrevious}>Voltar</button>
+          <button className='btn btn-info mx-2' onClick={props.clickNext}>Avançar</button>
+          <button className='btn btn-danger' onClick={props.clickCancel}>Cancelar</button>
         </div>
       </div>
     </div>
@@ -638,14 +644,14 @@ export function Resumo(props) {
 export function Conclusao(props) {
   return (
     <div className='py-3 w-100 local d-flex flex-column justify-content-center align-items-center'>
-      <div className='w-75 bg-light p-5 loca-div shadow rounded'>
+      <div className='w-75 bg-light p-3 loca-div shadow rounded'>
         <p className='col-12 h4'>Finalizar</p>
         <hr />
         <p>Preencha os dados finais e aperte Concluir</p>
         <div className='d-flex py-2'>
           <div className='col-12 p-0 d-flex'>
 
-            <div className="input-group mb-3 col">
+            <div className="input-group col">
               <div className="input-group-prepend">
                 <label className="input-group-text" for="inputGroupSelect01">Cliente</label>
               </div>
@@ -658,7 +664,7 @@ export function Conclusao(props) {
               </select>
             </div>
 
-            <div class="input-group mb-3 col">
+            <div class="input-group col">
               <div class="input-group-prepend">
                 <span class="input-group-text">Identificador</span>
               </div>
@@ -677,7 +683,7 @@ export function Conclusao(props) {
           </div>
           <div className='d-flex'>
 
-            <div class="input-group mb-3 col">
+            <div class="input-group col">
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <input type="checkbox" aria-label="Chebox para permitir input text" />
@@ -694,8 +700,8 @@ export function Conclusao(props) {
         </div>
         <hr />
         <div className='d-flex justify-content-end pt-3'>
-          <button className='btn btn-info' onClick={props.clickFim}>Concluir</button>
-          <button className='btn btn-danger ml-2' onClick={props.clickCancel}>Cancelar</button>
+          <button className='btn btn-info mx-2' onClick={props.clickFim}>Concluir</button>
+          <button className='btn btn-danger' onClick={props.clickCancel}>Cancelar</button>
         </div>
       </div>
     </div>
