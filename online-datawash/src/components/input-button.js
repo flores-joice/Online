@@ -67,13 +67,13 @@ export function BarraProgresso(props) {
 
 export const Spinner = () => (
   <div className='spinner d-flex justifi-content-center align-items-center'>
-    <img  src={load}/>
+    <img alt='icone'  src={load}/>
   </div>
 )
 
 export const LoadButton = () => (
   <div className='px-2'>
-    <img className='loadButton' src={loadBotao}/>
+    <img alt='icone' className='loadButton' src={loadBotao}/>
   </div>
 )
 

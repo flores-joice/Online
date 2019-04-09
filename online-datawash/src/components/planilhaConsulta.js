@@ -1,7 +1,5 @@
 import React from 'react'
-import { Cabecalho, Dados, Renda, Email, Endereco, Telefone } from './mapConsulta'
 import './components.scss'
-
 
 const Planilha = ({ lista }) => (
   <form className='w-100  mb-5' >

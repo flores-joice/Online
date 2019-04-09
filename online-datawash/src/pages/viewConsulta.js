@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import InputBuscar, { Option, Botao,  LoadButton } from "../components/input-button";
 import Planilha from '../components/planilhaConsulta'
 import axios from "axios";
-import $ from 'ajax'
-import { apiConsultaCPF } from '../infra/api-config'
 import '../components/components.scss'
-import { METHODS } from "http";
 
 
 class ViewConsulta extends Component {
@@ -49,7 +46,7 @@ class ViewConsulta extends Component {
   
 
   render(props) {
-    const {lista, loading} = this.state
+    const {loading} = this.state
     return (
       <div className="d-flex flex-column justify-content-center align-items-center pt-3 w-75 marginPage">
         <p className='dashboard-title h4 text-info'>Consulta</p>

@@ -10,34 +10,34 @@ export default class MailingListPessFisica extends Component {
     }
   }
   handleRender(id) {
-    if(id == 'localizacao') {
+    if(id === 'localizacao') {
       this.setState({ view: <Localizacao avancar={(e) => this.handleRender('renda')} cancelar={(e) => this.handleRender('mailling')} />})
     }
-    if (id == 'renda') {
+    if (id === 'renda') {
       this.setState({ view: <Renda clickPrevious={(e) => this.handleRender('localizacao')} clickNext={(e) => this.handleRender('idade')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
-    if (id == 'idade') {
+    if (id === 'idade') {
       this.setState({ view: <Idade clickPrevious={(e) => this.handleRender('renda')} clickNext={(e) => this.handleRender('profissao')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
-    if (id == 'profissao') {
+    if (id === 'profissao') {
       this.setState({ view: <Profissao clickPrevious={(e) => this.handleRender('idade')} clickNext={(e) => this.handleRender('sexo')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
-    if (id == 'sexo') {
+    if (id === 'sexo') {
       this.setState({ view: <Sexo clickPrevious={(e) => this.handleRender('profissao')} clickNext={(e) => this.handleRender('escolaridade')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
-    if (id == 'escolaridade') {
+    if (id === 'escolaridade') {
       this.setState({ view: <Escolaridade clickPrevious={(e) => this.handleRender('sexo')} clickNext={(e) => this.handleRender('exclusoes')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
-    if (id == 'exclusoes') {
+    if (id === 'exclusoes') {
       this.setState({ view: <Exclusoes clickPrevious={(e) => this.handleRender('escolaridade')} clickNext={(e) => this.handleRender('resumo')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
-    if (id == 'resumo') {
+    if (id === 'resumo') {
       this.setState({ view: <Resumo clickPrevious={(e) => this.handleRender('exclusoes')} clickNext={(e) => this.handleRender('conclusao')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
-    if (id == 'conclusao') {
+    if (id === 'conclusao') {
       this.setState({ view: <Conclusao clickPrevious={(e) => this.handleRender('resumo')} clickFim={(e) => this.handleRender('mailling')} clickCancel={(e) => this.handleRender('mailling')} /> })
     }
-    if (id == 'mailling') {
+    if (id === 'mailling') {
       this.setState({ view: <MailingList /> })
     }
   }
@@ -59,19 +59,19 @@ export class Localizacao extends Component {
   }
 
   handleView(id) {
-    if (id == 'cidade') {
+    if (id === 'cidade') {
       this.setState({ renderView: <Cidade /> })
     }
-    if (id == 'estado') {
+    if (id === 'estado') {
       this.setState({ renderView: <Estado /> })
     }
-    if (id == 'brasil') {
+    if (id === 'brasil') {
       this.setState({ renderView: <Brasil /> })
     }
-    if (id == 'cep') {
+    if (id === 'cep') {
       this.setState({ renderView: <CEP /> })
     }
-    if (id == 'ddd') {
+    if (id === 'ddd') {
       this.setState({ renderView: <DDD /> })
     }
   }

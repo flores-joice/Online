@@ -3,7 +3,7 @@ import user from '../assets/user.png'
 import lupa from '../assets/consulta.png'
 import mailing from '../assets/mailing.png'
 import sms from '../assets/mensagem.png'
-import { Grafico1, Grafico2, Grafico3 } from './graficos'
+import { Grafico1 } from './graficos'
 import { Spinner } from './input-button'
 import './components.scss'
 
@@ -39,7 +39,7 @@ const ViewDashboard = () => (
         <div className='d-flex w-100 panel col-12 my-3'>
             <div className='col bg-white m-2 panel-div rounded d-flex justify-content-around align-items-center p-3'>
                 <div className=' bg-panel bg-info rounded-circle d-flex justify-content-center align-items-center '>
-                    <img src={lupa} />
+                    <img alt='icone' src={lupa} />
                 </div>
                 <div className='d-flex flex-column justify-content-center align-items-center p-2 panel-text'>
                     <p className='h5 m-0 text-info'>Enriquecimento</p>
@@ -48,7 +48,7 @@ const ViewDashboard = () => (
             </div>
             <div className='col bg-white m-2 panel-div rounded d-flex justify-content-around align-items-center p-3'>
                 <div className=' bg-panel bg-info rounded-circle d-flex justify-content-center align-items-center'>
-                    <img src={mailing} />
+                    <img alt='icone' src={mailing} />
                 </div>
                 <div className='d-flex flex-column justify-content-center align-items-center p-2 panel-text'>
                     <p className='h5 m-0 text-info'>Mailing List</p>
@@ -57,7 +57,7 @@ const ViewDashboard = () => (
             </div>
             <div className='col bg-white m-2 panel-div rounded d-flex justify-content-around align-items-center p-3'>
                 <div className=' bg-panel bg-info rounded-circle d-flex justify-content-center align-items-center'>
-                    <img src={user} />
+                    <img alt='icone' src={user} />
                 </div>
                 <div className='d-flex flex-column justify-content-center align-items-center p-2 panel-text'>
                     <p className='h5 m-0 text-info'>Usuários</p>
@@ -66,7 +66,7 @@ const ViewDashboard = () => (
             </div>
             <div className='col bg-white m-2 panel-div rounded d-flex justify-content-around align-items-center p-3'>
                 <div className=' bg-panel bg-info rounded-circle d-flex justify-content-center align-items-center '>
-                    <img src={sms} />
+                    <img alt='icone' src={sms} />
                 </div>
                 <div className='d-flex flex-column justify-content-center align-items-center p-2 panel-text'>
                     <p className='h5 m-0 text-info'>SMS</p>

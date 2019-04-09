@@ -101,6 +101,7 @@ export default class Login extends Component {
     try {
       const token = await localStorage.getItem('auth-token', token);
       const response = await api.get()
+      console.log(response)
       this.setState({ usuarioLogado: true }, () => {
         this.props.history.push('/app')
       })
@@ -130,7 +131,7 @@ export default class Login extends Component {
             <input type='email' className='form-control shadow ' onChange={this.disabledButton} ref={(input) => this.email = input} autoFocus/>
             <input type='password' className='form-control my-3 shadow' onChange={this.disabledButton} ref={(input) => this.senha = input} />
             <a href='/' className='text-light' >Esqueci minha senha</a>
-            <button type='submit' disabled={this.state.disabled} className='btn btn-info w-75 mt-3 shadow' > {!loading ? 'Login' : <img src={Load} className='load'/> } </button>
+            <button type='submit' disabled={this.state.disabled} className='btn btn-info w-75 mt-3 shadow' > {!loading ? 'Login' : <img alt='gif de load' src={Load} className='load'/> } </button>
           </form>
         </div>
       </div>

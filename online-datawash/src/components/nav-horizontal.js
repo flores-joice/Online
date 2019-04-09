@@ -16,6 +16,7 @@ class NavHorizontal extends Component {
     // const usuario = JSON.parse(user)
     // this.setState({ emailLogado: usuario.email })
     var timer = setTimeout(this.logout, 600000)
+    console.log(timer)
     
     
     //       usuarios                   senhas

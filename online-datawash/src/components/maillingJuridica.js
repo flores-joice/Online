@@ -12,37 +12,37 @@ export default class MailingListPessJuridica extends Component {
     }
 
     handleRender(id) {
-        if (id == 'ramo') {
+        if (id === 'ramo') {
             this.setState({ view: <Ramo clickNext={(e) => this.handleRender('porte')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'porte') {
+        if (id === 'porte') {
             this.setState({ view: <Porte clickNext={(e) => this.handleRender('natureza')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'natureza') {
+        if (id === 'natureza') {
             this.setState({ view: <Natureza clickNext={(e) => this.handleRender('faturamento')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'faturamento') {
+        if (id === 'faturamento') {
             this.setState({ view: <Faturamento clickNext={(e) => this.handleRender('funcionarios')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'funcionarios') {
+        if (id === 'funcionarios') {
             this.setState({ view: <Funcionarios clickNext={(e) => this.handleRender('chave')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'chave') {
+        if (id === 'chave') {
             this.setState({ view: <PalavraChave clickNext={(e) => this.handleRender('idadeEmpresa')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'idadeEmpresa') {
+        if (id === 'idadeEmpresa') {
             this.setState({ view: <IdadeEmpresa clickNext={(e) => this.handleRender('exclusoes')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'exclusoes') {
+        if (id === 'exclusoes') {
             this.setState({ view: <Exclusoes clickNext={(e) => this.handleRender('resumo')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'resumo') {
+        if (id === 'resumo') {
             this.setState({ view: <Resumo clickNext={(e) => this.handleRender('conclusao')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'conclusao') {
+        if (id === 'conclusao') {
             this.setState({ view: <Conclusao clickFim={(e) => this.handleRender('conclusao')} clickCancel={(e) => this.handleRender('mailling')} /> })
         }
-        if (id == 'mailling') {
+        if (id === 'mailling') {
             this.setState({ view: <MailingList /> })
         }
 

@@ -43,10 +43,11 @@ export default class ViewNav  extends Component {
         const item = response.data
 
         //FOR = lista todos os valores contido em item
-        for (let [key, value] of item.entries(item)) {
-
+        // for (let [key, value] of item.entries(item)) 
+        for (let entry of item ){
+          console.log('entry', entry)
           //aqui atribuimos os valores listados do FOR na variavel valor
-          this.setState({ valor: value })
+          this.setState({ valor: entry })
           const newFunc = []
           
           //fazemos a comparação dos valores, se true, 
