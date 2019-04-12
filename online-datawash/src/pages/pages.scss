@@ -114,11 +114,13 @@
 .monit-button{
     width: 25vw;
 }
-.gerencial-input {
-    max-width: 100%;
+
+#link-navegacao a{
+    color: white;
+}
+#link-navegacao a.active{
+    background-color: white;
+    color: #17a2b8;
+    border-radius: 3px
 }
 
-.gerencial-input > input{
-    width: 80%;
-    margin: 0;
-}

@@ -43,7 +43,7 @@ export function Botao(props) {
   return (
     <button
       onClick={props.click}
-      className={`button-border ${props.classesBotao}`}
+      className={props.classesBotao}
       value={props.valueBotao}
       type={props.typeBotao}
       name={props.nameBotao}

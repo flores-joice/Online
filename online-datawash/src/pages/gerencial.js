@@ -1,37 +1,38 @@
 import React, { Component } from 'react'
+import BasicTable from '../components/tabela'
 import './pages.scss'
-// import InputBuscar, { Option } from '../components/input-button'
+
 
 export class GerenciamentoContas extends Component {
   constructor() {
     super()
     this.state = {
-      view: <p>Sem Click</p>
+      view: ''
     }
   }
 
-  handleClick = (e) => {
-    this.setState({ view: <FormGerenciamento /> })
+  handleClick = () => {
+    this.setState({ view: <BasicTable /> })
   }
 
   render() {
     return (
       <div className='d-flex flex-column justify-content-around align-items-center marginPage'>
         <p className='dashboard-title h4 text-info'>Gerenciamento de Contas</p>
-        <div className="input-group w-50">
-          <select data-live-search="true" className="custom-select selectpicker" id="inputGroupSelect04" aria-label="Exemplo de select com botão addon">
-            <option selected>Escolher...</option>
-            <option value='sistema'>Sistema</option>
-            <option value='alx'>ALX Revenda</option>
-            <option value='autoFacil'>Auto Facil</option>
-            <option value='buscoFamilia'>Busco Minha Familia</option>
-            <option value='PGA'>PGA</option>
+        <div className="input-group">
+          <select className="selectpicker" data-live-search="true">
+            <option >Escolher...</option>
+            <option data-tokens='sistema' value='sistema'>Sistema</option>
+            <option data-tokens='alx revenda' value='alx'>ALX Revenda</option>
+            <option data-tokens='auto facil' value='autoFacil'>Auto Facil</option>
+            <option data-tokens='busco minha familia' value='buscoFamilia'>Busco Minha Familia</option>
+            <option data-tokens='pga' value='PGA'>PGA</option>
           </select>
           <div className="input-group-append">
             <button className="btn btn-info" type="button" onClick={this.handleClick}>Buscar</button>
           </div>
         </div>
-        <div className='w-100 mt-3'>
+        <div className='w-100 mt-3 '>
           {this.state.view}
         </div>
       </div>
@@ -39,40 +40,11 @@ export class GerenciamentoContas extends Component {
   }
 }
 
-const FormGerenciamento = (props) => {
-  return (
-    <div className='col-12 border rounded bg-light p-2 d-flex flex-wrap'>
-      <div class="row w-100">
-        <div class="col-2">
-          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link  active " id="detalhes" data-toggle="pill" href="#v-detalhes" role="tab" aria-controls="v-detalhes" aria-selected="true">Detalhes</a>
-            <a class="nav-link" id="acesso" data-toggle="pill" href="#v-acesso" role="tab" aria-controls="v-acesso" aria-selected="false">Acesso</a>
-            <a class="nav-link" id="usuarios" data-toggle="pill" href="#v-usuarios" role="tab" aria-controls="v-usuarios" aria-selected="false">Usuários</a>
-            <a class="nav-link" id="politica" data-toggle="pill" href="#v-politica" role="tab" aria-controls="v-politica" aria-selected="false">Política Comercial</a>
-            <a class="nav-link" id="creditos" data-toggle="pill" href="#v-creditos" role="tab" aria-controls="v-creditos" aria-selected="false">Creditos</a>
-          </div>
-        </div>
-        <div class="col-10">
-          <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-detalhes" role="tabpanel" aria-labelledby="detalhes"><Detalhes /></div>
-            <div class="tab-pane fade" id="v-acesso" role="tabpanel" aria-labelledby="acesso"><Acesso/></div>
-            <div class="tab-pane fade" id="v-usuarios" role="tabpanel" aria-labelledby="usuarios"> <Usuarios/></div>
-            <div class="tab-pane fade" id="v-politica" role="tabpanel" aria-labelledby="politica"><Politica/></div>
-            <div class="tab-pane fade" id="v-creditos" role="tabpanel" aria-labelledby="creditos"><Creditos/></div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  )
-
-}
 
 const Detalhes = () => {
   return (
-
-    <div className='w-100 d-flex align-items-center rounded pt-3 px-3 mb-2 border-left'>
+    
+    <div className='w-100 d-flex align-items-center rounded pt-3 px-3 mb-2'>
       <div className='w-50 d-flex flex-column pr-3'>
 
         <div class="input-group mb-3">
@@ -135,7 +107,7 @@ const Detalhes = () => {
 
 const Acesso = () => {
   return (
-    <div className='w-100 d-flex rounded pt-3 px-3 mb-2  border-left'>
+    <div className='w-100 d-flex rounded pt-3 px-3 mb-2 '>
       <div className='w-100 d-flex flex-column'>
 
         <table class="table rounded border ml-2">
@@ -192,10 +164,10 @@ const Acesso = () => {
 
 const Usuarios = () => {
   return (
-    <div className='w-100 d-flex rounded pt-3 px-3 mb-2  border-left'>
+    <div className='w-100 d-flex rounded pt-3 px-3 mb-2 '>
       <div className='w-100 d-flex flex-column'>
 
-        <table class="table rounded">
+        <table class="table rounded border">
           <thead class="table-info">
             <tr>
               <th scope="col"></th>
@@ -383,10 +355,10 @@ const Usuarios = () => {
 
 const Politica = () => {
   return (
-    <div className='w-100 d-flex rounded pt-3 px-3 mb-2  border-left'>
+    <div className='w-100 d-flex rounded pt-3 px-3 mb-2 '>
       <div className='w-100 d-flex flex-column'>
 
-        <table class="table rounded">
+        <table class="table rounded border">
           <thead class="table-info">
             <tr>
               <th scope="col"></th>
@@ -448,7 +420,7 @@ const Politica = () => {
 
 const Creditos = () => {
   return (
-    <div className='w-100 d-flex flex-column rounded pt-3 pl-5 pr-3 mb-2 border-left'>
+    <div className='w-100 d-flex flex-column rounded pt-3 pl-5 pr-3 mb-2'>
       <div className='w-100 d-flex flex-column'>
 
         <table class="table rounded border">
@@ -524,7 +496,7 @@ const Creditos = () => {
 
       </div>
 
-      <hr/>
+      <hr />
 
       <div className='w-100 mt-2 d-flex flex-column'>
         <h6>Histórico de Crédito</h6>
@@ -577,4 +549,32 @@ const Creditos = () => {
 
       </div>
     </div>
-  )}
+  )
+}
+// const FormGerenciamento = (props) => {
+//   return (
+//     <div className='border bg-light d-flex flex-wrap' id='link-navegacao'>
+//       <div class="w-100 d-flex justify-content-between">
+//         <div class="col-3 bg-secondary py-3">
+//           <div class="nav flex-column  gerencial-link" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+//             <a class="nav-link border-bottom active  " id="detalhes" data-toggle="pill" href="#v-detalhes" role="tab" aria-controls="v-detalhes" aria-selected="true">Detalhes</a>
+//             <a class="nav-link border-bottom" id="acesso" data-toggle="pill" href="#v-acesso" role="tab" aria-controls="v-acesso" aria-selected="false">Acesso</a>
+//             <a class="nav-link border-bottom" id="usuarios" data-toggle="pill" href="#v-usuarios" role="tab" aria-controls="v-usuarios" aria-selected="false">Usuários</a>
+//             <a class="nav-link border-bottom" id="politica" data-toggle="pill" href="#v-politica" role="tab" aria-controls="v-politica" aria-selected="false">Política Comercial</a>
+//             <a class="nav-link" id="creditos" data-toggle="pill" href="#v-creditos" role="tab" aria-controls="v-creditos" aria-selected="false">Creditos</a>
+//           </div>
+//         </div>
+//         <div class="col-9">
+//           <div class="tab-content " id="v-pills-tabContent">
+//             <div class="tab-pane fade show active" id="v-detalhes" role="tabpanel" aria-labelledby="detalhes"><Detalhes /></div>
+//             <div class="tab-pane fade" id="v-acesso" role="tabpanel" aria-labelledby="acesso"><Acesso /></div>
+//             <div class="tab-pane fade" id="v-usuarios" role="tabpanel" aria-labelledby="usuarios"> <Usuarios /></div>
+//             <div class="tab-pane fade" id="v-politica" role="tabpanel" aria-labelledby="politica"><Politica /></div>
+//             <div class="tab-pane fade" id="v-creditos" role="tabpanel" aria-labelledby="creditos"><Creditos /></div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+
+// }

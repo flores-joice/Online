@@ -11,7 +11,8 @@ import { GerenciamentoContas } from './gerencial'
 import MailingList from './mailingList'
 import { apiMenu } from '../infra/api-config';
 import NavHorizontal from '../components/nav-horizontal'
-import { DashBoard } from '../components/dashboard'
+// import { DashBoard } from '../components/dashboard'
+
 
 
 
@@ -26,7 +27,7 @@ export default class ViewNav  extends Component {
       funcionalidades: [],
       valor: [],
       emailLogado: '',
-      renderView : <DashBoard/>
+      renderView : <ViewConsulta/>
     }
   }
 
@@ -45,7 +46,6 @@ export default class ViewNav  extends Component {
         //FOR = lista todos os valores contido em item
         // for (let [key, value] of item.entries(item)) 
         for (let entry of item ){
-          console.log('entry', entry)
           //aqui atribuimos os valores listados do FOR na variavel valor
           this.setState({ valor: entry })
           const newFunc = []
@@ -59,8 +59,7 @@ export default class ViewNav  extends Component {
             this.state.valor === "1" &&
               (newFunc = this.state.funcionalidades.concat('consulta')) &&
               (this.setState({ funcionalidades: newFunc }))
-              console.log('newFunc', newFunc)
-              console.log('funcionalidades', this.state.funcionalidades)
+              
           }
           {
             this.state.valor === "9" &&
