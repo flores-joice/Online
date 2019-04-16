@@ -4,7 +4,7 @@ import axios from 'axios'
 // import axios from 'axios'
 // import { getUser } from './local-storage'
 
-export const api = create({
+export const apiLogin = create({
     baseURL: 'http://localhost:52231/api/login',
     mode: 'cors',
     headers: ({
@@ -12,7 +12,7 @@ export const api = create({
     })
 });
 
-api.addResponseTransform(response => {
+apiLogin.addResponseTransform(response => {
     if (!response.ok) throw response;
 });
 

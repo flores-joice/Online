@@ -256,13 +256,35 @@ class Renda extends Component {
   }
 }
 
+const ListaRelacionamento = ({ relacionadas }) => {
+  return (
+    <tbody className='bg-light w-100 border-info'>
+      {relacionadas.map((relacionadas, index) =>
+        <tr key={index} className='w-100'>
+          <td className='card-relacionadas__first'>{relacionadas.nome && relacionadas.nome} </td>
+          <td>{relacionadas.cpf && relacionadas.cpf} </td>
+          <td>{relacionadas.relacionamento ? relacionadas.relacionamento : 'Indefinido'}</td>
+          <td className='d-flex flex-column'>
+            <p>{relacionadas.fone1 || 'Nenhum número encontrado'}</p>
+            {relacionadas.fone2 && <p>{relacionadas.fone2}</p>}
+            {relacionadas.fone3 && <p>{relacionadas.fone3}</p>}
+            {relacionadas.fone4 && <p>{relacionadas.fone4}</p>}
+          </td>
+        </tr>
+      )}
+    </tbody>
+
+  )
+}
+
 class PessoasRelacionadas extends Component {
   constructor(lista, props) {
     super(lista, props)
     this.state = {
       lista: lista.lista,
       imagem: collapseDown,
-      relacionadas: []
+      relacionadas: [],
+      viewRelacionamento: ''
     }
   }
 
@@ -274,27 +296,61 @@ class PessoasRelacionadas extends Component {
       this.setState({ imagem: collapseUp })
 
       const token = localStorage.getItem('auth-token', token);
-      // const cpf = this.state.lista.cpf
-
-
-      axios.get(`http://localhost:52231/api/pessoasRelacionadas/${this.state.lista.cpf}`, {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          'mode': 'no-cors',
-          'Authorization': 'Bearer ' + token,
-          'Content-Type': 'application/json'
+      if(token){
+        const ListaRelacionamento = ({ relacionadas }) => {
+          return (
+            <tbody className='bg-light w-100 border-info'>
+              {relacionadas.map((relacionadas, index) =>
+                <tr key={index} className='w-100'>
+                  <td className='card-relacionadas__first'>{relacionadas.nome && relacionadas.nome} </td>
+                  <td>{relacionadas.cpf && relacionadas.cpf} </td>
+                  <td>{relacionadas.relacionamento ? relacionadas.relacionamento : 'Indefinido'}</td>
+                  <td className='d-flex flex-column'>
+                    <p>{relacionadas.fone1 || 'Nenhum número encontrado'}</p>
+                    {relacionadas.fone2 && <p>{relacionadas.fone2}</p>}
+                    {relacionadas.fone3 && <p>{relacionadas.fone3}</p>}
+                    {relacionadas.fone4 && <p>{relacionadas.fone4}</p>}
+                  </td>
+                </tr>
+              )}
+            </tbody>
+        
+          )
         }
-      })
-        .then(resp => {
-          let respo = resp.data;
-          this.setState({ relacionadas: respo })
-          console.log('relacionadas', this.state.relacionadas)
-          // let dado = JSON.stringify(resposta)
-          // this.setState({ lista : [resposta], loading: false})
-          // this.setState({renderPlanilha: <Planilha lista={this.state.lista}/>});
-          // console.log('lista', this.state.lista)
-
+        axios.get(`http://localhost:52231/api/pessoasRelacionadas/${this.state.lista.cpf}`, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            'mode': 'no-cors',
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
         })
+          .then(resp => {
+            const relacionadas = this.state
+            let respo = resp.data;
+            this.setState({ relacionadas: respo })
+            console.log('relacionadas planilha', relacionadas)
+            const relacionadasNome = this.state.relacionadas.map(relacao => relacao.nome)
+            console.log('relacionadasNome', relacionadasNome)
+  
+            if (relacionadasNome === true) {
+              this.setState({ viewRelacionamento : <ListaRelacionamento relacionadas={relacionadas} /> })
+            } else {
+              this.setState({ viewRelacionamento : <p className='p-3'>Não foi localizada nenhuma pessoa relacionada.</p>})
+            }
+            // let dado = JSON.stringify(resposta)
+            // this.setState({ lista : [resposta], loading: false})
+            // this.setState({renderPlanilha: <Planilha lista={this.state.lista}/>});
+            // console.log('lista', this.state.lista)
+  
+          })
+      } else {
+        
+      }
+      // const cpf = this.state.lista.cpf
+      
+
+      
     }
   }
 
@@ -304,37 +360,27 @@ class PessoasRelacionadas extends Component {
       <div className="">
         <div className="border-bottom border-info d-flex align-items-center" id="headingSix">
           <img className='collapseImage' src={this.state.imagem} alt='icone abrir e fechar' />
-          <h6 onClick={(e) => this.handleImage(this.state.imagem)} className=" p-2 ml-2 text-info" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Pessoas Relacionadas</h6>
+          <h6 onClick={(e) => this.handleImage(this.state.imagem)} className=" p-2 ml-2 text-info"
+            data-toggle="collapse" data-target="#collapseSix" aria-expanded="false"
+            aria-controls="collapseSix">Pessoas Relacionadas
+          </h6>
         </div>
         <div className="collapse" id="collapseSix" aria-labelledby="headingSix" data-parent="#accordionExample">
           <div className="card-body d-flex card-relacionadas">
-            <table class="table table-hover mt-1 rounded">
-              <thead class="thead-info rounded-top ">
+            <table className="table table-hover mt-1 rounded border-info">
+              <thead className=" rounded-top bg-info">
                 <tr>
-                  <th scope="col">Nome</th>
-                  <th scope="col">CPF</th>
-                  <th scope="col">Parentesco</th>
-                  <th scope="col">Telefone</th>
+                  <th className='text-light' scope="col">Nome</th>
+                  <th className='text-light' scope="col">CPF</th>
+                  <th className='text-light' scope="col">Parentesco</th>
+                  <th className='text-light' scope="col">Telefone</th>
                 </tr>
               </thead>
-              {relacionadas.map((relacionadas, index) =>
-                <tbody key={index} className='bg-light w-100'>
-                  <tr className='w-100'>
-                    {relacionadas.nome && <td scope="row"> {relacionadas.nome} </td>}
-                    {relacionadas.cpf && <td> {relacionadas.cpf} </td>}
-                    {relacionadas.relacionamento && <td>{relacionadas.relacionamento}</td>}
-                    {relacionadas.fone1 && <td className='d-flex flex-column'>{` 
-                    ${relacionadas.fone1} 
-                    ${relacionadas.fone2 ? relacionadas.fone2 : null} 
-                    ${relacionadas.fone3 ? relacionadas.fone3 : null} 
-                    ${relacionadas.fone4 ? relacionadas.fone4 : null}
-                    `}</td>}
-                    {/* {relacionadas.fone2 && <td>{relacionadas.fone2}</td>}
-                    {relacionadas.fone3 && <td>{relacionadas.fone3}</td>}
-                    {relacionadas.fone4 && <td className='d-flex flex-column'>{relacionadas.fone4}</td>} */}
-                  </tr>
-                </tbody>
-              )}
+
+
+              {this.state.viewRelacionamento}
+
+
             </table>
           </div>
         </div>

@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 import Load from '../assets/circleLoading.gif'
 import './pages.scss';
 import history from '../infra/history'
-import { api } from '../infra/api-config';
+import { apiLogin } from '../infra/api-config';
 
 
 export default class Login extends Component {
@@ -32,11 +32,14 @@ export default class Login extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
+
     this.setState({loading: true})
-    const response = await api.post('', {
+
+    const response = await apiLogin.post('', {
       email: this.email.value,
       senha: this.senha.value,
     });
+
     try {
       const config = response.config;
       const user = config.data;
@@ -100,7 +103,7 @@ export default class Login extends Component {
   trazerTelaPrincipal = async () => {
     try {
       const token = await localStorage.getItem('auth-token', token);
-      const response = await api.get()
+      const response = await apiLogin.get()
       console.log(response)
       this.setState({ usuarioLogado: true }, () => {
         this.props.history.push('/app')

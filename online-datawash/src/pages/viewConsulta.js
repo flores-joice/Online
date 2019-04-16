@@ -21,7 +21,7 @@ class ViewConsulta extends Component {
 
   //armazeno o valor do input e insere o valor na url da api e mostra a resposta
   handleClick = () => {
-    this.setState({ loading: true })
+    this.setState({ loading: true, lista: '', renderPlanilha: '' })
     const token = localStorage.getItem('auth-token', token);
 
     const { user } = this.state

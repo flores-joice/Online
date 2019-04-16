@@ -154,6 +154,14 @@
     height: 2.5vh;
 }
 
-.card-relacionadas p {
-    font-size: 12px
+.card-relacionadas {
+    padding: 10px 0;
+}
+
+.card-relacionadas td {
+    font-size: 14px;
+}
+
+.card-relacionadas__first {
+    width: 25vw;
 }
