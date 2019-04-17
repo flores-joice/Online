@@ -39,7 +39,6 @@ class ViewConsulta extends Component {
         // let dado = JSON.stringify(resposta)
         this.setState({ lista: resposta, loading: false })
         const retorno = this.state.lista.statusRetorno
-        console.log('retorno', retorno)
 
         console.log('lista', this.state.lista)
         if (retorno === 0) {
@@ -91,28 +90,28 @@ class ViewConsulta extends Component {
     // this.handleRalacionadas()
   }
 
-  handleRelacionadas() {
-    const token = localStorage.getItem('auth-token', token);
+  // handleRelacionadas() {
+  //   const token = localStorage.getItem('auth-token', token);
 
-    axios.get(`http://localhost:52231/api/pessoasRelacionadas/${this.state.user}`, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        'mode': 'no-cors',
-        'Authorization': 'Bearer ' + token,
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(resp => {
-        let respo = resp.data;
-        // let dado = JSON.stringify(resposta)
-        // this.setState({ lista : [resposta], loading: false})
-        // this.setState({renderPlanilha: <Planilha lista={this.state.lista}/>});
-        // console.log('lista', this.state.lista)
-        console.log('respo', respo)
+  //   axios.get(`http://localhost:52231/api/pessoasRelacionadas/${this.state.user}`, {
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       'mode': 'no-cors',
+  //       'Authorization': 'Bearer ' + token,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //     .then(resp => {
+  //       let respo = resp.data;
+  //       // let dado = JSON.stringify(resposta)
+  //       // this.setState({ lista : [resposta], loading: false})
+  //       // this.setState({renderPlanilha: <Planilha lista={this.state.lista}/>});
+  //       // console.log('lista', this.state.lista)
+  //       console.log('respo', respo)
 
-      })
+  //     })
 
-  }
+  // }
 
   render(props) {
     const { loading } = this.state
@@ -144,7 +143,7 @@ class ViewConsulta extends Component {
         />
 
         {this.state.renderPlanilha}
-
+          <p></p>
       </div>
     );
   }

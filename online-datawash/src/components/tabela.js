@@ -45,12 +45,14 @@ export default class BasicTable extends React.Component {
   render() {
     const { valor } = this.state
     return (
-    <BootstrapTable  data={valor} className='bg-light rounded'>
-      <TableHeaderColumn className='bg-info' dataField='name' isKey={true}>Cliente</TableHeaderColumn>
-      <TableHeaderColumn className='bg-info' dataField='revenda'>Revenda</TableHeaderColumn>
-      <TableHeaderColumn className='bg-info' dataField='ativo'>Ativo</TableHeaderColumn>
-      <TableHeaderColumn className='bg-info' dataField="button" dataFormat={this.buttonFormatter.bind(this)}>Buttons</TableHeaderColumn>
-    </BootstrapTable>
+      <div className='p-2'>
+        <BootstrapTable data={valor} className='bg-light rounded'>
+          <TableHeaderColumn className='bg-info' dataField='name' isKey={true}>Cliente</TableHeaderColumn>
+          <TableHeaderColumn className='bg-info' dataField='revenda'>Revenda</TableHeaderColumn>
+          <TableHeaderColumn className='bg-info' dataField='ativo'>Ativo</TableHeaderColumn>
+          <TableHeaderColumn className='bg-info' dataField="button" dataFormat={this.buttonFormatter.bind(this)}>Buttons</TableHeaderColumn>
+        </BootstrapTable>
+      </div>
     );
   }
 

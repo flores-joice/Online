@@ -5,8 +5,7 @@ import axios from "axios"
 import './components.scss'
 
 
-function Planilha({ lista }, props) {
-
+function Planilha({ lista }) {
   return (
     <form className='w-100  mb-5 ' >
       <div  >
@@ -256,26 +255,24 @@ class Renda extends Component {
   }
 }
 
-const ListaRelacionamento = ({ relacionadas }) => {
-  return (
-    <tbody className='bg-light w-100 border-info'>
-      {relacionadas.map((relacionadas, index) =>
-        <tr key={index} className='w-100'>
-          <td className='card-relacionadas__first'>{relacionadas.nome && relacionadas.nome} </td>
-          <td>{relacionadas.cpf && relacionadas.cpf} </td>
-          <td>{relacionadas.relacionamento ? relacionadas.relacionamento : 'Indefinido'}</td>
-          <td className='d-flex flex-column'>
-            <p>{relacionadas.fone1 || 'Nenhum número encontrado'}</p>
-            {relacionadas.fone2 && <p>{relacionadas.fone2}</p>}
-            {relacionadas.fone3 && <p>{relacionadas.fone3}</p>}
-            {relacionadas.fone4 && <p>{relacionadas.fone4}</p>}
-          </td>
-        </tr>
-      )}
-    </tbody>
+const ListaRelacionamento = ({ relacionadas }) => (
+  <tbody className='bg-light w-100 border-info'>
+    {relacionadas.map((relacionadas, index) =>
+      <tr key={index} className='w-100'>
+        <td className='card-relacionadas__first'>{relacionadas.nome && relacionadas.nome} </td>
+        <td>{relacionadas.cpf && relacionadas.cpf} </td>
+        <td>{relacionadas.relacionamento ? relacionadas.relacionamento : 'Indefinido'}</td>
+        <td className='d-flex flex-column'>
+          <p>{relacionadas.fone1 || 'Nenhum número encontrado'}</p>
+          {relacionadas.fone2 && <p>{relacionadas.fone2}</p>}
+          {relacionadas.fone3 && <p>{relacionadas.fone3}</p>}
+          {relacionadas.fone4 && <p>{relacionadas.fone4}</p>}
+        </td>
+      </tr>
+    )}
+  </tbody>
+)
 
-  )
-}
 
 class PessoasRelacionadas extends Component {
   constructor(lista, props) {
@@ -284,7 +281,8 @@ class PessoasRelacionadas extends Component {
       lista: lista.lista,
       imagem: collapseDown,
       relacionadas: [],
-      viewRelacionamento: ''
+      viewRelacionamento: '',
+      statusRetorno: ''
     }
   }
 
@@ -296,27 +294,8 @@ class PessoasRelacionadas extends Component {
       this.setState({ imagem: collapseUp })
 
       const token = localStorage.getItem('auth-token', token);
-      if(token){
-        const ListaRelacionamento = ({ relacionadas }) => {
-          return (
-            <tbody className='bg-light w-100 border-info'>
-              {relacionadas.map((relacionadas, index) =>
-                <tr key={index} className='w-100'>
-                  <td className='card-relacionadas__first'>{relacionadas.nome && relacionadas.nome} </td>
-                  <td>{relacionadas.cpf && relacionadas.cpf} </td>
-                  <td>{relacionadas.relacionamento ? relacionadas.relacionamento : 'Indefinido'}</td>
-                  <td className='d-flex flex-column'>
-                    <p>{relacionadas.fone1 || 'Nenhum número encontrado'}</p>
-                    {relacionadas.fone2 && <p>{relacionadas.fone2}</p>}
-                    {relacionadas.fone3 && <p>{relacionadas.fone3}</p>}
-                    {relacionadas.fone4 && <p>{relacionadas.fone4}</p>}
-                  </td>
-                </tr>
-              )}
-            </tbody>
-        
-          )
-        }
+      if (token) {
+
         axios.get(`http://localhost:52231/api/pessoasRelacionadas/${this.state.lista.cpf}`, {
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -326,36 +305,38 @@ class PessoasRelacionadas extends Component {
           }
         })
           .then(resp => {
-            const relacionadas = this.state
             let respo = resp.data;
             this.setState({ relacionadas: respo })
-            console.log('relacionadas planilha', relacionadas)
+            console.log('relacionadas planilha', this.state.relacionadas)
+
+            const status = this.state.relacionadas.map(retorno => retorno.statusRetorno)
+            const relacionadasCpf = this.state.relacionadas.map(retorno => retorno.cpf)
+            console.log('status', status)
+            this.setState({ statusRetorno: status })
+
             const relacionadasNome = this.state.relacionadas.map(relacao => relacao.nome)
-            console.log('relacionadasNome', relacionadasNome)
-  
-            if (relacionadasNome === true) {
-              this.setState({ viewRelacionamento : <ListaRelacionamento relacionadas={relacionadas} /> })
+            console.log('status', this.state.statusRetorno, relacionadasNome)
+
+            if (this.state.statusRetorno[0] === 0) {
+              this.setState({ viewRelacionamento: <ListaRelacionamento relacionadas={this.state.relacionadas} /> })
             } else {
-              this.setState({ viewRelacionamento : <p className='p-3'>Não foi localizada nenhuma pessoa relacionada.</p>})
+              this.setState({ viewRelacionamento: <p className='p-3'>Não foi localizada nenhuma pessoa relacionada.</p> })
             }
             // let dado = JSON.stringify(resposta)
             // this.setState({ lista : [resposta], loading: false})
             // this.setState({renderPlanilha: <Planilha lista={this.state.lista}/>});
             // console.log('lista', this.state.lista)
-  
+
           })
       } else {
-        
-      }
-      // const cpf = this.state.lista.cpf
-      
 
-      
+      }
+
     }
   }
 
   render(props) {
-    const { relacionadas } = this.state
+    const { relacionadas, statusRetorno } = this.state
     return (
       <div className="">
         <div className="border-bottom border-info d-flex align-items-center" id="headingSix">
@@ -376,9 +357,8 @@ class PessoasRelacionadas extends Component {
                   <th className='text-light' scope="col">Telefone</th>
                 </tr>
               </thead>
-
-
               {this.state.viewRelacionamento}
+
 
 
             </table>

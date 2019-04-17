@@ -37,7 +37,7 @@ export default class Enriquecer extends Component {
   render() {
 
     return (
-      <div className='d-flex w-100 flex-column justify-content-end align-items-end'>
+      <div className='d-flex w-100 flex-column justify-content-center align-items-center'>
         <p className='dashboard-title h4 text-info'>Enriquecimento</p>
         <Tooltip>
           <div id='enriquecerInfo' className='enriquecer-info p-3 list-group' data-toggle="tooltip" title='Ponto de partida'>
@@ -73,8 +73,8 @@ export default class Enriquecer extends Component {
 
 function Enriquec(props) {
   return (
-    <div className='w-100 d-flex justify-content-center marginPage'>
-      <div className="d-flex flex-column justify-content-center align-items-center enriquecer-page">
+    <div className='w-100 d-flex justify-content-center'>
+      <div className="d-flex w-75 flex-column justify-content-center align-items-center enriquecer-page">
         <InputBuscar
           option={[
             <Option key='layoutLivre' id='layoutLivre' fotHtml='layoutLivre' textoOption='Layout Livre' />,

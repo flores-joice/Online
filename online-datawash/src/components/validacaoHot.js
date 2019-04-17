@@ -49,7 +49,7 @@ export default class ValidacaoHot extends Component {
 function Enriquec(props) {
   return (
     <div className='w-100 enriquecer d-flex flex-column justify-content-around align-items-center'>
-      <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+      <div className="d-flex w-75 flex-column justify-content-center align-items-center pt-3 enriquecer-page">
         <InputBuscar
           option={[
             <Option key='layoutLivre' id='layoutLivre' fotHtml='layoutLivre' textoOption='Layout Livre' />,

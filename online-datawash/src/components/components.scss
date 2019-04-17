@@ -105,13 +105,14 @@
 }
 .dica {
     top: 2rem;
+    right: 1rem
 }
 .dica:hover .dica-texto{
     visibility: visible;
 }
 .dica-img {
     width: 2vw;
-    height: 4vh;
+    height: 5vh;
 }
 .dica-texto{
     z-index: 999;
