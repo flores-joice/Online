@@ -1,4 +1,4 @@
-.nav {
+cd open.nav {
     .nav-horizontal {
         height: 10vh;
     }
@@ -47,9 +47,7 @@
 // .inputPersonalizado {
 //     content: "Buscar Arquivo"
 // }
-// .enriquecer-page {
-//     width: 68vw;
-// }
+
 .enriquecer-progresso {
     width: 30vw;
 }
@@ -112,7 +110,7 @@
 }
 .dica-img {
     width: 2vw;
-    height: 5vh;
+    height: 4vh;
 }
 .dica-texto{
     z-index: 999;
@@ -166,3 +164,11 @@
 .card-relacionadas__first {
     width: 25vw;
 }
+
+.planilha-img {
+    height: 2vh;
+    width: 1.2vw;
+}
+// .stay-open {
+//     display: block !important;
+// }

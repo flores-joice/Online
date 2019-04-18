@@ -240,7 +240,7 @@ export default class ViewNav  extends Component {
     return (
       <div className='d-flex view-body  w-100'>
       <NavHorizontal/>
-        <div className='view-navVertical w-100 d-flex align-items-start justify-content-end' >
+        <div className='view-navVertical w-100 d-flex align-items-start justify-content-end'>
           <div className='view-navVertical__list'>
           
             {funcionalidades.includes("consulta") && (

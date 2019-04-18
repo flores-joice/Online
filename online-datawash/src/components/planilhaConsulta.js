@@ -4,7 +4,6 @@ import collapseDown from '../assets/collapse-down.png'
 import axios from "axios"
 import './components.scss'
 
-
 function Planilha({ lista }) {
   return (
     <form className='w-100  mb-5 ' >
@@ -17,6 +16,7 @@ function Planilha({ lista }) {
           <Endereco lista={lista} />
           <Renda lista={lista} />
           <PessoasRelacionadas lista={lista} />
+          <Vizinhos lista={lista}/>
         </div>
       </div>
     </form>
@@ -30,14 +30,15 @@ const Cabecalho = ({ lista }) => (
   </div>
 )
 
-
 class Dados extends Component {
   constructor(lista) {
     super(lista)
     this.state = {
       lista: lista.lista,
       imagem: collapseUp,
+      display: 'd-block'
     }
+
   }
 
   handleImage(imagem, e) {
@@ -47,19 +48,28 @@ class Dados extends Component {
     if (imagem === collapseDown) {
       this.setState({ imagem: collapseUp })
     }
-    console.log('imagem', this.state.imagem)
+
+  }
+
+  handleDisplay(e) {
+    if (this.state.display === 'd-block') {
+      this.setState({ display: 'd-none', imagem: collapseDown })
+    }
+    if (this.state.display === 'd-none') {
+      this.setState({ display: 'd-block',imagem: collapseUp })
+    }
   }
 
   render() {
-    const { lista } = this.state
-    console.log('lista no componente dados', lista)
+    const { lista, imagem } = this.state
+
     return (
       <div>
-        <div className="border-bottom border-info d-flex align-items-center" id="headingOne" >
-          <img className='collapseImage' src={this.state.imagem} alt='icone abrir e fechar' />
-          <h6 onClick={(e) => this.handleImage(this.state.imagem)} className=" p-2 ml-2 text-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Dados principais </h6>
+        <div className="border-bottom border-info d-flex align-items-center" onClick={(e) => this.handleDisplay(this.state.display)}>
+        <img className='planilha-img' src={imagem} alt=''/>
+          <h6 className=" p-2 ml-2 text-info">Dados principais </h6>
         </div>
-        <div className='collapse show' id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div className={this.state.display} >
           <div className="card-body d-flex flex-wrap">
             {lista.nomeMae && <p className='col-6'>Nome da mãe: {lista.nomeMae}</p>}
             {lista.dataNasc && <p className='col-6'>Data de nascimento: {lista.dataNasc}</p>}
@@ -82,30 +92,30 @@ class Telefones extends Component {
     this.state = {
       lista: lista.lista,
       imagem: collapseUp,
+      display: 'd-block'
     }
   }
 
-  handleImage(imagem, e) {
-    if (imagem === collapseUp) {
-      this.setState({ imagem: collapseDown })
+  handleDisplay(e) {
+    if (this.state.display === 'd-block') {
+      this.setState({ display: 'd-none', imagem: collapseDown })
     }
-    if (imagem === collapseDown) {
-      this.setState({ imagem: collapseUp })
+    if (this.state.display === 'd-none') {
+      this.setState({ display: 'd-block',imagem: collapseUp })
     }
-    console.log('imagem', this.state.imagem)
   }
 
   render() {
-    const { lista } = this.state
-    console.log('lista no componente dados', lista)
+    const { lista, imagem } = this.state
+
     return (
-      <div className="">
-        <div className="border-bottom border-info d-flex align-items-center" id="headingTwo">
-          <img className='collapseImage' src={this.state.imagem} alt='icone abrir e fechar' />
-          <h6 onClick={(e) => this.handleImage(this.state.imagem)} className=" p-2 ml-2 text-info" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">telefones</h6>
+      <div>
+        <div className="border-bottom border-info d-flex align-items-center" onClick={(e) => this.handleDisplay(this.state.display)}>
+        <img className='planilha-img' src={imagem} alt=''/>
+          <h6 className=" p-2 ml-2 text-info">Telefone</h6>
         </div>
-        <div className="collapse show justify-content-center" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div className="card-body d-flex flex-wrap ">
+        <div className={this.state.display} >
+          <div className="card-body d-flex flex-wrap">
 
             {lista.telefone1 && <p className='col-3'>{lista.telefone1} <small>(fixo)</small></p>}
             {lista.telefone2 && <p className='col-3'>{lista.telefone2} <small>(fixo)</small></p>}
@@ -135,29 +145,29 @@ class Emails extends Component {
     this.state = {
       lista: lista.lista,
       imagem: collapseUp,
+      display: 'd-block'
     }
   }
 
-  handleImage(imagem, e) {
-    if (imagem === collapseUp) {
-      this.setState({ imagem: collapseDown })
+  handleDisplay(e) {
+    if (this.state.display === 'd-block') {
+      this.setState({ display: 'd-none', imagem: collapseDown })
     }
-    if (imagem === collapseDown) {
-      this.setState({ imagem: collapseUp })
+    if (this.state.display === 'd-none') {
+      this.setState({ display: 'd-block',imagem: collapseUp })
     }
-    console.log('imagem', this.state.imagem)
   }
 
   render() {
-    const { lista } = this.state
-    console.log('lista no componente dados', lista)
+    const { lista, imagem } = this.state
+
     return (
-      <div className="">
-        <div className="border-bottom border-info d-flex align-items-center" id="headingThree">
-          <img className='collapseImage' src={this.state.imagem} alt='icone abrir e fechar' />
-          <h6 onClick={(e) => this.handleImage(this.state.imagem)} className=" p-2 ml-2 text-info" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Emails</h6>
+      <div>
+        <div className="border-bottom border-info d-flex align-items-center" onClick={(e) => this.handleDisplay(this.state.display)}>
+        <img className='planilha-img' src={imagem} alt=''/>
+          <h6 className=" p-2 ml-2 text-info">Email</h6>
         </div>
-        <div className="collapse show" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div className={this.state.display} >
           <div className="card-body d-flex flex-wrap">
             {lista.email1 && <p className='col-6'>{lista.email1}</p>}
             {lista.email2 && <p className='col-6'>{lista.email2}</p>}
@@ -176,29 +186,29 @@ class Endereco extends Component {
     this.state = {
       lista: lista.lista,
       imagem: collapseUp,
+      display: 'd-block'
     }
   }
 
-  handleImage(imagem, e) {
-    if (imagem === collapseUp) {
-      this.setState({ imagem: collapseDown })
+  handleDisplay(e) {
+    if (this.state.display === 'd-block') {
+      this.setState({ display: 'd-none', imagem: collapseDown })
     }
-    if (imagem === collapseDown) {
-      this.setState({ imagem: collapseUp })
+    if (this.state.display === 'd-none') {
+      this.setState({ display: 'd-block',imagem: collapseUp })
     }
-    console.log('imagem', this.state.imagem)
   }
 
   render() {
-    const { lista } = this.state
-    console.log('lista no componente dados', lista)
+    const { lista, imagem } = this.state
+
     return (
-      <div className="">
-        <div className="border-bottom border-info d-flex align-items-center" id="headingFour">
-          <img className='collapseImage' src={this.state.imagem} alt='icone abrir e fechar' />
-          <h6 onClick={(e) => this.handleImage(this.state.imagem)} className=" p-2 ml-2 text-info" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Endereços</h6>
+      <div>
+        <div className="border-bottom border-info d-flex align-items-center" onClick={(e) => this.handleDisplay(this.state.display)}>
+        <img className='planilha-img' src={imagem} alt=''/>
+          <h6 className=" p-2 ml-2 text-info">Endereço</h6>
         </div>
-        <div className="collapse show" id="collapseFour" aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div className={this.state.display} >
           <div className="card-body d-flex flex-wrap">
             <p className=''>
               {lista.tipoLogradouro1 && <p>{`${lista.tipoLogradouro1}  ${lista.logradouro1}  ${lista.numero1},  ${lista.cidade1} - ${lista.uF1}. CEP: ${lista.ceP1}`}</p>}
@@ -217,29 +227,29 @@ class Renda extends Component {
     this.state = {
       lista: lista.lista,
       imagem: collapseUp,
+      display: 'd-block'
     }
   }
 
-  handleImage(imagem, e) {
-    if (imagem === collapseUp) {
-      this.setState({ imagem: collapseDown })
+  handleDisplay(e) {
+    if (this.state.display === 'd-block') {
+      this.setState({ display: 'd-none', imagem: collapseDown })
     }
-    if (imagem === collapseDown) {
-      this.setState({ imagem: collapseUp })
+    if (this.state.display === 'd-none') {
+      this.setState({ display: 'd-block',imagem: collapseUp })
     }
-    console.log('imagem', this.state.imagem)
   }
 
   render() {
-    const { lista } = this.state
-    console.log('lista no componente dados', lista)
+    const { lista, imagem } = this.state
+
     return (
-      <div className="">
-        <div className="border-bottom border-info d-flex align-items-center" id="headingFive">
-          <img className='collapseImage' src={this.state.imagem} alt='icone abrir e fechar' />
-          <h6 onClick={(e) => this.handleImage(this.state.imagem)} className=" p-2 ml-2 text-info" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Fontes de renda</h6>
+      <div>
+        <div className="border-bottom border-info d-flex align-items-center" onClick={(e) => this.handleDisplay(this.state.display)}>
+        <img className='planilha-img' src={imagem} alt=''/>
+          <h6 className=" p-2 ml-2 text-info">Fonte de Renda</h6>
         </div>
-        <div className="collapse show" id="collapseFive" aria-labelledby="headingFive" data-parent="#accordionExample">
+        <div className={this.state.display} >
           <div className="card-body d-flex flex-wrap">
             {lista.flagCLT && <p className='col-6'>Ativa mercado de trabalho formal: {lista.flagCLT}</p>}
             {lista.rendaEstimadaFaixa && <p className='col-6'>Faixa salarial: {lista.rendaEstimadaFaixa}</p>}
@@ -255,24 +265,6 @@ class Renda extends Component {
   }
 }
 
-const ListaRelacionamento = ({ relacionadas }) => (
-  <tbody className='bg-light w-100 border-info'>
-    {relacionadas.map((relacionadas, index) =>
-      <tr key={index} className='w-100'>
-        <td className='card-relacionadas__first'>{relacionadas.nome && relacionadas.nome} </td>
-        <td>{relacionadas.cpf && relacionadas.cpf} </td>
-        <td>{relacionadas.relacionamento ? relacionadas.relacionamento : 'Indefinido'}</td>
-        <td className='d-flex flex-column'>
-          <p>{relacionadas.fone1 || 'Nenhum número encontrado'}</p>
-          {relacionadas.fone2 && <p>{relacionadas.fone2}</p>}
-          {relacionadas.fone3 && <p>{relacionadas.fone3}</p>}
-          {relacionadas.fone4 && <p>{relacionadas.fone4}</p>}
-        </td>
-      </tr>
-    )}
-  </tbody>
-)
-
 
 class PessoasRelacionadas extends Component {
   constructor(lista, props) {
@@ -282,16 +274,17 @@ class PessoasRelacionadas extends Component {
       imagem: collapseDown,
       relacionadas: [],
       viewRelacionamento: '',
-      statusRetorno: ''
+      statusRetorno: '',
+      display: 'd-none'
     }
   }
 
-  handleImage(imagem, e) {
-    if (imagem === collapseUp) {
-      this.setState({ imagem: collapseDown })
+  handleDisplay(e) {
+    if (this.state.display === 'd-block') {
+      this.setState({ display: 'd-none', imagem: collapseDown })
     }
-    if (imagem === collapseDown) {
-      this.setState({ imagem: collapseUp })
+    if (this.state.display === 'd-none') {
+      this.setState({ display: 'd-block', imagem: collapseUp  })
 
       const token = localStorage.getItem('auth-token', token);
       if (token) {
@@ -328,26 +321,20 @@ class PessoasRelacionadas extends Component {
             // console.log('lista', this.state.lista)
 
           })
-      } else {
-
       }
-
     }
   }
 
   render(props) {
-    const { relacionadas, statusRetorno } = this.state
+    const { relacionadas, statusRetorno, imagem } = this.state
     return (
-      <div className="">
-        <div className="border-bottom border-info d-flex align-items-center" id="headingSix">
-          <img className='collapseImage' src={this.state.imagem} alt='icone abrir e fechar' />
-          <h6 onClick={(e) => this.handleImage(this.state.imagem)} className=" p-2 ml-2 text-info"
-            data-toggle="collapse" data-target="#collapseSix" aria-expanded="false"
-            aria-controls="collapseSix">Pessoas Relacionadas
-          </h6>
+      <div>
+        <div className="border-bottom border-info d-flex align-items-center" onClick={(e) => this.handleDisplay(this.state.display)}>
+          <img className='planilha-img' src={imagem} alt=''/>
+          <h6 className=" p-2 ml-2 text-info">Pessoas Relacionadas</h6>
         </div>
-        <div className="collapse" id="collapseSix" aria-labelledby="headingSix" data-parent="#accordionExample">
-          <div className="card-body d-flex card-relacionadas">
+        <div className={this.state.display} >
+          <div className="card-body d-flex flex-wrap">
             <table className="table table-hover mt-1 rounded border-info">
               <thead className=" rounded-top bg-info">
                 <tr>
@@ -368,5 +355,135 @@ class PessoasRelacionadas extends Component {
     )
   }
 }
+
+class Vizinhos extends Component {
+  constructor(lista, props) {
+    super(lista, props)
+    this.state = {
+      lista: lista.lista,
+      imagem: collapseDown,
+      relacionadas: [],
+      viewRelacionamento: '',
+      statusRetorno: '',
+      display: 'd-none'
+    }
+  }
+
+  handleDisplay(e) {
+    if (this.state.display === 'd-block') {
+      this.setState({ display: 'd-none', imagem: collapseDown })
+    }
+    if (this.state.display === 'd-none') {
+      this.setState({ display: 'd-block', imagem: collapseUp  })
+
+      const token = localStorage.getItem('auth-token', token);
+      if (token) {
+        const logradouro = this.state.lista.logradouro1
+        console.log('logradouro', logradouro)
+        const cep = this.state.lista.ceP1
+        console.log('cep', cep)
+        const tipoLogradouro = this.state.lista.tipoLogradouro1
+        
+
+        axios.get(`http://localhost:52231/api/consultavizinhos?logradouro=${logradouro}&cep=${cep}`, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            'mode': 'no-cors',
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(resp => {
+            let respo = resp.data;
+            console.log('vizinhos', respo)
+            this.setState({ relacionadas: respo })
+            console.log('vizinhos relacionadas', this.state.relacionadas)
+
+            const status = this.state.relacionadas.map(retorno => retorno.statusRetorno)
+            const relacionadasCpf = this.state.relacionadas.map(retorno => retorno.cpf)
+            console.log('status', status)
+            this.setState({ statusRetorno: status })
+
+            const relacionadasNome = this.state.relacionadas.map(relacao => relacao.nome)
+            console.log('status', this.state.statusRetorno, relacionadasNome)
+
+            if (this.state.statusRetorno[0] === 0) {
+              this.setState({ viewRelacionamento: <ListaVizinhos relacionadas={this.state.relacionadas} /> })
+            } else {
+              this.setState({ viewRelacionamento: <p className='p-3'>Não foi localizada nenhuma pessoa relacionada.</p> })
+            }
+          })
+      }
+
+    }
+  }
+
+  render(props) {
+    const { imagem } = this.state
+    return (
+      <div>
+        <div className="border-bottom border-info d-flex align-items-center" onClick={(e) => this.handleDisplay(this.state.display)}>
+          <img className='planilha-img' src={imagem} alt=''/>
+          <h6 className=" p-2 ml-2 text-info">Vizinhos</h6>
+        </div>
+        <div className={this.state.display} >
+          <div className="card-body d-flex flex-wrap">
+            <table className="table table-hover mt-1 rounded border-info">
+              <thead className=" rounded-top bg-info">
+                <tr>
+                  <th className='text-light' scope="col">Nome</th>
+                  <th className='text-light' scope="col">CPF / CNPJ</th>
+                  <th className='text-light' scope="col">Parentesco</th>
+                  <th className='text-light' scope="col">Telefone</th>
+                </tr>
+              </thead>
+              {this.state.viewRelacionamento}
+
+
+
+            </table>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+const ListaRelacionamento = ({ relacionadas }) => (
+  <tbody className='bg-light w-100 border-info'>
+    {relacionadas.map((relacionadas, index) =>
+      <tr key={index} className='w-100'>
+        <td className='card-relacionadas__first'>{relacionadas.nome && relacionadas.nome} </td>
+        <td>{relacionadas.cpf && relacionadas.cpf} </td>
+        <td>{relacionadas.relacionamento ? relacionadas.relacionamento : 'Indefinido'}</td>
+        <td className='d-flex flex-column'>
+          <p>{relacionadas.fone1 || 'Nenhum número encontrado'}</p>
+          {relacionadas.fone2 && <p>{relacionadas.fone2}</p>}
+          {relacionadas.fone3 && <p>{relacionadas.fone3}</p>}
+          {relacionadas.fone4 && <p>{relacionadas.fone4}</p>}
+        </td>
+      </tr>
+    )}
+  </tbody>
+)
+
+const ListaVizinhos = ({ relacionadas }) => (
+  <tbody className='bg-light w-100 border-info'>
+    {relacionadas.map((relacionadas, index) =>
+      <tr key={index} className='w-100'>
+        <td className='card-relacionadas__first'>{relacionadas.nome && relacionadas.nome} </td>
+        <td>{relacionadas.cpF_CNPJ && relacionadas.cpF_CNPJ} </td>
+        <td>{relacionadas.endereco ? relacionadas.endereco : 'Indefinido'}</td>
+        <td className='d-flex flex-column'>
+          <p>{relacionadas.telefone1 || 'Nenhum número encontrado'}</p>
+          {relacionadas.telefone2 && <p>{relacionadas.telefone2}</p>}
+          {relacionadas.telefone3 && <p>{relacionadas.telefone3}</p>}
+          {relacionadas.telefone4 && <p>{relacionadas.telefone4}</p>}
+        </td>
+      </tr>
+    )}
+  </tbody>
+)
+
 
 export default Planilha

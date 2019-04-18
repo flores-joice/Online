@@ -74,7 +74,7 @@ export default class Enriquecer extends Component {
 function Enriquec(props) {
   return (
     <div className='w-100 d-flex justify-content-center'>
-      <div className="d-flex w-75 flex-column justify-content-center align-items-center enriquecer-page">
+      <div className="d-flex w-75 flex-column justify-content-center align-items-center">
         <InputBuscar
           option={[
             <Option key='layoutLivre' id='layoutLivre' fotHtml='layoutLivre' textoOption='Layout Livre' />,
@@ -94,8 +94,8 @@ function Enriquec(props) {
 
 function Enriquec2(props) {
   return (
-    <div className='w-100 d-flex enriquecer justify-content-center'>
-      <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+    <div className='w-100 d-flex justify-content-center'>
+      <div className="d-flex w-75 flex-column justify-content-center align-items-center pt-3">
         <BarraProgresso ValorMaxino='4' valorAtual='1' width='25%' NumeroProgresso='25%' />
         <table class="table table-hover mt-5 rounded">
           <thead class="thead-dark rounded-top ">
@@ -138,10 +138,10 @@ function Enriquec2(props) {
 
 function Enriquec3(props) {
   return (
-    <div className='w-100 d-flex enriquecer justify-content-center'>
-      <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+    <div className='w-100 d-flex justify-content-center'>
+      <div className="d-flex w-75 flex-column justify-content-center align-items-center pt-3">
         <BarraProgresso ValorMaxino='4' valorAtual='2' width='50%' NumeroProgresso='50%' />
-        <div className='bg-light w-100 mt-3'>
+        <div className='bg-light mt-3 rounded'>
           <div className="accordion" id="accordionExample">
             <div className="card">
               <div className="card-header border-bottom" id="headingOne">
@@ -350,8 +350,8 @@ function Enriquec3(props) {
 
 function Enriquec4(props) {
   return (
-    <div className='w-100 d-flex enriquecer justify-content-center'>
-      <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+    <div className='w-100 d-flex justify-content-center'>
+      <div className="d-flex w-75 flex-column justify-content-center align-items-center pt-3">
         <BarraProgresso ValorMaxino='4' valorAtual='3' width='75%' NumeroProgresso='75%' />
         <div className='bg-light w-100 mt-3'>
           <div className="accordion" id="accordionExample">
@@ -430,8 +430,8 @@ function Enriquec4(props) {
 
 function Enriquec5(props) {
   return (
-    <div className='w-100 d-flex enriquecer justify-content-center'>
-      <div className="d-flex flex-column justify-content-center align-items-center pt-3 enriquecer-page">
+    <div className='w-100 d-flex justify-content-center'>
+      <div className="d-flex w-75 flex-column justify-content-center align-items-center pt-3">
         <BarraProgresso ValorMaxino='4' valorAtual='4' width='100%' NumeroProgresso='100%' />
         <div className='mt-3'>
           <h4>Concluido com Sucesso!</h4>
