@@ -20,7 +20,8 @@ export default function InputBuscar(props) {
           className={`input-consulta bg-white ${props.classeInput}`}
           placeholder='Insira o valor para busca'
           onChange={props.onFunction}
-          name='inputValue' autoFocus/>
+          onClick={props.click}
+           autoFocus/>
         {props.botao}
       </div>
     </form>
@@ -31,8 +32,7 @@ export function Option(props) {
   return (
     <option id={props.id}
       className="input-group-text text-light bg-info"
-      htmlFor={props.forHtml}
-      value={props.valor}
+      value={props.value}
     >      
       {props.textoOption}
     </option>

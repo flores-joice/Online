@@ -1,3 +1,4 @@
+    
 import React, { Component } from 'react'
 import './App.scss'
 import ViewNav from './pages/view-nav';
@@ -6,16 +7,15 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      usuarioLogado: false, 
+
 
     }
   }
 
   componentWillMount() {
-    let token = localStorage.getItem('auth-token', token)
+    let token = localStorage.getItem('auth-token')
     if (token) {
-      this.setState({usuarioLogado : true})
-      this.props.history.push('/app')
+      this.props.history.push('/')
     } else {
       this.props.history.push('/login')
     }

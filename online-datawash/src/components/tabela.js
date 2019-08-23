@@ -2,6 +2,8 @@ import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import { Botao } from './input-button'
+import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
+import '@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css';
 import './components.scss'
 
 
@@ -17,9 +19,7 @@ export default class BasicTable extends React.Component {
   buttonFormatter() {
     return (
       <div className='d-flex justify-content-around'>
-        <Botao classesBotao='btn btn-info' textoBotao='Visualizar' />
-        <Botao classesBotao='btn btn-warning' textoBotao='Editar' />
-        <Botao classesBotao='btn btn-danger' textoBotao='Excluir' />
+        <Botao classesBotao='btn btn-warning' textoBotao='Gerenciar' />
       </div>
     )
       ;
@@ -57,3 +57,26 @@ export default class BasicTable extends React.Component {
   }
 
 }
+
+export const Tabela = () => (
+  <Grid
+    rows={[
+      { id: 0, cliente: 'Sistema', revenda: '', ativo:'Ativo', acao:'' },
+      { id: 1, cliente: 'Assis Cred', revenda: 'InfoQualy', ativo:'Inativo', acao:'' },
+      { id: 2, cliente: 'CP2 Consultoria', revenda: 'InfoQualy', ativo:'Ativo', acao:'' },
+      { id: 3, cliente: 'Agibank', revenda: 'PGA', ativo:'Inativo', acao:'' },
+      { id: 4, cliente: 'Renner', revenda: 'PGA', ativo:'Ativo', acao:'' },
+      { id: 5, cliente: 'SKY', revenda: 'PGA', ativo:'Ativo', acao:'' },
+      { id: 6, cliente: 'Easypay', revenda: 'Unicheck', ativo:'Inativo', acao:'' },
+      { id: 7, cliente: 'Gisbi', revenda: 'Unicheck', ativo:'Ativo', acao:'' },
+    ]}
+    columns={[
+      { name: 'cliente', title: 'Cliente' },
+      { name: 'revenda', title: 'Revenda' },
+      { name: 'ativo', title: 'Ativo' },
+      { name: 'acao', title: 'Acão' },
+    ]}>
+    <Table className='bg-ligh'/>
+    <TableHeaderRow />
+  </Grid>
+);

@@ -16,156 +16,121 @@ import NavHorizontal from '../components/nav-horizontal'
 
 
 
-export default class ViewNav  extends Component {
+export default class ViewNav extends Component {
   // CONSTRUCTOR ESTA RECEBENDO PROPS
   constructor(props) {
     super(props)
     this.state = {
       // armazenar o token para novas requisiçoes de endpoint
       token: '',
-      usuarioLogado: false,
       funcionalidades: [],
       valor: [],
       emailLogado: '',
-      renderView : <ViewConsulta/>
+      renderView: <ViewConsulta />
     }
   }
 
   componentWillMount = async () => {
     try {
-      const token = await localStorage.getItem('auth-token', token);
+      const token = await localStorage.getItem('auth-token');
 
-      
       if (token) {
-        this.setState({ usuarioLogado: true }, () => {
-        })
+
         const response = await apiMenu.get()
         //item armazena o valor da response retornada da api
         const item = response.data
+        console.log('item', item)
 
         //FOR = lista todos os valores contido em item
-        // for (let [key, value] of item.entries(item)) 
-        for (let entry of item ){
-          //aqui atribuimos os valores listados do FOR na variavel valor
-          this.setState({ valor: entry })
-          const newFunc = []
-          
-          //fazemos a comparação dos valores, se true, 
+        for (let entry of item) {
+
+          //comparação dos valores, se true, 
           //ele envia uma string para outra variavel
-  
-          {
+          switch (entry) {
+
             //se o valor contido na variavel for = 1 ele execura, 
             //senão nao faz nada
-            this.state.valor === "1" &&
-              (newFunc = this.state.funcionalidades.concat('consulta')) &&
-              (this.setState({ funcionalidades: newFunc }))
-              
-          }
-          {
-            this.state.valor === "9" &&
-              (newFunc = this.state.funcionalidades.concat('enriquecimento')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            (this.state.valor === ("9" && "10")) &&
-              (newFunc = this.state.funcionalidades.concat('enriquecer')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "11" &&
-              (newFunc = this.state.funcionalidades.concat('atribuicaoCpf')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "38" &&
-              (newFunc = this.state.funcionalidades.concat('validacaoHot')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "16" &&
-              (newFunc = this.state.funcionalidades.concat('mailingList')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "33" &&
-              (newFunc = this.state.funcionalidades.concat('gerencial')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "33" &&
-              (newFunc = this.state.funcionalidades.concat('gerenciamentoContas')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "34" &&
-              (newFunc = this.state.funcionalidades.concat('personalizacao')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "35" &&
-              (newFunc = this.state.funcionalidades.concat('extratoServicos')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "48" &&
-              (newFunc = this.state.funcionalidades.concat('previaFechamento')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "7" &&
-              (newFunc = this.state.funcionalidades.concat('monitoramento')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "7" &&
-              (newFunc = this.state.funcionalidades.concat('monitoramento', 'monitConsulta')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "14" &&
-              (newFunc = this.state.funcionalidades.concat('monitEnriquecimento')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
 
-          {
-            this.state.valor === "31" &&
-              (newFunc = this.state.funcionalidades.concat('monitWebService')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "43" &&
-              (newFunc = this.state.funcionalidades.concat('higienizacao')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "8" &&
-              (newFunc = this.state.funcionalidades.concat('relatorio', 'relatConsulta')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          // {
-          //   this.state.valor === "8" &&
-          //     (newFunc = this.state.funcionalidades.concat('relatConsulta')) &&
-          //     (this.setState({ funcionalidades: newFunc }))
-          // }
-          {
-            this.state.valor === "15" &&
-              (newFunc = this.state.funcionalidades.concat('relatEnriquecimento')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "19" &&
-              (newFunc = this.state.funcionalidades.concat('relatMailingList')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "32" &&
-              (newFunc = this.state.funcionalidades.concat('relatWebService')) &&
-              (this.setState({ funcionalidades: newFunc }))
-          }
-          {
-            this.state.valor === "46" &&
-              (newFunc = this.state.funcionalidades.concat('relatHigienizacao')) &&
-              (this.setState({ funcionalidades: newFunc }))
+            case "1":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'consulta'] }))
+
+              break;
+            case ("9" && "10"):
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'enriquecimento', 'enriquecer'] }))
+
+              break;
+            case "11":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'atribuicaoCpf'] }))
+
+              break;
+            case "38":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'validacaoHot'] }))
+
+              break;
+            case "16":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'mailingList'] }))
+
+              break;
+            case "33":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'gerencial'] }))
+
+              break;
+            case "33":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'gerenciamentoContas'] }))
+
+              break;
+            case "34":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'personalizacao'] }))
+
+              break;
+            case "35":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'extratoServicos'] }))
+
+              break;
+            case "48":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'previaFechamento'] }))
+
+              break;
+            case "7":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'monitoramento'] }))
+
+              break;
+            case "7":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'monitoramento', 'monitConsulta'] }))
+
+              break;
+            case "14":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'monitEnriquecimento'] }))
+
+
+              break;
+            case "31":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'monitWebService'] }))
+
+              break;
+            case "43":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'higienizacao'] }))
+
+              break;
+            case "8":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'relatorio', 'relatConsulta'] }))
+
+              break;
+            case "15":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'relatEnriquecimento'] }))
+
+              break;
+            case "19":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'relatMailingList'] }))
+
+              break;
+            case "32":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'relatWebService'] }))
+
+              break;
+            case "46":
+              (this.setState({ funcionalidades: [...this.state.funcionalidades, 'relatHigienizacao'] }))
+
           }
         };
       }
@@ -176,60 +141,60 @@ export default class ViewNav  extends Component {
   }
 
   handleNav(id) {
-    this.setState({ id : id})
-    if( id === 'consulta') {
-      this.setState({ renderView : <ViewConsulta/>})
+    this.setState({ id: id })
+    if (id === 'consulta') {
+      this.setState({ renderView: <ViewConsulta /> })
     }
-    if (id === 'enriquecer'){
-      this.setState({ renderView : <Enriquecer/>})
+    if (id === 'enriquecer') {
+      this.setState({ renderView: <Enriquecer /> })
     }
-    if(id === 'atibuicaoCpf'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+    if (id === 'atibuicaoCpf') {
+      this.setState({ renderView: <AtribuicaoCpf /> })
     }
-    if(id === 'validacaoHot'){
-      this.setState({ renderView : <ValidacaoHot/>})
+    if (id === 'validacaoHot') {
+      this.setState({ renderView: <ValidacaoHot /> })
     }
-    if(id === 'higienizacao'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+    if (id === 'higienizacao') {
+      this.setState({ renderView: <AtribuicaoCpf /> })
     }
-    if(id === 'contas'){
-      this.setState({ renderView : <GerenciamentoContas/>})
+    if (id === 'contas') {
+      this.setState({ renderView: <GerenciamentoContas /> })
     }
-    if(id === 'personalizacao'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+    if (id === 'personalizacao') {
+      this.setState({ renderView: <AtribuicaoCpf /> })
     }
-    if(id === 'extrtatoServicos'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+    if (id === 'extrtatoServicos') {
+      this.setState({ renderView: <AtribuicaoCpf /> })
     }
-    if(id === 'previaFechamento'){
-      this.setState({ renderView : <AtribuicaoCpf/>})
+    if (id === 'previaFechamento') {
+      this.setState({ renderView: <AtribuicaoCpf /> })
     }
-    if(id === 'monitConsulta'){
-      this.setState({ renderView : <Monitoracao/>})
+    if (id === 'monitConsulta') {
+      this.setState({ renderView: <Monitoracao /> })
     }
-    if(id === 'monitEnriquec'){
-      this.setState({ renderView : <Monitoracao/>})
+    if (id === 'monitEnriquec') {
+      this.setState({ renderView: <Monitoracao /> })
     }
-    if(id === 'monitWebService'){
-      this.setState({ renderView : <Monitoracao/>})
+    if (id === 'monitWebService') {
+      this.setState({ renderView: <Monitoracao /> })
     }
-    if(id === 'relatConsulta'){
-      this.setState({ renderView : <RelatorioConsulta/>})
+    if (id === 'relatConsulta') {
+      this.setState({ renderView: <RelatorioConsulta /> })
     }
-    if(id === 'relatEnriq'){
-      this.setState({ renderView : <RelatorioEnriquecimento/>})
+    if (id === 'relatEnriq') {
+      this.setState({ renderView: <RelatorioEnriquecimento /> })
     }
-    if(id === 'relatMailingList'){
-      this.setState({ renderView : <RelatorioMailing/>})
+    if (id === 'relatMailingList') {
+      this.setState({ renderView: <RelatorioMailing /> })
     }
-    if(id === 'relatHigienizacao'){
-      this.setState({ renderView : <RelatorioConsulta/>})
+    if (id === 'relatHigienizacao') {
+      this.setState({ renderView: <RelatorioConsulta /> })
     }
-    if(id === 'relatWebService'){
-      this.setState({ renderView : <RelatorioConsulta/>})
+    if (id === 'relatWebService') {
+      this.setState({ renderView: <RelatorioConsulta /> })
     }
-    if(id === 'mailingList'){
-      this.setState({ renderView : <MailingList/>})
+    if (id === 'mailingList') {
+      this.setState({ renderView: <MailingList /> })
     }
 
 
@@ -239,10 +204,10 @@ export default class ViewNav  extends Component {
     const { funcionalidades } = this.state;
     return (
       <div className='d-flex view-body  w-100'>
-      <NavHorizontal/>
+        <NavHorizontal />
         <div className='view-navVertical w-100 d-flex align-items-start justify-content-end'>
           <div className='view-navVertical__list'>
-          
+
             {funcionalidades.includes("consulta") && (
               <Link onClick={(e) => this.handleNav('consulta')} to='/app/consulta' className='list-group-item view-navVertical__bg d-flex justify-content-between w-100'>
                 <span className='text-light'>Consulta</span>
@@ -346,7 +311,7 @@ export default class ViewNav  extends Component {
           </div >
         </div>
 
-        <div className='view_navVertical__render mt-2 d-flex justify-content-center align-items-center'>          
+        <div className='view_navVertical__render mt-2 d-flex justify-content-center align-items-center'>
           {this.state.renderView}
           {/* <MailingList/> */}
         </div>

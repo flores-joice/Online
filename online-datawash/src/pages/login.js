@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../assets/logo.png';
 import Load from '../assets/circleLoading.gif'
 import './pages.scss';
-import history from '../infra/history'
+import {history} from '../infra/history'
 import { apiLogin } from '../infra/api-config';
 
 

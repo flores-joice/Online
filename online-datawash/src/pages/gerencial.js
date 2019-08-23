@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BasicTable from '../components/tabela'
+import  BasicTable  from '../components/tabela'
 import './pages.scss'
 
 
@@ -11,15 +11,15 @@ export class GerenciamentoContas extends Component {
     }
   }
 
-  handleClick = () => {
-    this.setState({ view: <BasicTable /> })
-  }
+  // handleClick = () => {
+  //   this.setState({ view:  })
+  // }
 
   render() {
     return (
       <div className='d-flex flex-column align-items-center marginPage'>
         <p className='dashboard-title h4 text-info'>Gerenciamento de Contas</p>
-        <div className="input-group">
+        {/* <div className="input-group">
           <select className="selectpicker" data-live-search="true">
             <option >Escolher...</option>
             <option data-tokens='sistema' value='sistema'>Sistema</option>
@@ -31,9 +31,9 @@ export class GerenciamentoContas extends Component {
           <div className="input-group-append">
             <button className="btn btn-info" type="button" onClick={this.handleClick}>Buscar</button>
           </div>
-        </div>
+        </div> */}
         <div className='w-100 mt-3'>
-          {this.state.view}
+          <BasicTable />
         </div>
       </div>
     )

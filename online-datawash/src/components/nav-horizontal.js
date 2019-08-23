@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './components.scss'
 import logo from '../assets/logo.png'
-import history from '../infra/history'
+import { history } from '../infra/history'
 
 class NavHorizontal extends Component {
   constructor() {
