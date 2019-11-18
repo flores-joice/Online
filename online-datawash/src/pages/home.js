@@ -4,12 +4,12 @@ import ViewNav from './view-nav';
 
 class Home extends Component {
    componentWillMount() {
-    let token = localStorage.getItem('auth-token')
-    if (token) {
+    // let token = localStorage.getItem('auth-token')
+    // if (token) {
       this.props.history.push('/')
-    } else {
-      this.props.history.push('/login')
-    }
+    // } else {
+    //   this.props.history.push('/login')
+    // }
   }
     
   render() {
