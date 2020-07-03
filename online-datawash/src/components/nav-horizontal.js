@@ -18,13 +18,6 @@ class NavHorizontal extends Component {
     var timer = setTimeout(this.logout, 600000)
     console.log(timer)
     
-    
-    //       usuarios                   senhas
-    //celso_quintino@hotmail.com        demo1
-    //contato@exatacobrancas.com       173300
-    //asf@asdf.com                      asdf
-    //alessandra@pgmais.com.br         pg@123
-    //equipeunique@pgmais.com.br       12345
   }
 
   logout = () => {
