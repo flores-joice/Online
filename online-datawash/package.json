@@ -9,7 +9,7 @@
     "AsyncStorage": "^0.1.5",
     "ajax": "0.0.4",
     "apisauce": "^1.0.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "connected-react-router": "^6.3.1",
